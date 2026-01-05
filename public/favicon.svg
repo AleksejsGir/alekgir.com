@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#0a0a0f" rx="8"/>
+
+  <!-- Stylized "A" with tech elements -->
+  <path d="M32 12 L48 52 L42 52 L38 42 L26 42 L22 52 L16 52 L32 12 Z M28 36 L36 36 L32 24 L28 36 Z"
+        fill="#2dd4bf"
+        stroke="#2dd4bf"
+        stroke-width="0.5"/>
+
+  <!-- Tech circuit elements -->
+  <circle cx="32" cy="26" r="1.5" fill="#2dd4bf"/>
+  <circle cx="30" cy="38" r="1" fill="#2dd4bf" opacity="0.7"/>
+  <circle cx="34" cy="38" r="1" fill="#2dd4bf" opacity="0.7"/>
+
+  <!-- Circuit lines -->
+  <line x1="32" y1="26" x2="30" y2="38" stroke="#2dd4bf" stroke-width="0.5" opacity="0.5"/>
+  <line x1="32" y1="26" x2="34" y2="38" stroke="#2dd4bf" stroke-width="0.5" opacity="0.5"/>
+</svg>

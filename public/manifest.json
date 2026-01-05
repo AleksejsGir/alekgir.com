@@ -1,0 +1,22 @@
+{
+  "name": "AGLWebStudio - Premium Full-Stack Development",
+  "short_name": "AGLWebStudio",
+  "description": "Premium Full-Stack Development Services - 4+ Years of Building Digital Solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#2dd4bf",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/AG_Web_Studio.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

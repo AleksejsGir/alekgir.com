@@ -1,0 +1,83 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import SmoothScroll from "@/components/Common/SmoothScroll";
+import NoiseOverlay from "@/components/Common/NoiseOverlay";
+import JsonLd from "@/components/SEO/JsonLd";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://alekgirdev.com"),
+  title: {
+    default: "Aleksejs Giruckis | Full-Stack Developer | Python, Django, React",
+    template: "%s | AlekGirDev"
+  },
+  description: "Full-Stack Developer in UK specializing in Python, Django, and React. European-certified (94/100) with 3+ years production experience. Available for full-time opportunities.",
+  keywords: ["Full-Stack Developer", "Python Developer", "Django Developer", "React Developer", "UK Developer", "Cambridge Developer", "Chatteris Developer", "Django REST Framework", "Next.js Developer", "PostgreSQL Developer", "TypeScript Developer", "Telegram Bot Development", "Web Application Development", "API Development", "AI Automation", "Aleksejs Giruckis", "AlekGirDev", "European Certified Developer"],
+  authors: [{ name: "Aleksejs Giruckis", url: "https://alekgirdev.com" }],
+  creator: "Aleksejs Giruckis",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/manifest.json",
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://alekgirdev.com",
+    title: "Aleksejs Giruckis - Full-Stack Developer",
+    description: "Full-Stack Developer specializing in Python, Django, React. UK-based with European certification (94/100).",
+    siteName: "AlekGirDev",
+    images: [
+      {
+        url: "/images/alekgirdev_logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Aleksejs Giruckis - Full-Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aleksejs Giruckis - Full-Stack Developer",
+    description: "Python, Django, React developer. European-certified (94/100). UK-based.",
+    images: ["/images/alekgirdev_logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${inter.className} antialiased`}>
+        <JsonLd />
+        <NoiseOverlay />
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+        <Analytics />
+        <SpeedInsights />
+      </body>
+    </html>
+  );
+}
