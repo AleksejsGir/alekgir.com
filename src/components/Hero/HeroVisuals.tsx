@@ -31,6 +31,7 @@ export default function HeroVisuals() {
                         loop
                         muted
                         playsInline
+                        aria-label="AlekGirDev - Full-Stack Developer Portfolio Video"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
                 </motion.div>

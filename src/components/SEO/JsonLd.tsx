@@ -1,5 +1,6 @@
 import React from "react";
 import { projects } from "@/data/projects";
+import { SEO_CONFIG } from "@/config/seo.config";
 
 const JsonLd = () => {
     // Main WebSite schema
@@ -36,7 +37,6 @@ const JsonLd = () => {
         },
         address: {
             "@type": "PostalAddress",
-            addressLocality: "Chatteris",
             addressRegion: "Cambridgeshire",
             addressCountry: "GB"
         },
@@ -55,43 +55,54 @@ const JsonLd = () => {
     const personData = {
         "@context": "https://schema.org",
         "@type": "Person",
-        name: "Aleksejs Giruckis",
+        name: SEO_CONFIG.site.author,
         alternateName: "Alek Gir",
-        url: "https://alekgirdev.com",
-        jobTitle: "Full-Stack Developer",
-        description: "European-certified Full-Stack Developer specializing in Python, Django, and React with 3+ years production experience",
+        url: SEO_CONFIG.site.url,
+        jobTitle: SEO_CONFIG.structuredData.jobTitle,
+        description: SEO_CONFIG.summary.long,
         address: {
             "@type": "PostalAddress",
-            addressLocality: "Chatteris",
-            addressRegion: "Cambridgeshire",
-            addressCountry: "GB"
+            addressLocality: SEO_CONFIG.location.city,
+            addressRegion: SEO_CONFIG.location.region,
+            addressCountry: SEO_CONFIG.location.countryCode
         },
-        email: "giruckisaleksejs@gmail.com",
-        telephone: "+44-7780-086353",
-        knowsAbout: [
-            "Python", "Django", "React", "Full-Stack Development", "Web Development",
-            "API Development", "PostgreSQL", "TypeScript", "Next.js", "AI Integration",
-            "Telegram Bot Development", "Django REST Framework"
-        ],
+        email: SEO_CONFIG.contact.email,
+        telephone: SEO_CONFIG.contact.phone,
+        knowsAbout: SEO_CONFIG.skills.all,
         alumniOf: {
             "@type": "EducationalOrganization",
-            name: "Tel-Ran.de GmbH",
-            description: "Python Software Development with AI & ML"
+            name: SEO_CONFIG.structuredData.education.institution,
+            description: SEO_CONFIG.structuredData.education.program
         },
-        award: "European Certification Score: 94/100",
+        award: `European Certification Score: ${SEO_CONFIG.achievements.certificationScore}`,
         workLocation: {
             "@type": "Place",
             address: {
                 "@type": "PostalAddress",
-                addressLocality: "Chatteris",
-                addressRegion: "Cambridgeshire",
-                addressCountry: "GB"
+                addressLocality: SEO_CONFIG.location.city,
+                addressRegion: SEO_CONFIG.location.region,
+                addressCountry: SEO_CONFIG.location.countryCode
             }
         },
         sameAs: [
-            "https://www.linkedin.com/in/aleksejs-giruckis-0569a7353",
-            "https://github.com/AleksejsGir"
-        ]
+            SEO_CONFIG.contact.linkedin,
+            SEO_CONFIG.contact.github
+        ],
+        // Additional SEO fields
+        seekingOpportunity: {
+            "@type": "JobPosting",
+            title: "Full-Stack Developer Position",
+            employmentType: "FULL_TIME",
+            jobLocation: {
+                "@type": "Place",
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: SEO_CONFIG.location.city,
+                    addressRegion: SEO_CONFIG.location.region,
+                    addressCountry: SEO_CONFIG.location.country
+                }
+            }
+        }
     };
 
     // ItemList schema for portfolio projects

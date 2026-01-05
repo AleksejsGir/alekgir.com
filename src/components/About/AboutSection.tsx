@@ -5,6 +5,7 @@ import AboutContainer from './AboutContainer';
 import { staggerContainerVariants, slideUpVariants } from '@/lib/animations';
 import SectionWidthWrapper from '@/components/shared/ui/SectionWidthWrapper';
 import ProjectStyleCard from '@/components/shared/ui/ProjectStyleCard';
+import { SEO_CONFIG } from '@/config/seo.config';
 
 // Counter Component
 function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
@@ -31,16 +32,44 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
   return <span ref={ref} className="text-3xl sm:text-4xl md:text-5xl font-black text-primary tracking-tight">{value}{suffix}</span>;
 }
 
-const skills = [
-  "Python", "Go", "React", "Next.js",
-  "Django", "FastAPI", "PostgreSQL", "Docker",
-  "MCP", "n8n", "OpenAI/Gemini", "Clean Arch"
+// UI mapping: category colors (Presentation concern - stays in component)
+// Data source: SEO_CONFIG.skills (Single Responsibility - data from config)
+const categoryColorMap: Record<string, string> = {
+  "Backend": "bg-green-600/20 text-green-400 border-green-600/30",
+  "Frontend": "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  "Database & DevOps": "bg-cyan-600/20 text-cyan-400 border-cyan-600/30",
+  "AI & Automation": "bg-purple-500/20 text-purple-400 border-purple-500/30",
+};
+
+// Skill categories structure (maps SEO_CONFIG data to UI categories)
+const skillCategories = [
+  {
+    title: "Backend",
+    skills: SEO_CONFIG.skills.backend,
+    color: categoryColorMap["Backend"]
+  },
+  {
+    title: "Frontend",
+    skills: SEO_CONFIG.skills.frontend,
+    color: categoryColorMap["Frontend"]
+  },
+  {
+    title: "Database & DevOps",
+    skills: SEO_CONFIG.skills.tools,
+    color: categoryColorMap["Database & DevOps"]
+  },
+  {
+    title: "AI & Automation",
+    skills: SEO_CONFIG.skills.ai,
+    color: categoryColorMap["AI & Automation"]
+  },
 ];
 
+// Quantified achievements (from SEO_CONFIG)
 const stats = [
-  { label: "Client Projects", value: 38, suffix: "+" },
-  { label: "Telegram Bots", value: 23, suffix: "+" },
-  { label: "IT Background", value: 14, suffix: "+" },
+  { label: "Projects Delivered", value: parseInt(SEO_CONFIG.achievements.projectsDelivered), suffix: "+" },
+  { label: "Years Experience", value: parseInt(SEO_CONFIG.achievements.yearsExperience), suffix: "+" },
+  { label: "Certification Score", value: parseInt(SEO_CONFIG.achievements.certificationScore), suffix: "/100" },
 ];
 
 export default function AboutSection() {
@@ -65,7 +94,7 @@ export default function AboutSection() {
               <div className="relative w-full h-full bg-black/40 rounded-[2.5rem] border border-white/10 overflow-hidden shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
                 <Image
                   src="/images/a.giruckis.webp"
-                  alt="A. Giruckis Profile"
+                  alt="Aleksejs Giruckis - Full-Stack Developer UK - Python Django React Developer"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -85,8 +114,8 @@ export default function AboutSection() {
               </span>
             </motion.div>
 
-            <motion.h2 variants={slideUpVariants} className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-8 tracking-tight drop-shadow-md">
-              My Journey
+            <motion.h2 variants={slideUpVariants} className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 tracking-tight drop-shadow-md">
+              European-Certified Developer
             </motion.h2>
 
             <motion.div
@@ -98,31 +127,40 @@ export default function AboutSection() {
                 contentClassName="space-y-6 text-lg text-text-secondary leading-relaxed font-medium p-6 md:p-8"
               >
                 <p>
-                  I am a <span className="text-white font-bold">Full-Stack Developer</span> specializing in <span className="text-primary font-bold">AI Automation</span> and high-performance microservices. I define myself by delivery: <span className="text-white font-bold">38+ client projects</span> shipped, including 23 complex Telegram bots and 12 business websites.
+                  <span className="text-white font-bold">Full-Stack Developer</span> based in <span className="text-primary font-bold">{SEO_CONFIG.location.region}, {SEO_CONFIG.location.country}</span>, specializing in <span className="text-white font-bold">Python, Django, and React</span> development. With <span className="text-primary font-bold">{SEO_CONFIG.achievements.certificationScore}</span> European certification score and <span className="text-white font-bold">{SEO_CONFIG.achievements.yearsExperience} years of production experience</span>, I deliver high-quality web applications.
                 </p>
                 <p>
-                  My stack is production-focused: <span className="text-primary font-bold">Python, Go, React</span>, and cutting-edge AI tools like <span className="text-white font-bold">MCP (Model Context Protocol) and n8n</span>. I combine 3 years of heavy coding with 14+ years of IT infrastructure experience to build systems that last.
+                  Successfully delivered <span className="text-primary font-bold">{SEO_CONFIG.achievements.projectsDelivered} client projects</span>, including Django web applications, React/Next.js frontends, Telegram bot solutions, and AI automation platforms working with cutting-edge technologies.
+                </p>
+                <p>
+                  My development approach emphasizes <span className="text-white font-bold">Test-Driven Development</span> with <span className="text-primary font-bold">{SEO_CONFIG.achievements.testCoverage} test coverage</span>, <span className="text-white font-bold">Clean Architecture</span> principles, and modern DevOps practices including Docker and CI/CD pipelines.
                 </p>
               </ProjectStyleCard>
             </motion.div>
 
-            {/* Skills Tags */}
-            <motion.div variants={slideUpVariants} className="mb-12">
-              <h3 className="text-sm font-bold text-white/50 mb-4 uppercase tracking-widest pl-1">Tech Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.03 }}
-                    className="px-4 py-1.5 bg-white/[0.03] backdrop-blur-md text-white/80 rounded-xl text-sm font-bold border border-white/10 hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 cursor-default"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
+            {/* Skills Tags - Organized by Category */}
+            <motion.div variants={slideUpVariants} className="mb-12 space-y-6">
+              <h3 className="text-sm font-bold text-white/50 mb-4 uppercase tracking-widest pl-1">Complete Tech Stack</h3>
+
+              {skillCategories.map((category, catIndex) => (
+                <div key={category.title} className="space-y-2">
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-wider pl-1">{category.title}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, index) => (
+                      <motion.span
+                        key={skill}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: (catIndex * 0.1) + (index * 0.03) }}
+                        className={`px-4 py-1.5 rounded-xl text-sm font-bold border ${category.color} hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 cursor-default`}
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </motion.div>
 
             {/* Stats */}

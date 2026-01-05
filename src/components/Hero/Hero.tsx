@@ -9,23 +9,25 @@ import {
   staggerContainerVariants,
 } from '@/lib/animations';
 import SectionWidthWrapper from '@/components/shared/ui/SectionWidthWrapper';
+import { SEO_CONFIG } from '@/config/seo.config';
 
-// Tech stack icons/labels
-// Tech stack icons/labels
-const techStack = [
-  { name: 'Python', color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' },
-  { name: 'Go', color: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30' },
-  { name: 'React', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
-  { name: 'MCP', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' },
-  { name: 'n8n', color: 'bg-pink-500/20 text-pink-400 border-pink-500/30' },
-  { name: 'AI Agents', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
-];
+// UI Color mapping for tech stack (Presentation concern - stays in component)
+const techColorMap: Record<string, string> = {
+  'Python': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+  'Django': 'bg-green-600/20 text-green-400 border-green-600/30',
+  'Django REST Framework': 'bg-green-600/20 text-green-400 border-green-600/30',
+  'React': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+  'Next.js': 'bg-blue-400/20 text-blue-300 border-blue-400/30',
+  'TypeScript': 'bg-blue-600/20 text-blue-300 border-blue-600/30',
+  'PostgreSQL': 'bg-cyan-600/20 text-cyan-400 border-cyan-600/30',
+  'Docker': 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
+};
 
-// Statistics
+// Quantified achievements (from SEO_CONFIG)
 const stats = [
-  { value: '38+', label: 'Projects Delivered' },
-  { value: '23', label: 'Telegram Bots' },
-  { value: '94/100', label: 'European Certified' },
+  { value: SEO_CONFIG.achievements.projectsDelivered, label: 'Projects Delivered' },
+  { value: SEO_CONFIG.achievements.yearsExperience, label: 'Years Experience' },
+  { value: SEO_CONFIG.achievements.certificationScore, label: 'European Certified' },
 ];
 
 export default function Hero() {
@@ -66,71 +68,79 @@ export default function Hero() {
               <motion.div variants={slideUpVariants} className="mb-6">
                 <span className="inline-flex items-center px-4 py-2 bg-primary/20 text-primary-light rounded-full text-sm font-medium border border-primary/30">
                   <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-                  Available for new projects
+                  {SEO_CONFIG.structuredData.availability}
                 </span>
               </motion.div>
 
-              {/* Headline */}
+              {/* Headline (H1 - SEO Optimized with UK keywords) */}
               <motion.h1
                 variants={slideUpVariants}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-none mb-24 tracking-tighter drop-shadow-2xl lg:whitespace-nowrap lg:-mr-24 relative z-20"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-8 tracking-tighter drop-shadow-2xl relative z-20"
               >
-                Premium{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light relative inline-block">
-                  Full-Stack
+                  Full-Stack Developer
                 </span>{' '}
-                Engineering
+                in UK
+                <br />
+                <span className="text-3xl sm:text-4xl lg:text-5xl text-text-secondary font-bold">
+                  Python • Django • React
+                </span>
               </motion.h1>
 
-              {/* Subheadline (Static) */}
+              {/* Subheadline with credentials */}
+              <motion.p
+                variants={slideUpVariants}
+                className="text-xl sm:text-2xl text-white font-medium mb-8"
+              >
+                European-certified ({SEO_CONFIG.achievements.certificationScore}) • {SEO_CONFIG.achievements.yearsExperience} years production experience • {SEO_CONFIG.location.region}, {SEO_CONFIG.location.country}
+              </motion.p>
+
+              {/* Services (SEO-optimized keywords) */}
               <motion.div
                 variants={slideUpVariants}
-                className="text-lg sm:text-xl text-text-secondary mb-8 max-w-3xl mx-auto lg:mx-0 leading-relaxed"
+                className="text-lg text-text-secondary mb-8 max-w-3xl mx-auto lg:mx-0"
               >
-                <div className="mb-14 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 text-xl md:text-2xl text-white leading-relaxed font-medium">
-                  {[
-                    'AI Automation platforms',
-                    'Telegram Bot ecosystems',
-                    'Enterprise Web Applications',
-                    'Real-time Microservices',
-                    'Production-grade APIs',
-                    'API Development'
-                  ].map((item, i) => (
-                    <span key={i} className="flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-white mb-6">What I Build</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                  {SEO_CONFIG.keywords.services.map((item, i) => (
+                    <span key={i} className="flex items-center gap-3 text-white">
                       <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
                       {item}
                     </span>
                   ))}
                 </div>
+
                 {/* Value Proposition */}
-                <div className="pt-10 border-t border-white/10 mt-12 text-lg text-text-secondary leading-relaxed space-y-6">
-                  <p>
-                    I focus on building <strong className="text-white font-medium">automated digital infrastructure</strong>.
-                    My workflow integrates advanced AI models (MCP) with robust backend systems to eliminate operational bottlenecks.
-                  </p>
-                  <p>
-                    Unlike standard development, I engineer <span className="text-primary-light">ecosystems</span>.
-                    From intelligent <span className="text-white font-medium">Telegram bots</span> to high-load <span className="text-white font-medium">web platforms</span>,
-                    I deliver scalable architecture that works harder than your competitors.
+                <div className="mt-8 pt-6 border-t border-white/10 space-y-4">
+                  <p className="text-white leading-relaxed">
+                    {SEO_CONFIG.summary.long}
                   </p>
                 </div>
               </motion.div>
 
               {/* Tech Stack */}
-              <motion.div variants={slideUpVariants} className="mb-12">
-                <p className="text-sm text-text-muted mb-3 uppercase tracking-wider">Tech Stack</p>
+              <motion.div variants={slideUpVariants} className="mb-8">
+                <p className="text-sm text-text-muted mb-3 uppercase tracking-wider">Core Technologies</p>
                 <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                  {techStack.map((tech, index) => (
+                  {SEO_CONFIG.skills.primary.map((tech, index) => (
                     <motion.span
-                      key={tech.name}
+                      key={tech}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.5 + index * 0.1 }}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${tech.color}`}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${techColorMap[tech] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}
                     >
-                      {tech.name}
+                      {tech}
                     </motion.span>
                   ))}
+                </div>
+              </motion.div>
+
+              {/* AI & Automation Badge */}
+              <motion.div variants={slideUpVariants} className="mb-12">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+                  <span className="text-purple-400 text-xs font-bold uppercase tracking-wider">AI & Automation:</span>
+                  <span className="text-white/80 text-sm font-medium">Go • FastAPI • MCP • n8n • OpenAI • Gemini</span>
                 </div>
               </motion.div>
 

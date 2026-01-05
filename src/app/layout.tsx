@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import SmoothScroll from "@/components/Common/SmoothScroll";
 import NoiseOverlay from "@/components/Common/NoiseOverlay";
 import JsonLd from "@/components/SEO/JsonLd";
+import FAQSchema from "@/components/SEO/FAQSchema";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | AlekGirDev"
   },
   description: "Full-Stack Developer in UK specializing in Python, Django, and React. European-certified (94/100) with 3+ years production experience. Available for full-time opportunities.",
-  keywords: ["Full-Stack Developer", "Python Developer", "Django Developer", "React Developer", "UK Developer", "Cambridge Developer", "Chatteris Developer", "Django REST Framework", "Next.js Developer", "PostgreSQL Developer", "TypeScript Developer", "Telegram Bot Development", "Web Application Development", "API Development", "AI Automation", "Aleksejs Giruckis", "AlekGirDev", "European Certified Developer"],
+  keywords: ["Full-Stack Developer", "Python Developer", "Django Developer", "React Developer", "UK Developer", "Cambridgeshire Developer", "Django REST Framework", "Next.js Developer", "PostgreSQL Developer", "TypeScript Developer", "Telegram Bot Development", "Web Application Development", "API Development", "AI Automation", "Aleksejs Giruckis", "AlekGirDev", "European Certified Developer"],
   authors: [{ name: "Aleksejs Giruckis", url: "https://alekgirdev.com" }],
   creator: "Aleksejs Giruckis",
   icons: {
@@ -68,9 +69,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <body className={`${inter.className} antialiased`}>
         <JsonLd />
+        <FAQSchema />
         <NoiseOverlay />
         <SmoothScroll>
           {children}
