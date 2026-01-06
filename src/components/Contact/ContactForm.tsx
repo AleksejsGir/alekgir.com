@@ -9,40 +9,22 @@ import { CheckCircleIcon, ExclamationCircleIcon, PaperAirplaneIcon } from '@hero
 import clsx from 'clsx';
 import { submitContactForm } from '@/lib/api';
 import ProjectStyleCard from '@/components/shared/ui/ProjectStyleCard';
+import {
+  projectOptions,
+  budgetOptions,
+  projectTypeValues,
+  budgetRangeValues
+} from '@/data/contact-form';
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
   email: z.string().email("Invalid email address"),
-  projectType: z.enum([
-    "e-commerce", "news-portal", "telegram-bot", "portfolio",
-    "saas-dashboard", "social-network", "real-estate", "ai-analytics", "ai-workflow"
-  ]),
-  budgetRange: z.enum([
-    "under-5k", "5k-10k", "10k-25k", "over-25k"
-  ]),
+  projectType: z.enum(projectTypeValues),
+  budgetRange: z.enum(budgetRangeValues),
   message: z.string().min(20, "Message must be at least 20 characters").max(2000),
 });
 
 type FormData = z.infer<typeof schema>;
-
-const projectOptions = [
-  { value: "e-commerce", label: "E-Commerce Platform" },
-  { value: "news-portal", label: "News & Media Portal" },
-  { value: "telegram-bot", label: "Telegram Bot Platform" },
-  { value: "portfolio", label: "Portfolio/Resume Website" },
-  { value: "saas-dashboard", label: "SaaS Dashboard" },
-  { value: "social-network", label: "Social Network Platform" },
-  { value: "real-estate", label: "Real Estate Platform" },
-  { value: "ai-analytics", label: "AI Analytics Dashboard" },
-  { value: "ai-workflow", label: "AI Workflow Automation" },
-];
-
-const budgetOptions = [
-  { value: "under-5k", label: "< $5,000" },
-  { value: "5k-10k", label: "$5,000 - $10,000" },
-  { value: "10k-25k", label: "$10,000 - $25,000" },
-  { value: "over-25k", label: "$25,000+" },
-];
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);

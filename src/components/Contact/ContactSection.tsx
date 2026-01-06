@@ -6,6 +6,8 @@ import ContactForm from './ContactForm';
 import { slideUpVariants, staggerContainerVariants } from '@/lib/animations';
 import SectionWidthWrapper from '@/components/shared/ui/SectionWidthWrapper';
 import ProjectStyleCard from '@/components/shared/ui/ProjectStyleCard';
+import { socialLinks, contactProcessSteps } from '@/data/contact-process';
+import { SEO_CONFIG } from '@/config/seo.config';
 
 export default function ContactSection() {
   return (
@@ -35,8 +37,8 @@ export default function ContactSection() {
               <div className="flex items-center justify-between gap-6 w-full h-full">
                 <div>
                   <p className="text-sm font-bold text-white/50 uppercase tracking-widest mb-1">Email Me</p>
-                  <a href="mailto:giruckisaleksejs@gmail.com" className="text-xl md:text-2xl font-bold text-white hover:text-primary transition-colors block break-all">
-                    giruckisaleksejs@gmail.com
+                  <a href={`mailto:${SEO_CONFIG.contact.email}`} className="text-xl md:text-2xl font-bold text-white hover:text-primary transition-colors block break-all">
+                    {SEO_CONFIG.contact.email}
                   </a>
                 </div>
                 <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-2xl border border-white/10 flex items-center justify-center shadow-[0_0_20px_rgba(8,145,178,0.2)] group-hover:shadow-[0_0_30px_rgba(8,145,178,0.4)] transition-all duration-500">
@@ -49,11 +51,7 @@ export default function ContactSection() {
             <ProjectStyleCard contentClassName="p-8">
               <h3 className="text-sm font-bold text-white/50 mb-6 uppercase tracking-widest pl-1">Follow Me</h3>
               <div className="flex flex-wrap gap-3">
-                {[
-                  { name: 'GitHub', url: 'https://github.com/AleksejsGir' },
-                  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/aleksejs-giruckis-0569a7353' },
-                  { name: 'Twitter', url: 'https://twitter.com/agwebstudio' }
-                ].map((social) => (
+                {socialLinks.map((social) => (
                   <a
                     key={social.name}
                     href={social.url}
@@ -71,17 +69,12 @@ export default function ContactSection() {
             <ProjectStyleCard contentClassName="p-8">
               <h3 className="text-sm font-bold text-white/50 mb-6 uppercase tracking-widest pl-1">What happens next?</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[
-                  { step: '01', title: 'Request', desc: 'Brief analysis' },
-                  { step: '02', title: 'Estimation', desc: 'Timeline & Cost' },
-                  { step: '03', title: 'Kickoff', desc: 'Development' },
-                  { step: '04', title: 'Delivery', desc: 'Launch & Support' }
-                ].map((item) => (
+                {contactProcessSteps.map((item) => (
                   <div key={item.step} className="flex items-start gap-3 group">
                     <span className="text-2xl font-black text-white/40 group-hover:text-primary transition-colors duration-300">{item.step}</span>
                     <div>
                       <div className="font-bold text-white leading-tight">{item.title}</div>
-                      <div className="text-xs text-text-secondary mt-0.5">{item.desc}</div>
+                      <div className="text-xs text-text-secondary mt-0.5">{item.description}</div>
                     </div>
                   </div>
                 ))}

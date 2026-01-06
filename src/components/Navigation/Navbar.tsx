@@ -4,13 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { fadeInVariants } from '@/lib/animations';
-
-const navLinks = [
-  { name: 'Projects', href: '#projects' },
-  { name: 'Services', href: '#services' },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
-];
+import { navLinks } from '@/data/navigation';
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);

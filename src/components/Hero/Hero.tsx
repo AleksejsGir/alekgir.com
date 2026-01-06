@@ -23,13 +23,6 @@ const techColorMap: Record<string, string> = {
   'Docker': 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
 };
 
-// Quantified achievements (from SEO_CONFIG)
-const stats = [
-  { value: SEO_CONFIG.achievements.projectsDelivered, label: 'Projects Delivered' },
-  { value: SEO_CONFIG.achievements.yearsExperience, label: 'Years Experience' },
-  { value: SEO_CONFIG.achievements.certificationScore, label: 'European Certified' },
-];
-
 export default function Hero() {
   const scrollToProjects = () => {
     const projectsSection = document.querySelector('#projects');
@@ -169,9 +162,9 @@ export default function Hero() {
                 variants={slideUpVariants}
                 className="mt-12 grid grid-cols-3 gap-2 sm:gap-6"
               >
-                {stats.map((stat, index) => (
+                {SEO_CONFIG.stats.map((stat, index) => (
                   <motion.div
-                    key={stat.label}
+                    key={stat.key}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1 + index * 0.1 }}

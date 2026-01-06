@@ -2,59 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { slideUpVariants } from '@/lib/animations';
-import dynamic from 'next/dynamic';
 import ProjectStyleCard from '@/components/shared/ui/ProjectStyleCard';
-
-const FullStackFlow = dynamic(() => import('./flows/FullStackFlow'), { ssr: false });
-const TelegramBotsFlow = dynamic(() => import('./flows/TelegramBotsFlow'), { ssr: false });
-const AIAutomationFlow = dynamic(() => import('./flows/AIAutomationFlow'), { ssr: false });
-const APIDevFlow = dynamic(() => import('./flows/APIDevFlow'), { ssr: false });
-const DatabaseDevOpsFlow = dynamic(() => import('./flows/DatabaseDevOpsFlow'), { ssr: false });
-const UIUXFlow = dynamic(() => import('./flows/UIUXFlow'), { ssr: false });
-const PaymentFlow = dynamic(() => import('./flows/PaymentFlow'), { ssr: false });
-const WebSocketFlow = dynamic(() => import('./flows/WebSocketFlow'), { ssr: false });
+import { getFlowComponent } from '@/data/service-registry';
+import { type Service } from '@/data/services';
 
 export interface ServiceCardProps {
-  title: string;
-  description: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  tags: string[];
-  size?: 'large' | 'medium' | 'small';
-  gradient?: string;
+  service: Service;
 }
 
-export default function ServiceCard({
-  title,
-  description,
-  icon: Icon,
-  tags,
-  size = 'small',
-  gradient = 'from-primary/20 to-purple-500/20'
-}: ServiceCardProps) {
-  const getDiagramComponent = () => {
-    const embeddedProps = { embedded: true };
+export default function ServiceCard({ service }: ServiceCardProps) {
+  const { title, description, icon: Icon, tags, gradient, flowComponent } = service;
 
-    switch (title) {
-      case 'Full-Stack Development':
-        return <FullStackFlow {...embeddedProps} />;
-      case 'Telegram Bots':
-        return <TelegramBotsFlow {...embeddedProps} />;
-      case 'AI & Automation':
-        return <AIAutomationFlow {...embeddedProps} />;
-      case 'API Development':
-        return <APIDevFlow {...embeddedProps} />;
-      case 'Database & DevOps':
-        return <DatabaseDevOpsFlow {...embeddedProps} />;
-      case 'Modern UI/UX':
-        return <UIUXFlow {...embeddedProps} />;
-      case 'Payment Integration':
-        return <PaymentFlow {...embeddedProps} />;
-      case 'Real-time & WebSockets':
-        return <WebSocketFlow {...embeddedProps} />;
-      default:
-        return null;
-    }
-  };
+  // Get flow component from registry (Open/Closed Principle - extensible without modification)
+  const FlowComponent = getFlowComponent(flowComponent);
 
   return (
     <motion.div
@@ -100,7 +60,7 @@ export default function ServiceCard({
 
           <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden mt-auto hidden lg:block">
             <div className="w-full h-full">
-              {getDiagramComponent()}
+              {FlowComponent && <FlowComponent embedded={true} />}
             </div>
           </div>
         </div>

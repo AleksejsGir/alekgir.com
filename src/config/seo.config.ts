@@ -61,6 +61,31 @@ export const SEO_CONFIG = {
     currentRole: "Full-Stack Developer",
   },
 
+  // Stats for display (Hero, About sections)
+  stats: [
+    {
+      key: "projectsDelivered",
+      value: "38+",
+      label: "Projects Delivered",
+      numericValue: 38,
+      suffix: "+",
+    },
+    {
+      key: "yearsExperience",
+      value: "3+",
+      label: "Years Experience",
+      numericValue: 3,
+      suffix: "+",
+    },
+    {
+      key: "certificationScore",
+      value: "94/100",
+      label: "European Certified",
+      numericValue: 94,
+      suffix: "/100",
+    },
+  ],
+
   // Contact Information
   contact: {
     email: "giruckisaleksejs@gmail.com",
