@@ -1,36 +1,11 @@
 import Image from 'next/image';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import AboutContainer from './AboutContainer';
 import { staggerContainerVariants, slideUpVariants } from '@/lib/animations';
 import SectionWidthWrapper from '@/components/shared/ui/SectionWidthWrapper';
 import ProjectStyleCard from '@/components/shared/ui/ProjectStyleCard';
+import Counter from '@/components/shared/ui/Counter';
 import { SEO_CONFIG } from '@/config/seo.config';
-
-// Counter Component
-function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { damping: 50, stiffness: 100 });
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
-
-  useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = Math.floor(latest).toString() + suffix;
-      }
-    });
-    return unsubscribe;
-  }, [springValue, suffix]);
-
-  return <span ref={ref} className="text-3xl sm:text-4xl md:text-5xl font-black text-primary tracking-tight">{value}{suffix}</span>;
-}
 
 // UI mapping: category colors (Presentation concern - stays in component)
 // Data source: SEO_CONFIG.skills (Single Responsibility - data from config)

@@ -10,6 +10,7 @@ import {
 } from '@/lib/animations';
 import SectionWidthWrapper from '@/components/shared/ui/SectionWidthWrapper';
 import { SEO_CONFIG } from '@/config/seo.config';
+import { useScrollToMultiple } from '@/hooks/useScrollTo';
 
 // UI Color mapping for tech stack (Presentation concern - stays in component)
 const techColorMap: Record<string, string> = {
@@ -24,19 +25,11 @@ const techColorMap: Record<string, string> = {
 };
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    const projectsSection = document.querySelector('#projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToContact = () => {
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Use custom hook for scroll navigation
+  const { scrollToProjects, scrollToContact } = useScrollToMultiple({
+    scrollToProjects: '#projects',
+    scrollToContact: '#contact',
+  });
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
