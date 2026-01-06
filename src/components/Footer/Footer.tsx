@@ -19,7 +19,21 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-12 lg:gap-20 mb-12">
           {/* Brand */}
           <div className="max-w-sm">
-            <h3 className="text-2xl font-black text-white mb-4 tracking-tight">AlekGirDev</h3>
+            {/* Logo */}
+            <motion.button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="mb-6 block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+              aria-label="Scroll to top"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/alekgirdev_logo.png"
+                alt="AlekGirDev"
+                className="h-16 w-auto object-contain"
+              />
+            </motion.button>
             <p className="text-text-secondary leading-relaxed">
               Full-Stack Developer specializing in Python, Django, and React. European-certified (94/100) with 3+ years production experience. Building quality web solutions.
             </p>
