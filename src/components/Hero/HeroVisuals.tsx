@@ -14,16 +14,15 @@ export default function HeroVisuals() {
             <div className="relative w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] flex items-center justify-center">
 
                 {/* Central Glow */}
-                <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full opacity-50" />
+                <div className="absolute inset-0 bg-primary/20 blur-[100px] opacity-50" />
 
-                {/* The Core: Video Circle */}
+                {/* The Core: Clean Video Display */}
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl shadow-primary/20"
+                    className="relative z-10 w-72 h-72 sm:w-96 sm:h-96 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent z-10" />
                     <video
                         src="/images/alekgirdev.mp4"
                         poster="/images/alekgirdev_logo.png"
@@ -32,12 +31,9 @@ export default function HeroVisuals() {
                         muted
                         playsInline
                         aria-label="AlekGirDev - Full-Stack Developer Portfolio Video"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="w-full h-full object-cover"
                     />
                 </motion.div>
-
-                {/* Orbit Ring 1 (Decorative) */}
-                <div className="absolute w-[120%] h-[120%] border border-white/5 rounded-full" />
 
                 {/* Floating Card 1: Experience/Rating - Top Right */}
 

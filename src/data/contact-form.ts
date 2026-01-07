@@ -34,10 +34,10 @@ export const projectOptions: FormOption<ProjectType>[] = [
  * Synchronized with BudgetRange union in @/types
  */
 export const budgetOptions: FormOption<BudgetRange>[] = [
-  { value: "under-5k", label: "< $5,000" },
-  { value: "5k-10k", label: "$5,000 - $10,000" },
-  { value: "10k-25k", label: "$10,000 - $25,000" },
-  { value: "over-25k", label: "$25,000+" },
+  { value: "under-5k", label: "< £5,000" },
+  { value: "5k-10k", label: "£5,000 - £10,000" },
+  { value: "10k-25k", label: "£10,000 - £25,000" },
+  { value: "over-25k", label: "£25,000+" },
 ];
 
 /**

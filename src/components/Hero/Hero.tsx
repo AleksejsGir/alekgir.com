@@ -47,137 +47,154 @@ export default function Hero() {
         animate="visible"
       >
         <SectionWidthWrapper>
+          {/* TOP: Badge (above everything) */}
+          <motion.div variants={slideUpVariants} className="mb-8 text-center">
+            <span className="inline-flex items-center px-4 py-2 bg-primary/20 text-primary-light rounded-full text-sm font-medium border border-primary/30">
+              <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
+              {SEO_CONFIG.structuredData.availability}
+            </span>
+          </motion.div>
+
           <div className="grid lg:grid-cols-[55%_45%] gap-8 lg:gap-0 items-center">
             {/* Left Column: Text Content */}
             <div className="text-center lg:text-left relative z-20">
-              {/* Badge */}
-              <motion.div variants={slideUpVariants} className="mb-6">
-                <span className="inline-flex items-center px-4 py-2 bg-primary/20 text-primary-light rounded-full text-sm font-medium border border-primary/30">
-                  <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-                  {SEO_CONFIG.structuredData.availability}
-                </span>
-              </motion.div>
 
               {/* Headline (H1 - SEO Optimized with UK keywords) */}
               <motion.h1
                 variants={slideUpVariants}
                 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-8 tracking-tighter drop-shadow-2xl relative z-20"
               >
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light relative inline-block">
-                  Full-Stack Developer
-                </span>{' '}
-                in UK
+                <span className="whitespace-nowrap">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+                    Full-Stack Developer
+                  </span>{' '}
+                  in United Kingdom
+                </span>
+                <br />
                 <br />
                 <span className="text-3xl sm:text-4xl lg:text-5xl text-text-secondary font-bold">
                   Python • Django • React
                 </span>
               </motion.h1>
 
-              {/* Subheadline with credentials */}
+              {/* Current Role & Focus */}
               <motion.p
                 variants={slideUpVariants}
-                className="text-xl sm:text-2xl text-white font-medium mb-8"
+                className="text-lg sm:text-xl text-text-secondary mb-6"
               >
-                European-certified ({SEO_CONFIG.achievements.certificationScore}) • {SEO_CONFIG.achievements.yearsExperience} years production experience • {SEO_CONFIG.location.region}, {SEO_CONFIG.location.country}
+                Production experience with <span className="text-white font-semibold">AI automation platforms</span>
               </motion.p>
 
-              {/* Services (SEO-optimized keywords) */}
+              <motion.p
+                variants={slideUpVariants}
+                className="text-base sm:text-lg text-text-secondary mb-8"
+              >
+                Building scalable microservices with Python/Go backend & React frontend
+              </motion.p>
+
+              {/* Specializations */}
               <motion.div
                 variants={slideUpVariants}
-                className="text-lg text-text-secondary mb-8 max-w-3xl mx-auto lg:mx-0"
+                className="mb-8 space-y-3"
               >
-                <h2 className="text-2xl font-bold text-white mb-6">What I Build</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
-                  {SEO_CONFIG.keywords.services.map((item, i) => (
-                    <span key={i} className="flex items-center gap-3 text-white">
-                      <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Value Proposition */}
-                <div className="mt-8 pt-6 border-t border-white/10 space-y-4">
-                  <p className="text-white leading-relaxed">
-                    {SEO_CONFIG.summary.long}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Tech Stack */}
-              <motion.div variants={slideUpVariants} className="mb-8">
-                <p className="text-sm text-text-muted mb-3 uppercase tracking-wider">Core Technologies</p>
-                <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                  {SEO_CONFIG.skills.primary.map((tech, index) => (
-                    <motion.span
-                      key={tech}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${techColorMap[tech] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* AI & Automation Badge */}
-              <motion.div variants={slideUpVariants} className="mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-lg">
-                  <span className="text-purple-400 text-xs font-bold uppercase tracking-wider">AI & Automation:</span>
-                  <span className="text-white/80 text-sm font-medium">Go • FastAPI • MCP • n8n • OpenAI • Gemini</span>
-                </div>
-              </motion.div>
-
-              {/* CTA Buttons */}
-              <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <motion.button
-                  onClick={scrollToContact}
-                  className="px-8 py-4 bg-primary text-white font-semibold rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary-dark transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Start a Project
-                </motion.button>
-                <motion.button
-                  onClick={scrollToProjects}
-                  className="px-8 py-4 bg-surface/80 backdrop-blur-sm text-white font-semibold rounded-lg border border-card-border hover:border-primary hover:bg-surface transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Projects
-                </motion.button>
-              </motion.div>
-
-              {/* Stats */}
-              <motion.div
-                variants={slideUpVariants}
-                className="mt-12 grid grid-cols-3 gap-2 sm:gap-6"
-              >
-                {SEO_CONFIG.stats.map((stat, index) => (
+                <h2 className="text-lg font-bold text-white mb-4 uppercase tracking-wider text-text-muted">Specializing in:</h2>
+                {[
+                  'Microservices & Scalable Applications',
+                  'AI Integration (MCP, OpenAI, n8n)',
+                  'Clean Architecture & SOLID Principles',
+                  '75%+ Test Coverage & TDD'
+                ].map((item, i) => (
                   <motion.div
-                    key={stat.key}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1 + index * 0.1 }}
-                    className="text-center lg:text-left"
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5 + i * 0.1 }}
+                    className="flex items-start gap-3 text-white"
                   >
-                    <div className="text-3xl sm:text-4xl font-black text-primary mb-1 tracking-tight">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-text-muted">{stat.label}</div>
+                    <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)] mt-2 flex-shrink-0" />
+                    <span className="text-base sm:text-lg">{item}</span>
                   </motion.div>
                 ))}
               </motion.div>
+
             </div>
 
             {/* Right Column: Visuals */}
             <motion.div
               variants={slideUpVariants}
-              className="hidden lg:flex justify-center lg:justify-end lg:mt-20"
+              className="hidden lg:flex justify-center lg:justify-end lg:mt-48"
             >
               <HeroVisuals />
+            </motion.div>
+          </div>
+
+          {/* BOTTOM: Tech Stack, Buttons, Stats (below everything) */}
+          <div className="mt-16 space-y-8">
+            {/* Tech Stack */}
+            <motion.div variants={slideUpVariants} className="text-center">
+              <p className="text-sm text-text-muted mb-4 uppercase tracking-wider">Core Technologies</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {SEO_CONFIG.skills.primary.map((tech, index) => (
+                  <motion.span
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
+                    className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${techColorMap[tech] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* AI & Automation Badge */}
+            <motion.div variants={slideUpVariants} className="flex justify-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+                <span className="text-purple-400 text-xs font-bold uppercase tracking-wider">AI & Automation:</span>
+                <span className="text-white/80 text-sm font-medium">Go • FastAPI • MCP • n8n • OpenAI • Gemini</span>
+              </div>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.button
+                onClick={scrollToContact}
+                className="px-8 py-4 bg-primary text-white font-semibold rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary-dark transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Start a Project
+              </motion.button>
+              <motion.button
+                onClick={scrollToProjects}
+                className="px-8 py-4 bg-surface/80 backdrop-blur-sm text-white font-semibold rounded-lg border border-card-border hover:border-primary hover:bg-surface transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Projects
+              </motion.button>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              variants={slideUpVariants}
+              className="grid grid-cols-3 gap-6 max-w-2xl mx-auto"
+            >
+              {SEO_CONFIG.stats.map((stat, index) => (
+                <motion.div
+                  key={stat.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-3xl sm:text-4xl font-black text-primary mb-1 tracking-tight">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-text-muted">{stat.label}</div>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </SectionWidthWrapper>
