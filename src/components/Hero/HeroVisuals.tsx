@@ -21,7 +21,11 @@ export default function HeroVisuals() {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="relative z-10 w-72 h-72 sm:w-96 sm:h-96 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10"
+                    className="relative z-10 w-72 h-72 sm:w-96 sm:h-96"
+                    style={{
+                        maskImage: 'radial-gradient(circle, black 20%, transparent 85%)',
+                        WebkitMaskImage: 'radial-gradient(circle, black 20%, transparent 85%)'
+                    }}
                 >
                     <video
                         src="/images/alekgirdev.mp4"
@@ -31,7 +35,7 @@ export default function HeroVisuals() {
                         muted
                         playsInline
                         aria-label="AlekGirDev - Full-Stack Developer Portfolio Video"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover opacity-90"
                     />
                 </motion.div>
 
