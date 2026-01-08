@@ -115,14 +115,6 @@ export default function CodeCompilationCanvas({
                 className="w-full h-full"
                 style={{ background: 'transparent' }}
             />
-            {/* Vignette overlay for better readability */}
-            <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    background:
-                        'radial-gradient(ellipse at center, transparent 40%, rgba(10,10,15,0.4) 100%)',
-                }}
-            />
         </div>
     );
 }

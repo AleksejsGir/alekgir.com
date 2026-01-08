@@ -26,8 +26,8 @@ export default function Home() {
       {/* Global Ambient Background (Unified "Seamless Immersion") */}
       <div className="fixed inset-0 z-[-1] pointer-events-none">
         <CodeCompilationCanvas />
-        {/* 10% overlay for 90% brightness */}
-        <div className="absolute inset-0 bg-[#0a0a0f]/50" />
+        {/* Subtle overlay using new palette */}
+        <div className="absolute inset-0 bg-[#11161B]/30" />
       </div>
 
       <main className="min-h-screen relative z-10">

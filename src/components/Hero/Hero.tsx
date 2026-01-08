@@ -32,12 +32,12 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* 3D Background */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* 3D Background - Hero specific Matrix rain */}
       <HeroBackground3D />
 
-      {/* Gradient overlay for better readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/80 z-[1]" />
+      {/* Gradient overlay - fades to transparent at bottom for seamless transition */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#11161B]/60 via-transparent to-transparent z-[1]" />
 
       {/* Content */}
       <motion.div

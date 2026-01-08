@@ -69,12 +69,12 @@ export const THEME = {
         },
     },
 
-    // 3D Canvas specific colors (matched to video background)
+    // 3D Canvas specific colors (same as UI for consistency)
     canvas: {
         primary: "#34A8CE",        // Main cyan
         primaryLight: "#6FD4F2",   // Light glow
         primaryDark: "#2F90BC",    // Darker
-        background: "#1B242C",     // Medium dark (matches video)
+        background: "#11161B",     // Same as UI background
     },
 } as const;
 

@@ -109,7 +109,7 @@ export default function HeroBackground3D() {
             if (!ctx || !canvas) return;
 
             // Clear completely (no trails)
-            ctx.fillStyle = 'rgb(10, 10, 15)';
+            ctx.fillStyle = '#11161B'; // THEME background
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             const columns = columnsRef.current;
@@ -156,17 +156,17 @@ export default function HeroBackground3D() {
                         opacity = 1;
                         // Draw bright glow for column head
                         ctx.shadowBlur = 10;
-                        ctx.shadowColor = '#22d3ee';
-                        ctx.fillStyle = '#22d3ee'; // Primary-light
+                        ctx.shadowColor = '#6FD4F2';
+                        ctx.fillStyle = '#6FD4F2'; // Primary-light glow
                     } else if (index < 3) {
                         // Near head - use primary-light
                         ctx.shadowBlur = 5;
-                        ctx.shadowColor = `rgba(34, 211, 238, ${opacity * 0.5})`;
-                        ctx.fillStyle = `rgba(34, 211, 238, ${opacity})`;
+                        ctx.shadowColor = `rgba(111, 212, 242, ${opacity * 0.5})`;
+                        ctx.fillStyle = `rgba(111, 212, 242, ${opacity})`;
                     } else {
                         // Rest of column - use primary teal
                         ctx.shadowBlur = 0;
-                        ctx.fillStyle = `rgba(8, 145, 178, ${opacity * 0.7})`;
+                        ctx.fillStyle = `rgba(52, 168, 206, ${opacity * 0.7})`; // Primary #34A8CE
                     }
 
                     // Mouse interaction - wave effect
@@ -177,8 +177,8 @@ export default function HeroBackground3D() {
                         // Brighten and add extra glow near mouse
                         opacity = Math.min(1, opacity + force * 0.5);
                         ctx.shadowBlur = 15 * force;
-                        ctx.shadowColor = '#22d3ee';
-                        ctx.fillStyle = `rgba(34, 211, 238, ${opacity})`;
+                        ctx.shadowColor = '#6FD4F2';
+                        ctx.fillStyle = `rgba(111, 212, 242, ${opacity})`;
 
                         ctx.fillText(char, column.x + waveOffset, charY);
                     } else {
@@ -208,13 +208,6 @@ export default function HeroBackground3D() {
                 ref={canvasRef}
                 className="w-full h-full"
                 style={{ background: 'transparent' }}
-            />
-            {/* Vignette overlay */}
-            <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    background: 'radial-gradient(ellipse at center, transparent 40%, rgba(10,10,15,0.5) 100%)'
-                }}
             />
         </div>
     );

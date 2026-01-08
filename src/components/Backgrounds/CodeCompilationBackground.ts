@@ -126,8 +126,8 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
         const colors = [
             this.config.colors.primary,
             this.config.colors.primaryLight,
-            'rgba(34, 211, 238, 0.6)', // cyan
-            'rgba(8, 145, 178, 0.6)', // teal
+            'rgba(111, 212, 242, 0.6)', // #6FD4F2 light glow
+            'rgba(52, 168, 206, 0.6)', // #34A8CE primary
         ];
         return colors[Math.floor(Math.random() * colors.length)];
     }
@@ -169,8 +169,8 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
     }
 
     public render(ctx: CanvasRenderingContext2D): void {
-        // Clear with fade effect
-        ctx.fillStyle = 'rgba(10, 10, 15, 0.15)';
+        // Clear completely (no trails) - solid background
+        ctx.fillStyle = '#11161B';
         ctx.fillRect(0, 0, this.size.width, this.size.height);
 
         // Set font
@@ -208,8 +208,8 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
 
             // Draw the code line
             ctx.fillStyle = line.compiled
-                ? `rgba(34, 211, 238, ${finalOpacity})` // Compiled - bright cyan
-                : `rgba(8, 145, 178, ${finalOpacity * 0.5})`; // Compiling - dim teal
+                ? `rgba(111, 212, 242, ${finalOpacity})` // Compiled - #6FD4F2
+                : `rgba(52, 168, 206, ${finalOpacity * 0.5})`; // Compiling - #34A8CE
 
             ctx.fillText(line.text, line.x + xOffset, line.y);
 
@@ -237,7 +237,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
         const y = 20;
 
         // Background
-        ctx.fillStyle = 'rgba(8, 145, 178, 0.2)';
+        ctx.fillStyle = 'rgba(52, 168, 206, 0.2)'; // #34A8CE
         ctx.fillRect(x, y, barWidth, barHeight);
 
         // Progress
@@ -246,7 +246,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
 
         // Text
         ctx.font = '10px monospace';
-        ctx.fillStyle = 'rgba(34, 211, 238, 0.6)';
+        ctx.fillStyle = 'rgba(111, 212, 242, 0.6)'; // #6FD4F2
         ctx.fillText(
             `Building... ${Math.floor(this.compilationProgress * 100)}%`,
             x,
@@ -255,7 +255,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
     }
 
     private drawGrid(ctx: CanvasRenderingContext2D): void {
-        ctx.strokeStyle = 'rgba(8, 145, 178, 0.02)';
+        ctx.strokeStyle = 'rgba(52, 168, 206, 0.02)'; // #34A8CE subtle
         ctx.lineWidth = 1;
         const gridSize = 50;
 

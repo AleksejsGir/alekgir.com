@@ -13,18 +13,17 @@ export default function HeroVisuals() {
             {/* Container Area - defined height to ensure space for floating elements */}
             <div className="relative w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] flex items-center justify-center">
 
-                {/* Central Glow */}
-                <div className="absolute inset-0 bg-primary/20 blur-[100px] opacity-50" />
+                {/* No glow - video fades naturally into background */}
 
-                {/* The Core: Clean Video Display */}
+                {/* The Core: Clean Video Display - wider to show full text */}
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="relative z-10 w-72 h-72 sm:w-96 sm:h-96"
+                    className="relative z-10 w-[320px] h-72 sm:w-[440px] sm:h-96"
                     style={{
-                        maskImage: 'radial-gradient(circle, black 20%, transparent 85%)',
-                        WebkitMaskImage: 'radial-gradient(circle, black 20%, transparent 85%)'
+                        maskImage: 'radial-gradient(ellipse 65% 50% at center, black 0%, black 45%, transparent 100%)',
+                        WebkitMaskImage: 'radial-gradient(ellipse 65% 50% at center, black 0%, black 45%, transparent 100%)'
                     }}
                 >
                     <video
