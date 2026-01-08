@@ -4,30 +4,30 @@
 
 :root {
   /* Primary cyan - matched to logo */
-  --primary: #17A2B8;
-  --primary-light: #40E0D0;
-  --primary-dark: #0D8A9E;
+  --primary: #34A8CE;
+  --primary-light: #6FD4F2;
+  --primary-dark: #2F90BC;
 
-  /* Dark theme backgrounds - matched to logo's charcoal */
-  --background: #0d0d12;
-  --surface: #16161e;
-  --surface-light: #1e1e28;
-  --accent: #252532;
-  --secondary: #0d0d12;
+  /* Dark theme backgrounds - graphite/blue-gray */
+  --background: #11161B;
+  --surface: #151C22;
+  --surface-light: #1B242C;
+  --accent: #222C35;
+  --secondary: #11161B;
 
   /* Semantic colors */
   --success: #10b981;
   --error: #ef4444;
   --warning: #f59e0b;
 
-  /* Text colors */
+  /* Text colors - silver tones */
   --text-primary: #ffffff;
-  --text-secondary: #B0B0B8;
-  --text-muted: #71717a;
+  --text-secondary: #C0C5CB;
+  --text-muted: #D5D9DD;
 
   /* Card/element backgrounds */
-  --card-bg: #18181f;
-  --card-border: #2d2d3a;
+  --card-bg: #2C3A45;
+  --card-border: #354552;
 }
 
 * {

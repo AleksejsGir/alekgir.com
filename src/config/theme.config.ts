@@ -1,33 +1,45 @@
 /**
  * Theme Configuration - Single Source of Truth
  * All colors should be imported from here (SOLID: Single Responsibility)
+ * 
+ * Palette based on ALEKGIR.COM logo analysis:
+ * - Dark graphite/blue-gray backgrounds
+ * - Cyan/teal accent colors
+ * - Light cyan glows
+ * - Silver grays for text
  */
 
 export const THEME = {
     // Brand colors - matched to logo
     colors: {
         primary: {
-            DEFAULT: "#17A2B8",
-            light: "#40E0D0",
-            dark: "#0D8A9E",
+            DEFAULT: "#34A8CE",      // Main cyan (AG letters)
+            light: "#6FD4F2",        // Light glow
+            dark: "#2F90BC",         // Darker variant
+            glow: "#9FE9FF",         // Bright glow for effects
         },
-        // UI backgrounds (dark theme)
+        // UI backgrounds (dark graphite/blue-gray gradient)
         background: {
-            DEFAULT: "#0d0d12",
-            surface: "#16161e",
-            surfaceLight: "#1e1e28",
-            accent: "#252532",
+            DEFAULT: "#11161B",      // Darkest
+            surface: "#151C22",      // Dark
+            surfaceLight: "#1B242C", // Medium
+            accent: "#222C35",       // Lighter dark
+        },
+        // Surface colors for cards/elements
+        surface: {
+            card: "#2C3A45",
+            cardLight: "#354552",
         },
         // Text colors
         text: {
             primary: "#ffffff",
-            secondary: "#B0B0B8",
-            muted: "#71717a",
+            secondary: "#C0C5CB",    // Silver (ALEKGIR text)
+            muted: "#D5D9DD",        // Light silver
         },
-        // Card/element backgrounds
+        // Card/element backgrounds (using surface colors)
         card: {
-            bg: "#18181f",
-            border: "#2d2d3a",
+            bg: "#2C3A45",
+            border: "#354552",
         },
         // Semantic colors
         semantic: {
@@ -55,19 +67,14 @@ export const THEME = {
             lime: "#84cc16",
             fuchsia: "#d946ef",
         },
-        // Gradients
-        gradients: {
-            primary: "from-cyan-500 to-purple-500",
-            hero: "from-primary to-purple-600",
-        },
     },
 
-    // 3D Canvas specific colors (can differ from UI)
+    // 3D Canvas specific colors (matched to video background)
     canvas: {
-        primary: "#17A2B8",
-        primaryLight: "#40E0D0",
-        primaryDark: "#0D8A9E",
-        background: "#1a2028", // Lighter, matches video
+        primary: "#34A8CE",        // Main cyan
+        primaryLight: "#6FD4F2",   // Light glow
+        primaryDark: "#2F90BC",    // Darker
+        background: "#1B242C",     // Medium dark (matches video)
     },
 } as const;
 
