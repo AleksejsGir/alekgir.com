@@ -32,7 +32,7 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-0">
       {/* 3D Background - Hero specific Matrix rain */}
       <HeroBackground3D />
 
@@ -41,67 +41,71 @@ export default function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 w-full py-20"
+        className="relative z-10 w-full py-12 sm:py-20"
         variants={staggerContainerVariants}
         initial="hidden"
         animate="visible"
       >
         <SectionWidthWrapper>
-          {/* TOP: Badge (above everything) */}
-          <motion.div variants={slideUpVariants} className="mb-8 text-center">
-            <span className="inline-flex items-center px-4 py-2 bg-primary/20 text-primary-light rounded-full text-sm font-medium border border-primary/30">
+          {/* TOP: Badge - absolute on desktop so it doesn't push content */}
+          <motion.div
+            variants={slideUpVariants}
+            className="mb-6 sm:mb-8 text-center lg:absolute lg:top-24 lg:inset-x-0 lg:flex lg:justify-center lg:mb-0"
+          >
+            <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 text-primary-light rounded-full text-xs sm:text-sm font-medium border border-primary/30">
               <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
               {SEO_CONFIG.structuredData.availability}
             </span>
           </motion.div>
 
-          <div className="grid lg:grid-cols-[55%_45%] gap-8 lg:gap-0 items-center">
+          <div className="grid lg:grid-cols-[55%_45%] gap-6 lg:gap-0 items-center">
             {/* Left Column: Text Content */}
             <div className="text-center lg:text-left relative z-20">
 
-              {/* Headline (H1 - SEO Optimized with UK keywords) */}
+              {/* Headline (H1 - SEO Optimized) - Mobile friendly */}
               <motion.h1
                 variants={slideUpVariants}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-8 tracking-tighter drop-shadow-2xl relative z-20"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6 sm:mb-8 tracking-tighter drop-shadow-2xl relative z-20"
               >
-                <span className="whitespace-nowrap">
+                <span className="lg:whitespace-nowrap">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
                     Full-Stack Developer
-                  </span>{' '}
-                  in United Kingdom
+                  </span>
+                  <span className="hidden lg:inline"> in United Kingdom</span>
                 </span>
-                <br />
-                <br />
-                <span className="text-3xl sm:text-4xl lg:text-5xl text-text-secondary font-bold">
+                {/* Mobile/tablet: break after "Developer" */}
+                <span className="lg:hidden block mt-2 text-2xl sm:text-3xl">in United Kingdom</span>
+                {/* Tech stack line */}
+                <span className="block mt-4 lg:mt-12 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-text-secondary font-bold">
                   Python • Django • React
                 </span>
               </motion.h1>
 
-              {/* Current Role & Focus */}
+              {/* Current Role & Focus - Hidden on smallest screens, compact */}
               <motion.p
                 variants={slideUpVariants}
-                className="text-lg sm:text-xl text-text-secondary mb-6"
+                className="hidden sm:block text-base sm:text-lg lg:text-xl text-text-secondary mb-4 sm:mb-6"
               >
                 Production experience with <span className="text-white font-semibold">AI automation platforms</span>
               </motion.p>
 
               <motion.p
                 variants={slideUpVariants}
-                className="text-base sm:text-lg text-text-secondary mb-8"
+                className="hidden md:block text-sm sm:text-base lg:text-lg text-text-secondary mb-6 sm:mb-8"
               >
                 Building scalable microservices with Python/Go backend & React frontend
               </motion.p>
 
-              {/* Specializations */}
+              {/* Specializations - Centered on mobile, left on desktop */}
               <motion.div
                 variants={slideUpVariants}
-                className="mb-8 space-y-3"
+                className="mb-6 sm:mb-8 space-y-2 sm:space-y-3"
               >
-                <h2 className="text-lg font-bold text-white mb-4 uppercase tracking-wider text-text-muted">Specializing in:</h2>
+                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white mb-3 sm:mb-4 uppercase tracking-wider text-text-muted text-center lg:text-left">Specializing in:</h2>
                 {[
-                  'Microservices & Scalable Applications',
-                  'AI Integration (MCP, OpenAI, n8n)',
-                  'Clean Architecture & SOLID Principles',
+                  'Microservices & Scalable Apps',
+                  'AI Integration (MCP, OpenAI)',
+                  'Clean Architecture & SOLID',
                   '75%+ Test Coverage & TDD'
                 ].map((item, i) => (
                   <motion.div
@@ -109,17 +113,17 @@ export default function Hero() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 + i * 0.1 }}
-                    className="flex items-start gap-3 text-white"
+                    className="flex items-center lg:items-start justify-center lg:justify-start gap-2 sm:gap-3 text-white"
                   >
-                    <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)] mt-2 flex-shrink-0" />
-                    <span className="text-base sm:text-lg">{item}</span>
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)] flex-shrink-0" />
+                    <span className="text-sm sm:text-base lg:text-lg">{item}</span>
                   </motion.div>
                 ))}
               </motion.div>
 
             </div>
 
-            {/* Right Column: Visuals */}
+            {/* Right Column: Visuals - Hidden on mobile/tablet */}
             <motion.div
               variants={slideUpVariants}
               className="hidden lg:flex justify-center lg:justify-end lg:mt-48"
@@ -129,18 +133,18 @@ export default function Hero() {
           </div>
 
           {/* BOTTOM: Tech Stack, Buttons, Stats (below everything) */}
-          <div className="mt-16 space-y-8">
+          <div className="mt-8 sm:mt-12 lg:mt-16 space-y-4 sm:space-y-6 lg:space-y-8">
             {/* Tech Stack */}
             <motion.div variants={slideUpVariants} className="text-center">
-              <p className="text-sm text-text-muted mb-4 uppercase tracking-wider">Core Technologies</p>
-              <div className="flex flex-wrap gap-2 justify-center">
+              <p className="text-xs sm:text-sm text-text-muted mb-3 sm:mb-4 uppercase tracking-wider">Core Technologies</p>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
                 {SEO_CONFIG.skills.primary.map((tech, index) => (
                   <motion.span
                     key={tech}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 + index * 0.1 }}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${techColorMap[tech] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}
+                    className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium border ${techColorMap[tech] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}
                   >
                     {tech}
                   </motion.span>
@@ -148,19 +152,19 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* AI & Automation Badge */}
+            {/* AI & Automation Badge - Responsive */}
             <motion.div variants={slideUpVariants} className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+              <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-lg">
                 <span className="text-purple-400 text-xs font-bold uppercase tracking-wider">AI & Automation:</span>
-                <span className="text-white/80 text-sm font-medium">Go • FastAPI • MCP • n8n • OpenAI • Gemini</span>
+                <span className="text-white/80 text-xs sm:text-sm font-medium text-center">Go • FastAPI • MCP • n8n</span>
               </div>
             </motion.div>
 
             {/* CTA Buttons */}
-            <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <motion.button
                 onClick={scrollToContact}
-                className="px-8 py-4 bg-primary text-white font-semibold rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary-dark transition-all duration-300"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white font-semibold rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary-dark transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -168,7 +172,7 @@ export default function Hero() {
               </motion.button>
               <motion.button
                 onClick={scrollToProjects}
-                className="px-8 py-4 bg-surface/80 backdrop-blur-sm text-white font-semibold rounded-lg border border-card-border hover:border-primary hover:bg-surface transition-all duration-300"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-surface/80 backdrop-blur-sm text-white font-semibold rounded-lg border border-card-border hover:border-primary hover:bg-surface transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -179,7 +183,7 @@ export default function Hero() {
             {/* Stats */}
             <motion.div
               variants={slideUpVariants}
-              className="grid grid-cols-3 gap-6 max-w-2xl mx-auto"
+              className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto"
             >
               {SEO_CONFIG.stats.map((stat, index) => (
                 <motion.div
@@ -189,10 +193,10 @@ export default function Hero() {
                   transition={{ delay: 1 + index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="text-3xl sm:text-4xl font-black text-primary mb-1 tracking-tight">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary mb-0.5 sm:mb-1 tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-text-muted">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-text-muted">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -200,9 +204,9 @@ export default function Hero() {
         </SectionWidthWrapper>
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - centered properly */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-4 sm:bottom-8 inset-x-0 flex justify-center z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{
@@ -215,12 +219,11 @@ export default function Hero() {
           className="flex flex-col items-center text-text-muted hover:text-white transition-colors"
           aria-label="Scroll to projects"
         >
-          <span className="text-sm mb-2">Scroll</span>
-          <ChevronDownIcon className="w-6 h-6" />
+          <span className="text-xs sm:text-sm mb-1 sm:mb-2">Scroll</span>
+          <ChevronDownIcon className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </motion.div>
 
-
-    </section>
+    </section >
   );
 }
