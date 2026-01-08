@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { THEME } from "./src/config/theme.config";
 
 const config: Config = {
   content: [
@@ -9,28 +10,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary teal - keeping the brand color
-        primary: "#0891b2",
-        "primary-light": "#22d3ee",
-        "primary-dark": "#0e7490",
-        // Dark theme backgrounds (2025 trend: very dark with subtle blue undertones)
-        background: "#0a0a0f",
-        surface: "#12121a",
-        "surface-light": "#1a1a26",
-        accent: "#1f1f2e",
-        // Secondary dark (keeping for footer compatibility)
-        secondary: "#0a0a0f",
+        // Primary colors - from theme config
+        primary: THEME.colors.primary.DEFAULT,
+        "primary-light": THEME.colors.primary.light,
+        "primary-dark": THEME.colors.primary.dark,
+        // Dark theme backgrounds
+        background: THEME.colors.background.DEFAULT,
+        surface: THEME.colors.background.surface,
+        "surface-light": THEME.colors.background.surfaceLight,
+        accent: THEME.colors.background.accent,
+        secondary: THEME.colors.background.DEFAULT,
         // Semantic colors
-        success: "#10b981",
-        error: "#ef4444",
-        warning: "#f59e0b",
-        // Text colors for dark theme
-        "text-primary": "#ffffff",
-        "text-secondary": "#a1a1aa",
-        "text-muted": "#71717a",
+        success: THEME.colors.semantic.success,
+        error: THEME.colors.semantic.error,
+        warning: THEME.colors.semantic.warning,
+        // Text colors
+        "text-primary": THEME.colors.text.primary,
+        "text-secondary": THEME.colors.text.secondary,
+        "text-muted": THEME.colors.text.muted,
         // Card/element backgrounds
-        "card-bg": "#16161f",
-        "card-border": "#2a2a3a",
+        "card-bg": THEME.colors.card.bg,
+        "card-border": THEME.colors.card.border,
       },
       animation: {
         fade: "fadeIn 0.6s ease-in-out",

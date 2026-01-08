@@ -12,6 +12,11 @@ import ReactFlow, {
   MarkerType,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
+import { THEME } from '@/config/theme.config';
+
+const { accents, semantic } = THEME.colors;
+const gray = '#6b7280';
+const grayLight = '#9ca3af';
 
 const nodeStyle = {
   background: 'rgba(255, 255, 255, 0.05)',
@@ -34,8 +39,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 0 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(59, 130, 246, 0.5)',
-      boxShadow: '0 0 30px rgba(59, 130, 246, 0.3)',
+      border: `2px solid ${accents.blue}80`,
+      boxShadow: `0 0 30px ${accents.blue}4D`,
     },
   },
   {
@@ -44,8 +49,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 120 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(6, 182, 212, 0.5)',
-      boxShadow: '0 0 30px rgba(6, 182, 212, 0.3)',
+      border: `2px solid ${accents.cyan}80`,
+      boxShadow: `0 0 30px ${accents.cyan}4D`,
     },
   },
   {
@@ -85,8 +90,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 600 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(16, 185, 129, 0.5)',
-      boxShadow: '0 0 30px rgba(16, 185, 129, 0.3)',
+      border: `2px solid ${accents.emerald}80`,
+      boxShadow: `0 0 30px ${accents.emerald}4D`,
     },
   },
 ];
@@ -98,9 +103,9 @@ const initialEdges: Edge[] = [
     target: '2',
     label: 'Message/Command',
     animated: true,
-    style: { stroke: '#3b82f6', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#3b82f6' },
-    labelStyle: { fill: '#3b82f6', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.blue, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.blue },
+    labelStyle: { fill: accents.blue, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -109,9 +114,9 @@ const initialEdges: Edge[] = [
     target: '3',
     label: 'Update',
     animated: true,
-    style: { stroke: '#06b6d4', strokeWidth: 3 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#06b6d4' },
-    labelStyle: { fill: '#06b6d4', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.cyan, strokeWidth: 3 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.cyan },
+    labelStyle: { fill: accents.cyan, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -120,9 +125,9 @@ const initialEdges: Edge[] = [
     target: '4',
     label: 'Check State',
     animated: true,
-    style: { stroke: '#8b5cf6', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#8b5cf6' },
-    labelStyle: { fill: '#8b5cf6', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.purple, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.purple },
+    labelStyle: { fill: accents.purple, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -131,9 +136,9 @@ const initialEdges: Edge[] = [
     target: '5',
     label: 'Route',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -142,9 +147,9 @@ const initialEdges: Edge[] = [
     target: '6',
     label: 'Query DB',
     animated: true,
-    style: { stroke: '#3b82f6', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#3b82f6' },
-    labelStyle: { fill: '#3b82f6', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.blue, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.blue },
+    labelStyle: { fill: accents.blue, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -153,9 +158,9 @@ const initialEdges: Edge[] = [
     target: '7',
     label: 'Cache State',
     animated: true,
-    style: { stroke: '#ef4444', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#ef4444' },
-    labelStyle: { fill: '#ef4444', fontWeight: 600, fontSize: 12 },
+    style: { stroke: semantic.error, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: semantic.error },
+    labelStyle: { fill: semantic.error, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -163,9 +168,9 @@ const initialEdges: Edge[] = [
     source: '6',
     target: '8',
     label: 'Data',
-    style: { stroke: '#6b7280', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#6b7280' },
-    labelStyle: { fill: '#9ca3af', fontWeight: 600, fontSize: 12 },
+    style: { stroke: gray, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: gray },
+    labelStyle: { fill: grayLight, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -173,9 +178,9 @@ const initialEdges: Edge[] = [
     source: '7',
     target: '8',
     label: 'Cached',
-    style: { stroke: '#6b7280', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#6b7280' },
-    labelStyle: { fill: '#9ca3af', fontWeight: 600, fontSize: 12 },
+    style: { stroke: gray, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: gray },
+    labelStyle: { fill: grayLight, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -184,9 +189,9 @@ const initialEdges: Edge[] = [
     target: '2',
     label: 'Send Message',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
 ];
@@ -196,7 +201,7 @@ export default function TelegramBotsFlow({ embedded = false }: { embedded?: bool
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div className={`relative w-full rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0f] ${embedded ? 'h-full' : 'h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl'}`}>
+    <div className={`relative w-full rounded-xl overflow-hidden border border-white/10 bg-background ${embedded ? 'h-full' : 'h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl'}`}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -205,7 +210,7 @@ export default function TelegramBotsFlow({ embedded = false }: { embedded?: bool
         fitView
         fitViewOptions={{ padding: embedded ? 0.6 : 0.2 }}
         attributionPosition="bottom-left"
-        className="bg-[#0a0a0f]"
+        className="bg-background"
         panOnDrag={!embedded}
         zoomOnScroll={!embedded}
         nodesDraggable={!embedded}
@@ -225,7 +230,7 @@ export default function TelegramBotsFlow({ embedded = false }: { embedded?: bool
             />
             <MiniMap
               className="!hidden sm:!block !bg-white/5 !border !border-white/10 !rounded-lg"
-              nodeColor={() => '#3b82f6'}
+              nodeColor={() => accents.blue}
               maskColor="rgba(0, 0, 0, 0.6)"
               position="bottom-right"
             />

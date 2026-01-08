@@ -9,13 +9,14 @@
 import { useEffect, useRef, useCallback, useMemo } from 'react';
 import { CodeCompilationBackground } from './CodeCompilationBackground';
 import type { BackgroundConfig } from './types';
+import { THEME } from '@/config/theme.config';
 
 const DEFAULT_CONFIG: BackgroundConfig = {
     colors: {
-        primary: '#0891b2',
-        primaryLight: '#22d3ee',
-        primaryDark: '#0e7490',
-        background: '#0a0a0f',
+        primary: THEME.canvas.primary,
+        primaryLight: THEME.canvas.primaryLight,
+        primaryDark: THEME.canvas.primaryDark,
+        background: THEME.canvas.background,
     },
     animation: {
         mouseInteractionRadius: 250,

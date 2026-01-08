@@ -12,6 +12,10 @@ import ReactFlow, {
   MarkerType,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
+import { THEME } from '@/config/theme.config';
+
+const { accents } = THEME.colors;
+const gray = '#6b7280';
 
 const nodeStyle = {
   background: 'rgba(255, 255, 255, 0.05)',
@@ -34,8 +38,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 0 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(99, 102, 241, 0.5)',
-      boxShadow: '0 0 30px rgba(99, 102, 241, 0.3)',
+      border: `2px solid ${accents.indigo}80`,
+      boxShadow: `0 0 30px ${accents.indigo}4D`,
     },
   },
   {
@@ -44,8 +48,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 120 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(139, 92, 246, 0.5)',
-      boxShadow: '0 0 30px rgba(139, 92, 246, 0.3)',
+      border: `2px solid ${accents.purple}80`,
+      boxShadow: `0 0 30px ${accents.purple}4D`,
     },
   },
   {
@@ -66,8 +70,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 360 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(236, 72, 153, 0.5)',
-      boxShadow: '0 0 30px rgba(236, 72, 153, 0.3)',
+      border: `2px solid ${accents.pink}80`,
+      boxShadow: `0 0 30px ${accents.pink}4D`,
     },
   },
   {
@@ -95,8 +99,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 600 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(16, 185, 129, 0.5)',
-      boxShadow: '0 0 30px rgba(16, 185, 129, 0.3)',
+      border: `2px solid ${accents.emerald}80`,
+      boxShadow: `0 0 30px ${accents.emerald}4D`,
     },
   },
 ];
@@ -108,9 +112,9 @@ const initialEdges: Edge[] = [
     target: '2',
     label: 'Create Payment',
     animated: true,
-    style: { stroke: '#6366f1', strokeWidth: 3 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#6366f1' },
-    labelStyle: { fill: '#6366f1', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.indigo, strokeWidth: 3 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.indigo },
+    labelStyle: { fill: accents.indigo, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -119,9 +123,9 @@ const initialEdges: Edge[] = [
     target: '3',
     label: 'Intent',
     animated: true,
-    style: { stroke: '#8b5cf6', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#8b5cf6' },
-    labelStyle: { fill: '#8b5cf6', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.purple, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.purple },
+    labelStyle: { fill: accents.purple, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -130,9 +134,9 @@ const initialEdges: Edge[] = [
     target: '4',
     label: 'Dedup',
     animated: true,
-    style: { stroke: '#f59e0b', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#f59e0b' },
-    labelStyle: { fill: '#f59e0b', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.amber, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.amber },
+    labelStyle: { fill: accents.amber, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -141,9 +145,9 @@ const initialEdges: Edge[] = [
     target: '5',
     label: 'Success/Fail',
     animated: true,
-    style: { stroke: '#ec4899', strokeWidth: 3 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#ec4899' },
-    labelStyle: { fill: '#ec4899', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.pink, strokeWidth: 3 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.pink },
+    labelStyle: { fill: accents.pink, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -152,9 +156,9 @@ const initialEdges: Edge[] = [
     target: '6',
     label: 'HMAC',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -163,9 +167,9 @@ const initialEdges: Edge[] = [
     target: '7',
     label: 'Process',
     animated: true,
-    style: { stroke: '#06b6d4', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#06b6d4' },
-    labelStyle: { fill: '#06b6d4', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.cyan, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.cyan },
+    labelStyle: { fill: accents.cyan, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -174,17 +178,17 @@ const initialEdges: Edge[] = [
     target: '8',
     label: 'Reconcile',
     animated: true,
-    style: { stroke: '#8b5cf6', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#8b5cf6' },
-    labelStyle: { fill: '#8b5cf6', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.purple, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.purple },
+    labelStyle: { fill: accents.purple, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
     id: 'e6-9',
     source: '6',
     target: '9',
-    style: { stroke: '#6b7280', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#6b7280' },
+    style: { stroke: gray, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: gray },
   },
   {
     id: 'e7-9',
@@ -192,17 +196,17 @@ const initialEdges: Edge[] = [
     target: '9',
     label: 'Notify',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
     id: 'e8-9',
     source: '8',
     target: '9',
-    style: { stroke: '#6b7280', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#6b7280' },
+    style: { stroke: gray, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: gray },
   },
 ];
 
@@ -211,7 +215,7 @@ export default function PaymentFlow({ embedded = false }: { embedded?: boolean }
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div className={`relative w-full rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0f] ${embedded ? 'h-full' : 'h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl'}`}>
+    <div className={`relative w-full rounded-xl overflow-hidden border border-white/10 bg-background ${embedded ? 'h-full' : 'h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl'}`}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -220,7 +224,7 @@ export default function PaymentFlow({ embedded = false }: { embedded?: boolean }
         fitView
         fitViewOptions={{ padding: embedded ? 0.6 : 0.2 }}
         attributionPosition="bottom-left"
-        className="bg-[#0a0a0f]"
+        className="bg-background"
         panOnDrag={!embedded}
         zoomOnScroll={!embedded}
         nodesDraggable={!embedded}
@@ -241,10 +245,10 @@ export default function PaymentFlow({ embedded = false }: { embedded?: boolean }
             <MiniMap
               className="!hidden sm:!block !bg-white/5 !border !border-white/10 !rounded-lg"
               nodeColor={(node) => {
-                if (node.id === '1') return '#6366f1';
-                if (node.id === '2' || node.id === '3') return '#8b5cf6';
-                if (node.id === '5') return '#ec4899';
-                return '#10b981';
+                if (node.id === '1') return accents.indigo;
+                if (node.id === '2' || node.id === '3') return accents.purple;
+                if (node.id === '5') return accents.pink;
+                return accents.emerald;
               }}
               maskColor="rgba(0, 0, 0, 0.6)"
               position="bottom-right"

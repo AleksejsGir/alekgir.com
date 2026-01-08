@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  /* Primary teal - brand color */
-  --primary: #0891b2;
-  --primary-light: #22d3ee;
-  --primary-dark: #0e7490;
+  /* Primary cyan - matched to logo */
+  --primary: #17A2B8;
+  --primary-light: #40E0D0;
+  --primary-dark: #0D8A9E;
 
-  /* Dark theme backgrounds */
-  --background: #0a0a0f;
-  --surface: #12121a;
-  --surface-light: #1a1a26;
-  --accent: #1f1f2e;
-  --secondary: #0a0a0f;
+  /* Dark theme backgrounds - matched to logo's charcoal */
+  --background: #0d0d12;
+  --surface: #16161e;
+  --surface-light: #1e1e28;
+  --accent: #252532;
+  --secondary: #0d0d12;
 
   /* Semantic colors */
   --success: #10b981;
@@ -22,12 +22,12 @@
 
   /* Text colors */
   --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
+  --text-secondary: #B0B0B8;
   --text-muted: #71717a;
 
   /* Card/element backgrounds */
-  --card-bg: #16161f;
-  --card-border: #2a2a3a;
+  --card-bg: #18181f;
+  --card-border: #2d2d3a;
 }
 
 * {

@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       subject: `New Project Inquiry from ${name} - ${projectType}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
-          <div style="background: linear-gradient(to right, #0891b2, #9333ea); color: white; padding: 30px; text-align: center;">
+          <div style="background: linear-gradient(to right, #17A2B8, #9333ea); color: white; padding: 30px; text-align: center;">
             <h1 style="margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.025em;">New Project Inquiry</h1>
             <p style="margin: 5px 0 0; opacity: 0.8;">Message from alekgir.com</p>
           </div>
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
             <div style="margin-bottom: 25px;">
               <p style="text-transform: uppercase; font-size: 11px; font-weight: 700; color: #6b7280; margin: 0 0 5px; letter-spacing: 0.05em;">Client Details</p>
               <p style="margin: 0; font-size: 16px;"><strong>Name:</strong> ${name}</p>
-              <p style="margin: 5px 0 0; font-size: 16px;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #0891b2; text-decoration: none;">${email}</a></p>
+              <p style="margin: 5px 0 0; font-size: 16px;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #17A2B8; text-decoration: none;">${email}</a></p>
             </div>
             
             <div style="display: grid; grid-template-cols: 1fr 1fr; gap: 20px; margin-bottom: 25px; padding: 20px; background: #f9fafb; border-radius: 8px;">

@@ -12,6 +12,10 @@ import ReactFlow, {
   MarkerType,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
+import { THEME } from '@/config/theme.config';
+
+const { accents } = THEME.colors;
+const gray = '#6b7280';
 
 const nodeStyle = {
   background: 'rgba(255, 255, 255, 0.05)',
@@ -34,19 +38,18 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 0 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(236, 72, 153, 0.5)',
-      boxShadow: '0 0 30px rgba(236, 72, 153, 0.3)',
+      border: `2px solid ${accents.pink}80`,
+      boxShadow: `0 0 30px ${accents.pink}4D`,
     },
   },
-  // Django REST Framework Branch
   {
     id: '2',
     data: { label: '🟢 Django REST' },
     position: { x: 50, y: 120 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(16, 185, 129, 0.5)',
-      boxShadow: '0 0 30px rgba(16, 185, 129, 0.3)',
+      border: `2px solid ${accents.emerald}80`,
+      boxShadow: `0 0 30px ${accents.emerald}4D`,
     },
   },
   {
@@ -67,15 +70,14 @@ const initialNodes: Node[] = [
     position: { x: 50, y: 440 },
     style: nodeStyle,
   },
-  // FastAPI Branch
   {
     id: '6',
     data: { label: '⚡ FastAPI' },
     position: { x: 450, y: 120 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(6, 182, 212, 0.5)',
-      boxShadow: '0 0 30px rgba(6, 182, 212, 0.3)',
+      border: `2px solid ${accents.cyan}80`,
+      boxShadow: `0 0 30px ${accents.cyan}4D`,
     },
   },
   {
@@ -96,7 +98,6 @@ const initialNodes: Node[] = [
     position: { x: 450, y: 440 },
     style: nodeStyle,
   },
-  // Common nodes
   {
     id: '10',
     data: { label: '📚 OpenAPI Docs' },
@@ -110,23 +111,22 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 640 },
     style: {
       ...nodeStyle,
-      border: '2px solid rgba(245, 158, 11, 0.5)',
-      boxShadow: '0 0 30px rgba(245, 158, 11, 0.3)',
+      border: `2px solid ${accents.amber}80`,
+      boxShadow: `0 0 30px ${accents.amber}4D`,
     },
   },
 ];
 
 const initialEdges: Edge[] = [
-  // Django REST Flow
   {
     id: 'e1-2',
     source: '1',
     target: '2',
     label: 'Sync',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -135,9 +135,9 @@ const initialEdges: Edge[] = [
     target: '3',
     label: 'Verify',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -146,9 +146,9 @@ const initialEdges: Edge[] = [
     target: '4',
     label: 'Validate',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -157,28 +157,27 @@ const initialEdges: Edge[] = [
     target: '5',
     label: 'Execute',
     animated: true,
-    style: { stroke: '#10b981', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#10b981' },
-    labelStyle: { fill: '#10b981', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.emerald, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.emerald },
+    labelStyle: { fill: accents.emerald, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
     id: 'e5-10',
     source: '5',
     target: '10',
-    style: { stroke: '#6b7280', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#6b7280' },
+    style: { stroke: gray, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: gray },
   },
-  // FastAPI Flow
   {
     id: 'e1-6',
     source: '1',
     target: '6',
     label: 'Async',
     animated: true,
-    style: { stroke: '#06b6d4', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#06b6d4' },
-    labelStyle: { fill: '#06b6d4', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.cyan, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.cyan },
+    labelStyle: { fill: accents.cyan, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -187,9 +186,9 @@ const initialEdges: Edge[] = [
     target: '7',
     label: 'Verify',
     animated: true,
-    style: { stroke: '#06b6d4', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#06b6d4' },
-    labelStyle: { fill: '#06b6d4', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.cyan, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.cyan },
+    labelStyle: { fill: accents.cyan, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -198,9 +197,9 @@ const initialEdges: Edge[] = [
     target: '8',
     label: 'Validate',
     animated: true,
-    style: { stroke: '#06b6d4', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#06b6d4' },
-    labelStyle: { fill: '#06b6d4', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.cyan, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.cyan },
+    labelStyle: { fill: accents.cyan, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -209,28 +208,27 @@ const initialEdges: Edge[] = [
     target: '9',
     label: 'Execute',
     animated: true,
-    style: { stroke: '#06b6d4', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#06b6d4' },
-    labelStyle: { fill: '#06b6d4', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.cyan, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.cyan },
+    labelStyle: { fill: accents.cyan, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
     id: 'e9-10',
     source: '9',
     target: '10',
-    style: { stroke: '#6b7280', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#6b7280' },
+    style: { stroke: gray, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: gray },
   },
-  // Common path
   {
     id: 'e10-11',
     source: '10',
     target: '11',
     label: 'Auto-generated',
     animated: true,
-    style: { stroke: '#f59e0b', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#f59e0b' },
-    labelStyle: { fill: '#f59e0b', fontWeight: 600, fontSize: 12 },
+    style: { stroke: accents.amber, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: accents.amber },
+    labelStyle: { fill: accents.amber, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
 ];
@@ -240,7 +238,7 @@ export default function APIDevFlow({ embedded = false }: { embedded?: boolean })
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div className={`relative w-full rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0f] ${embedded ? 'h-full' : 'h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl'}`}>
+    <div className={`relative w-full rounded-xl overflow-hidden border border-white/10 bg-background ${embedded ? 'h-full' : 'h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl'}`}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -249,7 +247,7 @@ export default function APIDevFlow({ embedded = false }: { embedded?: boolean })
         fitView
         fitViewOptions={{ padding: embedded ? 0.6 : 0.2 }}
         attributionPosition="bottom-left"
-        className="bg-[#0a0a0f]"
+        className="bg-background"
         panOnDrag={!embedded}
         zoomOnScroll={!embedded}
         nodesDraggable={!embedded}
@@ -270,9 +268,9 @@ export default function APIDevFlow({ embedded = false }: { embedded?: boolean })
             <MiniMap
               className="!hidden sm:!block !bg-white/5 !border !border-white/10 !rounded-lg"
               nodeColor={(node) => {
-                if (node.id === '2' || node.id === '3' || node.id === '4' || node.id === '5') return '#10b981';
-                if (node.id === '6' || node.id === '7' || node.id === '8' || node.id === '9') return '#06b6d4';
-                return '#ec4899';
+                if (node.id === '2' || node.id === '3' || node.id === '4' || node.id === '5') return accents.emerald;
+                if (node.id === '6' || node.id === '7' || node.id === '8' || node.id === '9') return accents.cyan;
+                return accents.pink;
               }}
               maskColor="rgba(0, 0, 0, 0.6)"
               position="bottom-right"
