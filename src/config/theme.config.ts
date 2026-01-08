@@ -76,9 +76,31 @@ export const THEME = {
         primaryDark: "#2F90BC",    // Darker
         background: "#11161B",     // Same as UI background
     },
+
+    // Main accent gradient - PRIMARY BRAND ELEMENT
+    // Usage: "bg-gradient-to-r from-primary to-primary-light"
+    // or: THEME.gradients.primary.css
+    gradients: {
+        primary: {
+            from: "#34A8CE",       // primary.DEFAULT
+            to: "#6FD4F2",         // primary.light
+            css: "bg-gradient-to-r from-primary to-primary-light",
+            textCss: "text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light",
+        },
+        glow: {
+            from: "#6FD4F2",
+            to: "#9FE9FF",
+            css: "bg-gradient-to-r from-primary-light to-[#9FE9FF]",
+        },
+    },
 } as const;
 
 // Type exports for TypeScript support
 export type ThemeColors = typeof THEME.colors;
 export type CanvasColors = typeof THEME.canvas;
 export type AccentColors = typeof THEME.colors.accents;
+export type ThemeGradients = typeof THEME.gradients;
+
+// CSS class constants for easy import
+export const GRADIENT_TEXT = THEME.gradients.primary.textCss;
+export const GRADIENT_BG = THEME.gradients.primary.css;

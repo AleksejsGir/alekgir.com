@@ -32,7 +32,7 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-0">
+    <section className="relative min-h-screen flex items-center lg:items-start justify-center overflow-hidden px-4 sm:px-0">
       {/* 3D Background - Hero specific Matrix rain */}
       <HeroBackground3D />
 
@@ -41,7 +41,7 @@ export default function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 w-full py-12 sm:py-20"
+        className="relative z-10 w-full py-12 sm:py-20 lg:pt-48"
         variants={staggerContainerVariants}
         initial="hidden"
         animate="visible"
@@ -50,7 +50,7 @@ export default function Hero() {
           {/* TOP: Badge - absolute on desktop so it doesn't push content */}
           <motion.div
             variants={slideUpVariants}
-            className="mb-6 sm:mb-8 text-center lg:absolute lg:top-24 lg:inset-x-0 lg:flex lg:justify-center lg:mb-0"
+            className="mb-6 sm:mb-8 text-center lg:absolute lg:top-32 lg:inset-x-0 lg:flex lg:justify-center lg:mb-0"
           >
             <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 text-primary-light rounded-full text-xs sm:text-sm font-medium border border-primary/30">
               <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
@@ -96,29 +96,41 @@ export default function Hero() {
                 Building scalable microservices with Python/Go backend & React frontend
               </motion.p>
 
-              {/* Specializations - Centered on mobile, left on desktop */}
+              {/* Specializations - 2 columns on desktop */}
               <motion.div
                 variants={slideUpVariants}
-                className="mb-6 sm:mb-8 space-y-2 sm:space-y-3"
+                className="mb-6 sm:mb-8"
               >
-                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white mb-3 sm:mb-4 uppercase tracking-wider text-text-muted text-center lg:text-left">Specializing in:</h2>
-                {[
-                  'Microservices & Scalable Apps',
-                  'AI Integration (MCP, OpenAI)',
-                  'Clean Architecture & SOLID',
-                  '75%+ Test Coverage & TDD'
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    className="flex items-center lg:items-start justify-center lg:justify-start gap-2 sm:gap-3 text-white"
-                  >
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)] flex-shrink-0" />
-                    <span className="text-sm sm:text-base lg:text-lg">{item}</span>
-                  </motion.div>
-                ))}
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-black mb-4 sm:mb-6 text-center lg:text-left tracking-tight">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">Specializing in:</span>
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:gap-y-3">
+                  {[
+                    // Column 1
+                    'Microservices & Scalable Apps',
+                    'AI Integration (MCP, OpenAI)',
+                    'End-to-End Project Delivery',
+                    'From Idea to Deployment',
+                    'Long-term Maintenance',
+                    // Column 2
+                    'REST API Development',
+                    'Database Design (PostgreSQL)',
+                    'Docker & DevOps',
+                    'Clean Architecture & SOLID',
+                    '75%+ Test Coverage & TDD'
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 + i * 0.05 }}
+                      className="flex items-start justify-center lg:justify-start gap-2 sm:gap-3 text-white"
+                    >
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)] flex-shrink-0 mt-1.5 sm:mt-2" />
+                      <span className="text-sm sm:text-base lg:text-lg">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
 
             </div>
@@ -164,7 +176,7 @@ export default function Hero() {
             <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <motion.button
                 onClick={scrollToContact}
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white font-semibold rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary-dark transition-all duration-300 text-sm sm:text-base"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary-light text-white font-semibold rounded-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:brightness-110 transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
