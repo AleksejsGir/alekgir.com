@@ -11,14 +11,14 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alekgirdev.com"),
+  metadataBase: new URL("https://alekgir.com"),
   title: {
     default: "Aleksejs Giruckis | Full-Stack Developer | Python, Django, React",
-    template: "%s | AlekGirDev"
+    template: "%s | AlekGir"
   },
   description: "Full-Stack Developer in UK specializing in Python, Django, and React. European-certified (94/100) with 3+ years production experience. Available for full-time opportunities.",
-  keywords: ["Full-Stack Developer", "Python Developer", "Django Developer", "React Developer", "UK Developer", "Cambridgeshire Developer", "Django REST Framework", "Next.js Developer", "PostgreSQL Developer", "TypeScript Developer", "Telegram Bot Development", "Web Application Development", "API Development", "AI Automation", "Aleksejs Giruckis", "AlekGirDev", "European Certified Developer"],
-  authors: [{ name: "Aleksejs Giruckis", url: "https://alekgirdev.com" }],
+  keywords: ["Full-Stack Developer", "Python Developer", "Django Developer", "React Developer", "UK Developer", "Cambridgeshire Developer", "Django REST Framework", "Next.js Developer", "PostgreSQL Developer", "TypeScript Developer", "Telegram Bot Development", "Web Application Development", "API Development", "AI Automation", "Aleksejs Giruckis", "AlekGir", "European Certified Developer"],
+  authors: [{ name: "Aleksejs Giruckis", url: "https://alekgir.com" }],
   creator: "Aleksejs Giruckis",
   icons: {
     icon: [
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://alekgirdev.com",
+    url: "https://alekgir.com",
     title: "Aleksejs Giruckis - Full-Stack Developer",
     description: "Full-Stack Developer specializing in Python, Django, React. UK-based with European certification (94/100).",
-    siteName: "AlekGirDev",
+    siteName: "AlekGir",
     images: [
       {
-        url: "/images/alekgirdev_logo.png",
+        url: "/images/alekgir_logo.JPG",
         width: 1200,
         height: 630,
         alt: "Aleksejs Giruckis - Full-Stack Developer",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aleksejs Giruckis - Full-Stack Developer",
     description: "Python, Django, React developer. European-certified (94/100). UK-based.",
-    images: ["/images/alekgirdev_logo.png"],
+    images: ["/images/alekgir_logo.JPG"],
   },
   robots: {
     index: true,

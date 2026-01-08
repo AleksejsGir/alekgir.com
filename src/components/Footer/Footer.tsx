@@ -29,8 +29,8 @@ export default function Footer() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/alekgirdev_logo.png"
-                alt="AlekGirDev"
+                src="/images/alekgir_logo.JPG"
+                alt="AlekGir"
                 className="h-16 w-auto object-contain"
               />
             </motion.button>
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-card-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-text-muted">
-          <p>&copy; {currentYear} AlekGirDev. All rights reserved.</p>
+          <p>&copy; {currentYear} AlekGir. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

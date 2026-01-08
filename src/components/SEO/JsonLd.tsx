@@ -7,8 +7,8 @@ const JsonLd = () => {
     const websiteData = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        name: "AlekGirDev",
-        url: "https://alekgirdev.com",
+        name: "AlekGir",
+        url: "https://alekgir.com",
         description: "Full-Stack Developer Portfolio - Python, Django, React Development Services",
         publisher: {
             "@type": "Person",
@@ -24,8 +24,8 @@ const JsonLd = () => {
     const serviceData = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        name: "AlekGirDev",
-        url: "https://alekgirdev.com",
+        name: "AlekGir",
+        url: "https://alekgir.com",
         description: "Professional web development services specializing in Python, Django, and React applications",
         provider: {
             "@type": "Person",
@@ -109,14 +109,14 @@ const JsonLd = () => {
     const portfolioData = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: "AlekGirDev Portfolio",
+        name: "AlekGir Portfolio",
         description: "Full-Stack development projects and case studies",
         numberOfItems: projects.length,
         itemListElement: projects.map((project, index) => ({
             "@type": "ListItem",
             position: index + 1,
             name: project.name,
-            url: `https://alekgirdev.com/projects/${project.slug}`,
+            url: `https://alekgir.com/projects/${project.slug}`,
             description: project.description
         }))
     };

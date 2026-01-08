@@ -7,9 +7,9 @@
 export const SEO_CONFIG = {
   // Site Information
   site: {
-    name: "AlekGirDev",
+    name: "AlekGir",
     fullName: "Aleksejs Giruckis - Full-Stack Developer",
-    url: "https://alekgirdev.com",
+    url: "https://alekgir.com",
     locale: "en_GB",
     author: "Aleksejs Giruckis",
   },
@@ -196,9 +196,9 @@ export const SEO_CONFIG = {
 
   // Images
   images: {
-    logo: "/images/alekgirdev_logo.png",
-    ogImage: "/images/alekgirdev_logo.png",
-    video: "/images/alekgirdev.mp4",
+    logo: "/images/alekgir_logo.JPG",
+    ogImage: "/images/alekgir_logo.JPG",
+    video: "/images/alekgir.mp4",
   },
 } as const;
 

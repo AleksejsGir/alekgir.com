@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'AlekGirDev Contact <onboarding@resend.dev>', // Resend standard sender if domain not verified
+      from: 'AlekGir Contact <onboarding@resend.dev>', // Resend standard sender if domain not verified
       to: process.env.CONTACT_RECEIVER || 'giruckisaleksejs@gmail.com',
       replyTo: email,
       subject: `New Project Inquiry from ${name} - ${projectType}`,
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
           <div style="background: linear-gradient(to right, #0891b2, #9333ea); color: white; padding: 30px; text-align: center;">
             <h1 style="margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.025em;">New Project Inquiry</h1>
-            <p style="margin: 5px 0 0; opacity: 0.8;">Message from alekgirdev.com</p>
+            <p style="margin: 5px 0 0; opacity: 0.8;">Message from alekgir.com</p>
           </div>
           <div style="padding: 30px; background: white;">
             <div style="margin-bottom: 25px;">
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
           </div>
           <div style="background: #f3f4f6; padding: 20px; text-align: center; border-top: 1px solid #e5e7eb;">
             <p style="margin: 0; font-size: 12px; color: #9ca3af;">
-              © ${new Date().getFullYear()} AlekGirDev. This is an automated notification.
+              © ${new Date().getFullYear()} AlekGir. This is an automated notification.
             </p>
           </div>
         </div>

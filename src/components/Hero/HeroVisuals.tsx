@@ -28,13 +28,13 @@ export default function HeroVisuals() {
                     }}
                 >
                     <video
-                        src="/images/alekgirdev.mp4"
-                        poster="/images/alekgirdev_logo.png"
+                        src="/images/alekgir.mp4"
+                        poster="/images/alekgir_logo.JPG"
                         autoPlay
                         loop
                         muted
                         playsInline
-                        aria-label="AlekGirDev - Full-Stack Developer Portfolio Video"
+                        aria-label="AlekGir - Full-Stack Developer Portfolio Video"
                         className="w-full h-full object-cover opacity-90"
                     />
                 </motion.div>

@@ -8,15 +8,15 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-FF0080?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?style=for-the-badge&logo=vercel)](https://alekgirdev.com)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?style=for-the-badge&logo=vercel)](https://alekgir.com)
 
 <br />
 
-**[🌐 Live Demo](https://alekgirdev.com)** · **[📧 Contact](mailto:giruckisaleksejs@gmail.com)** · **[💼 LinkedIn](https://www.linkedin.com/in/aleksejs-giruckis-0569a7353)**
+**[🌐 Live Demo](https://alekgir.com)** · **[📧 Contact](mailto:giruckisaleksejs@gmail.com)** · **[💼 LinkedIn](https://www.linkedin.com/in/aleksejs-giruckis-0569a7353)**
 
 <br />
 
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=AleksejsGir.alekgirdev.com&left_color=%23555555&right_color=%238B5CF6)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=AleksejsGir.alekgir.com&left_color=%23555555&right_color=%238B5CF6)
 
 </div>
 
@@ -88,10 +88,10 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/AleksejsGir/alekgirdev.com.git
+git clone https://github.com/AleksejsGir/alekgir.com.git
 
 # Navigate to project
-cd alekgirdev.com
+cd alekgir.com
 
 # Install dependencies
 npm install
@@ -161,7 +161,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <div align="center">
 
-### Built with ❤️ by [Aleksejs Giruckis](https://alekgirdev.com)
+### Built with ❤️ by [Aleksejs Giruckis](https://alekgir.com)
 
 **[⬆ Back to Top](#alekgir)**
 

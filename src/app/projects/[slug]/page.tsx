@@ -30,13 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: project.fullDescription,
         keywords: [...project.frontend, ...project.backend, project.category],
         openGraph: {
-            title: `${project.name} | AlekGirDev`,
+            title: `${project.name} | AlekGir`,
             description: project.description,
             type: "article",
-            url: `https://alekgirdev.com/projects/${project.slug}`,
+            url: `https://alekgir.com/projects/${project.slug}`,
             images: [
                 {
-                    url: "/images/alekgirdev_logo.png",
+                    url: "/images/alekgir_logo.JPG",
                     width: 1200,
                     height: 630,
                     alt: project.name,
@@ -45,9 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         twitter: {
             card: "summary_large_image",
-            title: `${project.name} | AlekGirDev`,
+            title: `${project.name} | AlekGir`,
             description: project.description,
-            images: ["/images/alekgirdev_logo.png"],
+            images: ["/images/alekgir_logo.JPG"],
         },
     };
 }

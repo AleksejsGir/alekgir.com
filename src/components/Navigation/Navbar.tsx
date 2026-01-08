@@ -75,8 +75,8 @@ export default function Navbar() {
                 {/* Using regular img tag for logo if optimization is tricky with dynamic paths, OR Next.js Image */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/alekgirdev_logo.png"
-                  alt="AlekGirDev"
+                  src="/images/alekgir_logo.JPG"
+                  alt="AlekGir"
                   className="h-full w-auto object-contain"
                 />
               </a>
