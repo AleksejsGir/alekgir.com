@@ -84,8 +84,10 @@ export default function AboutSection() {
           {/* Right Column: Content */}
           <motion.div variants={staggerContainerVariants}>
             <motion.div variants={slideUpVariants} className="mb-2">
-              <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 rounded-full border border-primary/20">
-                About Me
+              <span className="inline-block px-3 py-1 rounded-full border border-primary/30 bg-primary/10">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light text-xs font-black uppercase tracking-wider">
+                  About Me
+                </span>
               </span>
             </motion.div>
 

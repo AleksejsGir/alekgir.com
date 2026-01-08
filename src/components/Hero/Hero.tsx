@@ -52,9 +52,11 @@ export default function Hero() {
             variants={slideUpVariants}
             className="mb-6 sm:mb-8 text-center lg:absolute lg:top-32 lg:inset-x-0 lg:flex lg:justify-center lg:mb-0"
           >
-            <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 text-primary-light rounded-full text-xs sm:text-sm font-medium border border-primary/30">
-              <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-              {SEO_CONFIG.structuredData.availability}
+            <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 rounded-full text-xs sm:text-sm font-medium border border-primary/30">
+              <span className="w-2 h-2 bg-gradient-to-r from-primary to-primary-light rounded-full mr-2 animate-pulse" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light font-black">
+                {SEO_CONFIG.structuredData.availability}
+              </span>
             </span>
           </motion.div>
 
@@ -164,10 +166,10 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* AI & Automation Badge - Responsive */}
+            {/* AI & Automation Badge - Gradient style */}
             <motion.div variants={slideUpVariants} className="flex justify-center">
-              <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-lg">
-                <span className="text-purple-400 text-xs font-bold uppercase tracking-wider">AI & Automation:</span>
+              <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-primary/10 border border-primary/30 rounded-lg">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light text-xs font-black uppercase tracking-wider">AI & Automation:</span>
                 <span className="text-white/80 text-xs sm:text-sm font-medium text-center">Go • FastAPI • MCP • n8n</span>
               </div>
             </motion.div>

@@ -181,7 +181,7 @@ export default function ContactForm() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-5 bg-gradient-to-r from-primary to-purple-600 rounded-xl font-black text-lg text-white shadow-[0_0_25px_rgba(8,145,178,0.4)] hover:shadow-[0_0_40px_rgba(8,145,178,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center disabled:opacity-70 disabled:grayscale border border-white/20"
+              className="w-full py-5 bg-gradient-to-r from-primary to-primary-light rounded-xl font-black text-lg text-white shadow-[0_0_25px_rgba(8,145,178,0.4)] hover:shadow-[0_0_40px_rgba(8,145,178,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center disabled:opacity-70 disabled:grayscale border border-white/20"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

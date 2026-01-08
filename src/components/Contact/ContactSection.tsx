@@ -23,7 +23,7 @@ export default function ContactSection() {
         <motion.div variants={slideUpVariants} className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-lg">
-              Let&apos;s Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Together</span>
+              Let&apos;s Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">Together</span>
             </h2>
             <p className="text-xl text-text-secondary leading-relaxed font-medium max-w-lg">
               Have a project in mind? I&apos;m currently available for new opportunities.

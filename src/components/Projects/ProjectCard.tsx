@@ -71,8 +71,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                     <div className="space-y-3 md:space-y-4">
                         {/* Category Badge */}
                         <motion.div custom={0} variants={itemVariants}>
-                            <span className="inline-block px-3 py-1.5 bg-primary/90 text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/30">
-                                {project.category}
+                            <span className="inline-flex items-center px-3 py-1.5 bg-primary/20 border border-primary/30 rounded-full shadow-lg shadow-primary/20">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light text-xs font-black uppercase tracking-wider">
+                                    {project.category}
+                                </span>
                             </span>
                         </motion.div>
 

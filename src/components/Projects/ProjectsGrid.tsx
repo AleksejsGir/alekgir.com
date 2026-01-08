@@ -43,9 +43,11 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary font-bold text-sm uppercase tracking-wider backdrop-blur-md"
+                    className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md"
                 >
-                    Featured Work
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light font-black text-sm uppercase tracking-wider">
+                        Featured Work
+                    </span>
                 </motion.div>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

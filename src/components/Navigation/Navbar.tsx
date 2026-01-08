@@ -92,7 +92,9 @@ export default function Navbar() {
                     e.preventDefault();
                     scrollToSection(link.href);
                   }}
-                  className={`text-base font-bold tracking-tight transition-colors relative ${activeSection === link.href ? 'text-primary' : 'text-gray-300 hover:text-white'
+                  className={`text-base font-bold tracking-tight transition-all relative group ${activeSection === link.href
+                    ? 'text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light'
+                    : 'text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary hover:to-primary-light'
                     }`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
@@ -100,7 +102,7 @@ export default function Navbar() {
                   {link.name}
                   {activeSection === link.href && (
                     <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-primary-light rounded-full"
                       layoutId="activeSection"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
