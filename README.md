@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ AlekGirDev
+# ⚡ AlekGir
 
 ### Full-Stack Developer Portfolio
 
@@ -163,6 +163,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ### Built with ❤️ by [Aleksejs Giruckis](https://alekgirdev.com)
 
-**[⬆ Back to Top](#-alekgirdev)**
+**[⬆ Back to Top](#alekgir)**
 
 </div>
