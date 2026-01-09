@@ -84,8 +84,13 @@ export default function Hero() {
               variants={slideUpVariants}
               className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1] tracking-tighter drop-shadow-2xl max-w-6xl"
             >
-              Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary-light">Full-Stack</span> Engineering
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary-light">Full-Stack</span> Engineering
             </motion.h1>
+
+            {/* Accent Line */}
+            <motion.div variants={slideUpVariants} className="w-full max-w-2xl mx-auto mt-6">
+              <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+            </motion.div>
           </div>
 
 
