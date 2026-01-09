@@ -78,11 +78,11 @@ export const SEO_CONFIG = {
       suffix: "+",
     },
     {
-      key: "certificationScore",
-      value: "94/100",
-      label: "European Certified",
-      numericValue: 94,
-      suffix: "/100",
+      key: "location",
+      value: "Based in",
+      label: "United Kingdom",
+      numericValue: 0,
+      suffix: "",
     },
   ],
 
