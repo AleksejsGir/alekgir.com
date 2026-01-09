@@ -40,10 +40,7 @@ export abstract class BaseCanvasBackground implements ICanvasAnimation {
      */
     public resize(size: CanvasSize): void {
         this.size = size;
-        if (this.canvas) {
-            this.canvas.width = size.width;
-            this.canvas.height = size.height;
-        }
+        // Canvas DOM size is managed by the consumer (React component) to support High-DPI
         this.onResize(size);
     }
 

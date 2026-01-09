@@ -91,7 +91,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                         <motion.p
                             custom={2}
                             variants={itemVariants}
-                            className="text-sm md:text-base text-gray-300 font-medium leading-relaxed line-clamp-3"
+                            className="text-sm md:text-base text-graphite-light font-medium leading-relaxed line-clamp-3"
                         >
                             {project.description}
                         </motion.p>
@@ -109,7 +109,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.5 + idx * 0.05, duration: 0.3 }}
-                                    className="px-2.5 py-1 bg-white/10 text-gray-200 rounded-md text-xs font-semibold border border-white/20 backdrop-blur-sm"
+                                    className="px-2.5 py-1 bg-white/5 text-graphite-lighter rounded-md text-xs font-semibold border border-white/10 backdrop-blur-sm"
                                 >
                                     {tech}
                                 </motion.span>
@@ -121,7 +121,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                     <motion.div custom={4} variants={itemVariants} className="mt-4">
                         <Link
                             href={`/projects/${project.slug}`}
-                            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white text-black rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group/btn text-sm"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white text-black rounded-lg font-bold hover:bg-graphite-lighter transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group/btn text-sm"
                         >
                             View Case
                             <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

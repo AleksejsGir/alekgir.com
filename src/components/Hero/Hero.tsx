@@ -17,11 +17,12 @@ const techColorMap: Record<string, string> = {
   'Python': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
   'Django': 'bg-green-600/20 text-green-400 border-green-600/30',
   'Django REST Framework': 'bg-green-600/20 text-green-400 border-green-600/30',
-  'React': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-  'Next.js': 'bg-blue-400/20 text-blue-300 border-blue-400/30',
-  'TypeScript': 'bg-blue-600/20 text-blue-300 border-blue-600/30',
-  'PostgreSQL': 'bg-cyan-600/20 text-cyan-400 border-cyan-600/30',
-  'Docker': 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
+  // React/Next/TS -> Primary Brand Color (Cyan)
+  'React': 'bg-primary/20 text-primary-light border-primary/30',
+  'Next.js': 'bg-primary/10 text-primary border-primary/30',
+  'TypeScript': 'bg-primary/20 text-primary-light border-primary/30',
+  'PostgreSQL': 'bg-primary/20 text-primary-light border-primary/30',
+  'Docker': 'bg-primary/10 text-primary border-primary/30',
 };
 
 export default function Hero() {
@@ -158,7 +159,7 @@ export default function Hero() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 + index * 0.1 }}
-                    className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium border ${techColorMap[tech] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}
+                    className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium border ${techColorMap[tech] || 'bg-graphite-dark/20 text-graphite-light border-graphite-dark/30'}`}
                   >
                     {tech}
                   </motion.span>

@@ -124,10 +124,10 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
 
     private getRandomColor(): string {
         const colors = [
-            this.config.colors.primary,
-            this.config.colors.primaryLight,
-            'rgba(111, 212, 242, 0.6)', // #6FD4F2 light glow
-            'rgba(52, 168, 206, 0.6)', // #34A8CE primary
+            '#9CA3AF', // graphite.DEFAULT
+            '#D1D5DB', // graphite.light
+            'rgba(209, 213, 219, 0.6)', // graphite.light tranparent
+            'rgba(156, 163, 175, 0.6)', // graphite.DEFAULT transparent
         ];
         return colors[Math.floor(Math.random() * colors.length)];
     }
@@ -199,8 +199,6 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
                 xOffset = Math.sin(Date.now() * 0.005) * force * 20;
 
                 // Add glow effect near mouse (Simulated with opacity instead of expensive shadowBlur)
-                // ctx.shadowBlur = 20 * force;
-                // ctx.shadowColor = this.config.colors.primaryLight;
                 ctx.shadowBlur = 0; // Ensure shadow is off
             } else {
                 ctx.shadowBlur = 0;
@@ -208,8 +206,8 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
 
             // Draw the code line
             ctx.fillStyle = line.compiled
-                ? `rgba(111, 212, 242, ${finalOpacity})` // Compiled - #6FD4F2
-                : `rgba(52, 168, 206, ${finalOpacity * 0.5})`; // Compiling - #34A8CE
+                ? `rgba(229, 231, 235, ${finalOpacity})` // Compiled - #E5E7EB (graphite.lighter)
+                : `rgba(156, 163, 175, ${finalOpacity * 0.5})`; // Compiling - #9CA3AF (graphite.DEFAULT)
 
             ctx.fillText(line.text, line.x + xOffset, line.y);
 
@@ -217,7 +215,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
             if (!line.compiled && Math.random() > 0.95) {
                 const cursorX = line.x + xOffset + textWidth + 2;
                 if (cursorX >= 0 && cursorX <= this.size.width) {
-                    ctx.fillStyle = this.config.colors.primaryLight;
+                    ctx.fillStyle = '#D1D5DB'; // graphite.light
                     ctx.fillRect(cursorX, line.y - 12, 2, 14);
                 }
             }
@@ -237,16 +235,16 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
         const y = 20;
 
         // Background
-        ctx.fillStyle = 'rgba(52, 168, 206, 0.2)'; // #34A8CE
+        ctx.fillStyle = 'rgba(156, 163, 175, 0.2)'; // graphite.DEFAULT
         ctx.fillRect(x, y, barWidth, barHeight);
 
         // Progress
-        ctx.fillStyle = this.config.colors.primaryLight;
+        ctx.fillStyle = '#D1D5DB'; // graphite.light
         ctx.fillRect(x, y, barWidth * this.compilationProgress, barHeight);
 
         // Text
         ctx.font = '10px monospace';
-        ctx.fillStyle = 'rgba(111, 212, 242, 0.6)'; // #6FD4F2
+        ctx.fillStyle = 'rgba(209, 213, 219, 0.6)'; // graphite.light
         ctx.fillText(
             `Building... ${Math.floor(this.compilationProgress * 100)}%`,
             x,
@@ -255,7 +253,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
     }
 
     private drawGrid(ctx: CanvasRenderingContext2D): void {
-        ctx.strokeStyle = 'rgba(52, 168, 206, 0.02)'; // #34A8CE subtle
+        ctx.strokeStyle = 'rgba(156, 163, 175, 0.05)'; // graphite.DEFAULT very subtle
         ctx.lineWidth = 1;
         const gridSize = 50;
 

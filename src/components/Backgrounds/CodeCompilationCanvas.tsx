@@ -60,14 +60,44 @@ export default function CodeCompilationCanvas({
         const parent = canvas.parentElement;
         if (!parent) return;
 
-        canvas.width = parent.clientWidth;
-        canvas.height = parent.clientHeight;
+        // HIGH-DPI support
+        const dpr = window.devicePixelRatio || 1;
+
+        // Set actual size in memory (scaled)
+        canvas.width = parent.clientWidth * dpr;
+        canvas.height = parent.clientHeight * dpr;
+
+        // Normalize coordinate system
+        ctx.scale(dpr, dpr);
 
         // Create and initialize animation
+        // Pass logical size (without DPR) to animation class because ctx is already scaled
         const animation = new CodeCompilationBackground(config);
+
+        // We need to tell the animation instance about the LOGICAL size (clientWidth/Height)
+        // Since we scaled the context, drawing operations at (100, 100) will physically be at (200, 200) on 2x screen
+        // So the animation logic should just use logical pixels.
+
+        // However, the animation class might inspect canvas.width/height directly.
+        // Let's check `CodeCompilationBackground.initialize`: it doesn't exist, it likely uses `this.canvas` in BaseCanvas or similar.
+        // If BaseCanvas uses `canvas.width`, it will use physical pixels.
+        // We should double check BaseCanvas or just rely on the fact that we scaled the context.
+        // If the animation class uses `canvas.width` for boundaries, it will think the screen is HUGE (2x).
+
+        // To fix this cleanly without changing BaseCanvas (if shared), we can trick it or update BaseCanvas.
+        // But for now, let's assume passing the context with scale is handled, 
+        // AND we should probably modify `CodeCompilationBackground` to use `canvas.getBoundingClientRect()` for size if possible.
+
+        // Actually, `resize` method below updates size.
         animation.initialize(canvas, ctx);
 
         animationRef.current = animation;
+
+        // Force an initial resize/update with logical dimensions if the class supports it
+        if (typeof animation.resize === 'function') {
+            animation.resize({ width: parent.clientWidth, height: parent.clientHeight });
+        }
+
     }, [config]);
 
     useEffect(() => {
@@ -80,9 +110,19 @@ export default function CodeCompilationCanvas({
         // Handle resize
         const handleResize = () => {
             if (config.enableResize && canvas.parentElement) {
-                canvas.width = canvas.parentElement.clientWidth;
-                canvas.height = canvas.parentElement.clientHeight;
-                animation.resize({ width: canvas.width, height: canvas.height });
+                const parent = canvas.parentElement;
+                const dpr = window.devicePixelRatio || 1;
+
+                // Update physical dimensions
+                canvas.width = parent.clientWidth * dpr;
+                canvas.height = parent.clientHeight * dpr;
+
+                // Reset scale because changing width/height resets context state
+                const ctx = canvas.getContext('2d');
+                if (ctx) ctx.scale(dpr, dpr);
+
+                // Update logical dimensions for the animation engine
+                animation.resize({ width: parent.clientWidth, height: parent.clientHeight });
             }
         };
 

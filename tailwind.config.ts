@@ -20,6 +20,12 @@ const config: Config = {
         "surface-light": THEME.colors.background.surfaceLight,
         accent: THEME.colors.background.accent,
         secondary: THEME.colors.background.DEFAULT,
+        // Graphite Scale
+        graphite: THEME.colors.graphite.DEFAULT,
+        "graphite-light": THEME.colors.graphite.light,
+        "graphite-lighter": THEME.colors.graphite.lighter,
+        "graphite-dark": THEME.colors.graphite.dark,
+        "graphite-darker": THEME.colors.graphite.darker,
         // Semantic colors
         success: THEME.colors.semantic.success,
         error: THEME.colors.semantic.error,

@@ -15,8 +15,9 @@ import 'reactflow/dist/style.css';
 import { THEME } from '@/config/theme.config';
 
 const { accents, semantic } = THEME.colors;
-const gray = '#6b7280';
-const grayLight = '#9ca3af';
+// Graphite palette from THEME
+const gray = THEME.palette.graphite[600];
+const grayLight = THEME.palette.graphite[500];
 
 const nodeStyle = {
   background: 'rgba(255, 255, 255, 0.05)',
@@ -39,8 +40,9 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 0 },
     style: {
       ...nodeStyle,
-      border: `2px solid ${accents.blue}80`,
-      boxShadow: `0 0 30px ${accents.blue}4D`,
+      // Use Primary Brand Color instead of generic blue
+      border: `2px solid ${THEME.colors.primary.DEFAULT}80`,
+      boxShadow: `0 0 30px ${THEME.colors.primary.DEFAULT}4D`,
     },
   },
   {
@@ -49,8 +51,8 @@ const initialNodes: Node[] = [
     position: { x: 250, y: 120 },
     style: {
       ...nodeStyle,
-      border: `2px solid ${accents.cyan}80`,
-      boxShadow: `0 0 30px ${accents.cyan}4D`,
+      border: `2px solid ${THEME.colors.primary.light}80`,
+      boxShadow: `0 0 30px ${THEME.colors.primary.light}4D`,
     },
   },
   {
@@ -103,9 +105,9 @@ const initialEdges: Edge[] = [
     target: '2',
     label: 'Message/Command',
     animated: true,
-    style: { stroke: accents.blue, strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: accents.blue },
-    labelStyle: { fill: accents.blue, fontWeight: 600, fontSize: 12 },
+    style: { stroke: THEME.colors.primary.DEFAULT, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: THEME.colors.primary.DEFAULT },
+    labelStyle: { fill: THEME.colors.primary.DEFAULT, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -114,9 +116,9 @@ const initialEdges: Edge[] = [
     target: '3',
     label: 'Update',
     animated: true,
-    style: { stroke: accents.cyan, strokeWidth: 3 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: accents.cyan },
-    labelStyle: { fill: accents.cyan, fontWeight: 600, fontSize: 12 },
+    style: { stroke: THEME.colors.primary.light, strokeWidth: 3 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: THEME.colors.primary.light },
+    labelStyle: { fill: THEME.colors.primary.light, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -147,9 +149,9 @@ const initialEdges: Edge[] = [
     target: '6',
     label: 'Query DB',
     animated: true,
-    style: { stroke: accents.blue, strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: accents.blue },
-    labelStyle: { fill: accents.blue, fontWeight: 600, fontSize: 12 },
+    style: { stroke: THEME.colors.primary.DEFAULT, strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: THEME.colors.primary.DEFAULT },
+    labelStyle: { fill: THEME.colors.primary.DEFAULT, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -230,7 +232,7 @@ export default function TelegramBotsFlow({ embedded = false }: { embedded?: bool
             />
             <MiniMap
               className="!hidden sm:!block !bg-white/5 !border !border-white/10 !rounded-lg"
-              nodeColor={() => accents.blue}
+              nodeColor={() => THEME.colors.primary.DEFAULT}
               maskColor="rgba(0, 0, 0, 0.6)"
               position="bottom-right"
             />
@@ -241,28 +243,28 @@ export default function TelegramBotsFlow({ embedded = false }: { embedded?: bool
       {!embedded && (
         <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-lg sm:rounded-xl p-2 sm:p-4 text-[10px] sm:text-xs text-white/80 space-y-1 sm:space-y-2 max-w-[280px] sm:max-w-xs z-10">
           <div className="font-bold text-white text-xs sm:text-sm mb-2 sm:mb-3 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-blue-400" />
+            <span className="w-2 h-2 rounded-full bg-primary" />
             Telegram Bot Flow
           </div>
           <div className="space-y-1 sm:space-y-1.5 text-white/70">
             <div className="flex items-start gap-2">
-              <span className="text-blue-400 mt-0.5">1.</span>
+              <span className="text-primary mt-0.5">1.</span>
               <span>User sends message or command</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-400 mt-0.5">2.</span>
+              <span className="text-primary mt-0.5">2.</span>
               <span>aiogram processes update with FSM</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-400 mt-0.5">3.</span>
+              <span className="text-primary mt-0.5">3.</span>
               <span>Async handlers query PostgreSQL</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-400 mt-0.5">4.</span>
+              <span className="text-primary mt-0.5">4.</span>
               <span>Redis caches state & sessions</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-blue-400 mt-0.5">5.</span>
+              <span className="text-primary mt-0.5">5.</span>
               <span>Bot sends response via Telegram API</span>
             </div>
           </div>

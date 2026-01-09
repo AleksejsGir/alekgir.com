@@ -15,8 +15,8 @@ import 'reactflow/dist/style.css';
 import { THEME } from '@/config/theme.config';
 
 const { accents, semantic } = THEME.colors;
-const gray = '#6b7280';
-const grayLight = '#9ca3af';
+const gray = THEME.palette.graphite[600];
+const grayLight = THEME.palette.graphite[500];
 
 const nodeStyle = {
   background: 'rgba(255, 255, 255, 0.05)',
@@ -49,8 +49,8 @@ const initialNodes: Node[] = [
     position: { x: 100, y: 120 },
     style: {
       ...nodeStyle,
-      border: `2px solid ${accents.blue}80`,
-      boxShadow: `0 0 30px ${accents.blue}4D`,
+      border: `2px solid ${THEME.colors.primary.DEFAULT}80`,
+      boxShadow: `0 0 30px ${THEME.colors.primary.DEFAULT}4D`,
     },
   },
   {
@@ -117,9 +117,9 @@ const initialEdges: Edge[] = [
     target: '2',
     label: 'SQL Queries',
     animated: true,
-    style: { stroke: accents.blue, strokeWidth: 3 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: accents.blue },
-    labelStyle: { fill: accents.blue, fontWeight: 600, fontSize: 12 },
+    style: { stroke: THEME.colors.primary.DEFAULT, strokeWidth: 3 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: THEME.colors.primary.DEFAULT },
+    labelStyle: { fill: THEME.colors.primary.DEFAULT, fontWeight: 600, fontSize: 12 },
     labelBgStyle: { fill: 'rgba(0, 0, 0, 0.7)', fillOpacity: 0.9 },
   },
   {
@@ -245,7 +245,7 @@ export default function DatabaseDevOpsFlow({ embedded = false }: { embedded?: bo
             <MiniMap
               className="!hidden sm:!block !bg-white/5 !border !border-white/10 !rounded-lg"
               nodeColor={(node) => {
-                if (node.id === '2' || node.id === '4' || node.id === '5') return accents.blue;
+                if (node.id === '2' || node.id === '4' || node.id === '5') return THEME.colors.primary.DEFAULT;
                 if (node.id === '3' || node.id === '6' || node.id === '7') return semantic.error;
                 if (node.id === '8') return accents.cyan;
                 return accents.emerald;
@@ -265,7 +265,7 @@ export default function DatabaseDevOpsFlow({ embedded = false }: { embedded?: bo
           </div>
           <div className="space-y-1 sm:space-y-1.5 text-white/70">
             <div className="flex items-start gap-2">
-              <span className="text-blue-400 mt-0.5">🗄️</span>
+              <span className="text-primary mt-0.5">🗄️</span>
               <span>PostgreSQL with PostGIS extensions</span>
             </div>
             <div className="flex items-start gap-2">

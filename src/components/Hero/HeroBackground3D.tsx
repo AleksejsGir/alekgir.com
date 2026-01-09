@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
+import { THEME } from '@/config/theme.config';
 
 interface MatrixColumn {
     x: number;
@@ -88,10 +89,20 @@ export default function HeroBackground3D() {
 
         const fontSize = 14;
 
-        // Set canvas size
+        // Set canvas size with DPR support (Fixes Blur)
         const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            const dpr = window.devicePixelRatio || 1;
+            // Set actual size in memory (scaled to account for extra pixel density)
+            canvas.width = window.innerWidth * dpr;
+            canvas.height = window.innerHeight * dpr;
+
+            // Normalize coordinate system to use css pixels
+            ctx.scale(dpr, dpr);
+
+            // style width/height must match window size
+            canvas.style.width = `${window.innerWidth}px`;
+            canvas.style.height = `${window.innerHeight}px`;
+
             initColumns(canvas);
         };
 
@@ -100,7 +111,11 @@ export default function HeroBackground3D() {
 
         // Mouse tracking
         const handleMouseMove = (e: MouseEvent) => {
-            mouseRef.current = { x: e.clientX, y: e.clientY };
+            const rect = canvas.getBoundingClientRect();
+            mouseRef.current = {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            };
         };
         window.addEventListener('mousemove', handleMouseMove);
 
@@ -108,9 +123,13 @@ export default function HeroBackground3D() {
         const animate = () => {
             if (!ctx || !canvas) return;
 
-            // Clear completely (no trails)
-            ctx.fillStyle = '#11161B'; // THEME background
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Clear completely (no trails) - Use Theme Background
+            ctx.fillStyle = THEME.colors.background.DEFAULT;
+            // We use canvas.width/height (physical pixels) for clearing, but because we scaled via ctx.scale,
+            // we should conceptually clear the logic dimensions. However, fillRect uses current transform.
+            // Safest to reset transform, clear, then restore, OR just clear a huge area.
+            // Since we scaled, `window.innerWidth` is the logical width.
+            ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
             const columns = columnsRef.current;
             const mouse = mouseRef.current;
@@ -124,7 +143,8 @@ export default function HeroBackground3D() {
                 column.y += column.speed;
 
                 // Reset column when it goes off screen
-                if (column.y > canvas.height + column.characters.length * fontSize * 1.5) {
+                const logicalHeight = window.innerHeight; // Use logical height
+                if (column.y > logicalHeight + column.characters.length * fontSize * 1.5) {
                     column.y = -column.characters.length * fontSize * 1.5;
                     column.speed = Math.random() * 1.5 + 0.5;
 
@@ -141,7 +161,7 @@ export default function HeroBackground3D() {
                     const charY = column.y + index * fontSize * 1.5;
 
                     // Skip if off screen
-                    if (charY < -fontSize * 2 || charY > canvas.height) return;
+                    if (charY < -fontSize * 2 || charY > window.innerHeight) return;
 
                     // Calculate distance from mouse for interaction
                     const dx = mouse.x - column.x;
@@ -151,22 +171,24 @@ export default function HeroBackground3D() {
                     // Base opacity (fades from top to bottom of column)
                     let opacity = column.opacities[index];
 
+                    // GRAPHITE THEME implementation
                     // First character is brightest (head of the column)
                     if (index === 0) {
                         opacity = 1;
-                        // Draw bright glow for column head
-                        ctx.shadowBlur = 10;
-                        ctx.shadowColor = '#6FD4F2';
-                        ctx.fillStyle = '#6FD4F2'; // Primary-light glow
+                        // Draw bright glow for column head - White/Silver
+                        // Reduced shadowBlur for sharpness
+                        ctx.shadowBlur = 8;
+                        ctx.shadowColor = THEME.colors.graphite.lighter; // #E5E7EB
+                        ctx.fillStyle = THEME.colors.graphite.lighter;
                     } else if (index < 3) {
-                        // Near head - use primary-light
-                        ctx.shadowBlur = 5;
-                        ctx.shadowColor = `rgba(111, 212, 242, ${opacity * 0.5})`;
-                        ctx.fillStyle = `rgba(111, 212, 242, ${opacity})`;
+                        // Near head - use Light Graphite
+                        ctx.shadowBlur = 4;
+                        ctx.shadowColor = `rgba(209, 213, 219, ${opacity * 0.5})`; // graphite.light
+                        ctx.fillStyle = `rgba(209, 213, 219, ${opacity})`;
                     } else {
-                        // Rest of column - use primary teal
+                        // Rest of column - use Medium Graphite / Cool Gray
                         ctx.shadowBlur = 0;
-                        ctx.fillStyle = `rgba(52, 168, 206, ${opacity * 0.7})`; // Primary #34A8CE
+                        ctx.fillStyle = `rgba(156, 163, 175, ${opacity * 0.7})`; // graphite.DEFAULT (#9CA3AF)
                     }
 
                     // Mouse interaction - wave effect
@@ -176,9 +198,9 @@ export default function HeroBackground3D() {
 
                         // Brighten and add extra glow near mouse
                         opacity = Math.min(1, opacity + force * 0.5);
-                        ctx.shadowBlur = 15 * force;
-                        ctx.shadowColor = '#6FD4F2';
-                        ctx.fillStyle = `rgba(111, 212, 242, ${opacity})`;
+                        ctx.shadowBlur = 10 * force;
+                        ctx.shadowColor = THEME.colors.graphite.light;
+                        ctx.fillStyle = `rgba(229, 231, 235, ${opacity})`; // ligher graphite
 
                         ctx.fillText(char, column.x + waveOffset, charY);
                     } else {

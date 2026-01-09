@@ -111,7 +111,7 @@ const initialNodes: Node[] = [
 ];
 
 // Gray color for connector lines
-const gray = '#6b7280';
+const gray = THEME.palette.graphite[600];
 
 const initialEdges: Edge[] = [
   {

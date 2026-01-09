@@ -15,6 +15,7 @@ import 'reactflow/dist/style.css';
 import { THEME } from '@/config/theme.config';
 
 const { accents, background } = THEME.colors;
+const gray = THEME.palette.graphite[600];
 
 const nodeStyle = {
   background: 'rgba(255, 255, 255, 0.05)',

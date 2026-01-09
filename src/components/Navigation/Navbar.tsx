@@ -94,7 +94,7 @@ export default function Navbar() {
                   }}
                   className={`text-base font-bold tracking-tight transition-all relative group ${activeSection === link.href
                     ? 'text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light'
-                    : 'text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary hover:to-primary-light'
+                    : 'text-text-secondary hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary hover:to-primary-light'
                     }`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
@@ -117,7 +117,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                className="p-2 rounded-lg text-text-secondary hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (

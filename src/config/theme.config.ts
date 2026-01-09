@@ -10,88 +10,126 @@
  */
 
 export const THEME = {
-    // Brand colors - matched to logo
-    colors: {
-        primary: {
-            DEFAULT: "#34A8CE",      // Main cyan (AG letters)
-            light: "#6FD4F2",        // Light glow
-            dark: "#2F90BC",         // Darker variant
-            glow: "#9FE9FF",         // Bright glow for effects
+    // 1. PALETTE DEFINITION (The 4 Pillars - Single Source of Truth)
+    palette: {
+        // Pillar 1: Main Accent (Cyan/Blue Brand)
+        brand: {
+            cyan: "#34A8CE",
+            cyanLight: "#6FD4F2",
+            cyanDark: "#2F90BC",
+            glow: "#9FE9FF",
         },
-        // UI backgrounds (dark graphite/blue-gray gradient)
-        background: {
-            DEFAULT: "#11161B",      // Darkest
-            surface: "#151C22",      // Dark
-            surfaceLight: "#1B242C", // Medium
-            accent: "#222C35",       // Lighter dark
+        // Pillar 2: Graphite Scale (Professional/Neutral)
+        graphite: {
+            500: "#9CA3AF",      // DEFAULT (Cool Gray 400)
+            300: "#D1D5DB",      // light (Highlights)
+            200: "#E5E7EB",      // lighter (Brightest)
+            600: "#4B5563",      // dark (Depth)
+            700: "#374151",      // darker (Shadows)
         },
-        // Surface colors for cards/elements
-        surface: {
-            card: "#2C3A45",
-            cardLight: "#354552",
-        },
-        // Text colors
-        text: {
-            primary: "#ffffff",
-            secondary: "#C0C5CB",    // Silver (ALEKGIR text)
-            muted: "#D5D9DD",        // Light silver
-        },
-        // Card/element backgrounds (using surface colors)
-        card: {
-            bg: "#2C3A45",
-            border: "#354552",
-        },
-        // Semantic colors
-        semantic: {
-            success: "#10b981",
-            error: "#ef4444",
-            warning: "#f59e0b",
-        },
-        // Accent colors for flows/charts (Tailwind palette)
-        accents: {
-            cyan: "#06b6d4",
-            emerald: "#10b981",
-            purple: "#8b5cf6",
-            pink: "#ec4899",
-            amber: "#f59e0b",
-            blue: "#3b82f6",
-            indigo: "#6366f1",
-            rose: "#f43f5e",
-            teal: "#14b8a6",
-            violet: "#7c3aed",
-            red: "#ef4444",
-            green: "#22c55e",
-            yellow: "#eab308",
-            orange: "#f97316",
-            sky: "#0ea5e9",
-            lime: "#84cc16",
-            fuchsia: "#d946ef",
-        },
+        // Pillar 3: White
+        white: "#ffffff",
+        // Pillar 4: Black (Deep Backgrounds)
+        black: {
+            DEFAULT: "#11161B", // Deepest
+            light: "#151C22",   // Surface
+            lighter: "#1B242C", // Surface Light
+            accent: "#222C35",  // Accent Background
+        }
     },
 
-    // 3D Canvas specific colors (same as UI for consistency)
-    canvas: {
-        primary: "#34A8CE",        // Main cyan
-        primaryLight: "#6FD4F2",   // Light glow
-        primaryDark: "#2F90BC",    // Darker
-        background: "#11161B",     // Same as UI background
+    // 2. SEMANTIC MAPPING (How colors are USED)
+    get colors() {
+        return {
+            primary: {
+                DEFAULT: this.palette.brand.cyan,
+                light: this.palette.brand.cyanLight,
+                dark: this.palette.brand.cyanDark,
+                glow: this.palette.brand.glow,
+            },
+            // Graphite aliases for easy usage
+            graphite: {
+                DEFAULT: this.palette.graphite[500],
+                light: this.palette.graphite[300],
+                lighter: this.palette.graphite[200],
+                dark: this.palette.graphite[600],
+                darker: this.palette.graphite[700],
+            },
+            // UI Backgrounds (mapped to Black pillar)
+            background: {
+                DEFAULT: this.palette.black.DEFAULT,
+                surface: this.palette.black.light,
+                surfaceLight: this.palette.black.lighter,
+                accent: this.palette.black.accent,
+            },
+            // Surface/Cards (derived from Black pillar logic)
+            surface: {
+                card: "#2C3A45", // Custom mix, fits Graphite/Black theme
+                cardLight: "#354552",
+            },
+            card: {
+                bg: "#2C3A45",
+                border: "#354552",
+            },
+            // Text (mapped to White/Graphite)
+            text: {
+                primary: this.palette.white,
+                secondary: "#C0C5CB", // Silver (Bridge between White and Graphite)
+                muted: "#D5D9DD",     // Light Silver
+            },
+            // Semantic colors (standard)
+            semantic: {
+                success: "#10b981",
+                error: "#ef4444",
+                warning: "#f59e0b",
+            },
+            accents: {
+                cyan: "#34A8CE", // Match brand
+                emerald: "#10b981",
+                purple: "#8b5cf6",
+                pink: "#ec4899",
+                amber: "#f59e0b",
+                blue: "#3b82f6",
+                indigo: "#6366f1",
+                rose: "#f43f5e",
+                teal: "#14b8a6",
+                violet: "#7c3aed",
+                red: "#ef4444",
+                green: "#22c55e",
+                yellow: "#eab308",
+                orange: "#f97316",
+                sky: "#0ea5e9",
+                lime: "#84cc16",
+                fuchsia: "#d946ef",
+            },
+        };
     },
 
-    // Main accent gradient - PRIMARY BRAND ELEMENT
-    // Usage: "bg-gradient-to-r from-primary to-primary-light"
-    // or: THEME.gradients.primary.css
-    gradients: {
-        primary: {
-            from: "#34A8CE",       // primary.DEFAULT
-            to: "#6FD4F2",         // primary.light
-            css: "bg-gradient-to-r from-primary to-primary-light",
-            textCss: "text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light",
-        },
-        glow: {
-            from: "#6FD4F2",
-            to: "#9FE9FF",
-            css: "bg-gradient-to-r from-primary-light to-[#9FE9FF]",
-        },
+    // 3. CANVAS CONFIG (Mapped from Palette)
+    get canvas() {
+        return {
+            primary: this.palette.brand.cyan,
+            primaryLight: this.palette.brand.cyanLight,
+            primaryDark: this.palette.brand.cyanDark,
+            background: this.palette.black.DEFAULT,
+        };
+    },
+
+    // 4. GRADIENTS (Primary Brand Element)
+    get gradients() {
+        return {
+            primary: {
+                from: this.palette.brand.cyan,
+                to: this.palette.brand.cyanLight,
+                css: "bg-gradient-to-r from-primary to-primary-light",
+                textCss: "text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light",
+            },
+            glow: {
+                from: this.palette.brand.cyanLight,
+                to: this.palette.brand.glow,
+                css: "bg-gradient-to-r from-primary-light to-[#9FE9FF]",
+            },
+        };
     },
 } as const;
 
