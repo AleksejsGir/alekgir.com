@@ -9,7 +9,7 @@ import {
 
 export default function HeroVisuals() {
     return (
-        <div className="relative w-full flex justify-center lg:justify-end items-center">
+        <div className="relative w-full flex justify-center items-center">
             {/* Container Area - defined height to ensure space for floating elements */}
             <div className="relative w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] flex items-center justify-center">
 

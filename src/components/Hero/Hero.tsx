@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import HeroBackground3D from './HeroBackground3DWrapper';
 import HeroVisuals from './HeroVisuals';
 import {
@@ -12,233 +11,199 @@ import SectionWidthWrapper from '@/components/shared/ui/SectionWidthWrapper';
 import { SEO_CONFIG } from '@/config/seo.config';
 import { useScrollToMultiple } from '@/hooks/useScrollTo';
 
-// UI Color mapping for tech stack (Presentation concern - stays in component)
+// UI Color mapping for tech stack
 const techColorMap: Record<string, string> = {
   'Python': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
   'Django': 'bg-green-600/20 text-green-400 border-green-600/30',
-  'Django REST Framework': 'bg-green-600/20 text-green-400 border-green-600/30',
-  // React/Next/TS -> Primary Brand Color (Cyan)
+  'Go': 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
   'React': 'bg-primary/20 text-primary-light border-primary/30',
   'Next.js': 'bg-primary/10 text-primary border-primary/30',
   'TypeScript': 'bg-primary/20 text-primary-light border-primary/30',
   'PostgreSQL': 'bg-primary/20 text-primary-light border-primary/30',
   'Docker': 'bg-primary/10 text-primary border-primary/30',
+  'Tailwind': 'bg-primary/10 text-primary border-primary/30',
 };
 
+// Left Side: Process & Delivery
+const leftList = [
+  'Microservices & Scalable Apps',
+  'End-to-End Project Delivery',
+  'From Idea to Deployment',
+  'Long-term Maintenance',
+  '75%+ Test Coverage & TDD',
+];
+
+// Right Side: Tech & Architecture
+const rightList = [
+  'AI Integration (MCP, OpenAI)',
+  'REST API Development',
+  'Database Design (PostgreSQL)',
+  'Docker & DevOps',
+  'Clean Architecture & SOLID',
+];
+
+const backendStack = ['Python', 'Go', 'PostgreSQL', 'Docker', 'MCP'];
+const frontendStack = ['React', 'Next.js', 'TypeScript', 'Tailwind', 'n8n'];
+
+
 export default function Hero() {
-  // Use custom hook for scroll navigation
   const { scrollToProjects, scrollToContact } = useScrollToMultiple({
     scrollToProjects: '#projects',
     scrollToContact: '#contact',
   });
 
   return (
-    <section className="relative min-h-screen flex items-center lg:items-start justify-center overflow-hidden px-4 sm:px-0">
-      {/* 3D Background - Hero specific Matrix rain */}
+    <section className="relative h-screen min-h-[800px] flex flex-col overflow-hidden">
+      {/* 3D Background */}
       <HeroBackground3D />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#11161B]/80 via-[#11161B]/60 to-[#11161B] z-[1]" />
 
-      {/* Gradient overlay - fades to transparent at bottom for seamless transition */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#11161B]/60 via-transparent to-transparent z-[1]" />
-
-      {/* Content */}
       <motion.div
-        className="relative z-10 w-full py-12 sm:py-20 lg:pt-48"
+        className="relative z-10 w-full h-full flex flex-col justify-center"
         variants={staggerContainerVariants}
         initial="hidden"
         animate="visible"
       >
-        <SectionWidthWrapper>
-          {/* TOP: Badge - absolute on desktop so it doesn't push content */}
-          <motion.div
-            variants={slideUpVariants}
-            className="mb-6 sm:mb-8 text-center lg:absolute lg:top-32 lg:inset-x-0 lg:flex lg:justify-center lg:mb-0"
-          >
-            <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 rounded-full text-xs sm:text-sm font-medium border border-primary/30">
-              <span className="w-2 h-2 bg-gradient-to-r from-primary to-primary-light rounded-full mr-2 animate-pulse" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light font-black">
-                {SEO_CONFIG.structuredData.availability}
+        <SectionWidthWrapper className="max-w-[1600px] mx-auto w-full h-[95%] flex flex-col justify-between px-4 sm:px-6">
+
+          {/* --- TOP ROW: HEADLINE --- */}
+          {/* pt-20 to clean navbar area, but keep it high */}
+          <div className="flex flex-col items-center text-center pt-24 lg:pt-28">
+            {/* Badge */}
+            <motion.div variants={slideUpVariants} className="mb-4">
+              <span className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-xs sm:text-sm font-medium border border-primary/20 backdrop-blur-sm">
+                <span className="w-2 h-2 bg-primary rounded-full mr-3 animate-pulse shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
+                <span className="text-primary-light font-bold">
+                  {SEO_CONFIG.structuredData.availability}
+                </span>
               </span>
-            </span>
-          </motion.div>
+            </motion.div>
 
-          <div className="grid lg:grid-cols-[55%_45%] gap-6 lg:gap-0 items-center">
-            {/* Left Column: Text Content */}
-            <div className="text-center lg:text-left relative z-20">
+            {/* Headline */}
+            <motion.h1
+              variants={slideUpVariants}
+              className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1] tracking-tighter drop-shadow-2xl max-w-6xl"
+            >
+              Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary-light">Full-Stack</span> Engineering
+            </motion.h1>
+          </div>
 
-              {/* Headline (H1 - SEO Optimized) - Mobile friendly */}
-              <motion.h1
-                variants={slideUpVariants}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6 sm:mb-8 tracking-tighter drop-shadow-2xl relative z-20"
-              >
-                <span className="lg:whitespace-nowrap">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
-                    Full-Stack Developer
-                  </span>
-                  <span className="hidden lg:inline"> in United Kingdom</span>
-                </span>
-                {/* Mobile/tablet: break after "Developer" */}
-                <span className="lg:hidden block mt-2 text-2xl sm:text-3xl">in United Kingdom</span>
-                {/* Tech stack line */}
-                <span className="block mt-4 lg:mt-12 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-text-secondary font-bold">
-                  Python • Django • React
-                </span>
-              </motion.h1>
 
-              {/* Current Role & Focus - Hidden on smallest screens, compact */}
-              <motion.p
-                variants={slideUpVariants}
-                className="hidden sm:block text-base sm:text-lg lg:text-xl text-text-secondary mb-4 sm:mb-6"
-              >
-                Production experience with <span className="text-white font-semibold">AI automation platforms</span>
-              </motion.p>
+          {/* --- MIDDLE ROW: WINGS LAYOUT --- */}
+          <div className="flex-1 flex flex-col lg:grid lg:grid-cols-12 lg:items-center lg:gap-8 w-full">
 
-              <motion.p
-                variants={slideUpVariants}
-                className="hidden md:block text-sm sm:text-base lg:text-lg text-text-secondary mb-6 sm:mb-8"
-              >
-                Building scalable microservices with Python/Go backend & React frontend
-              </motion.p>
+            {/* LEFT WING: Process & Backend */}
+            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 relative z-20">
 
-              {/* Specializations - 2 columns on desktop */}
-              <motion.div
-                variants={slideUpVariants}
-                className="mb-6 sm:mb-8"
-              >
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-black mb-4 sm:mb-6 text-center lg:text-left tracking-tight">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">Specializing in:</span>
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:gap-y-3">
-                  {[
-                    // Column 1
-                    'Microservices & Scalable Apps',
-                    'AI Integration (MCP, OpenAI)',
-                    'End-to-End Project Delivery',
-                    'From Idea to Deployment',
-                    'Long-term Maintenance',
-                    // Column 2
-                    'REST API Development',
-                    'Database Design (PostgreSQL)',
-                    'Docker & DevOps',
-                    'Clean Architecture & SOLID',
-                    '75%+ Test Coverage & TDD'
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + i * 0.05 }}
-                      className="flex items-start justify-center lg:justify-start gap-2 sm:gap-3 text-white"
+              <motion.h4 variants={slideUpVariants} className="text-2xl font-bold text-primary mb-6 hidden lg:flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-primary/50" />
+                Specializing In
+              </motion.h4>
+
+              {/* List */}
+              <motion.div variants={slideUpVariants} className="flex flex-col gap-3 w-full lg:w-auto mb-8">
+                {leftList.map((item, i) => (
+                  <div key={i} className="group flex items-center justify-center lg:justify-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default">
+                    {/* Dot for left list */}
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 lg:order-first order-last" />
+                    <span className="text-sm sm:text-base text-text-secondary group-hover:text-white transition-colors">{item}</span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Backend Stack */}
+              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-center lg:items-start">
+                <p className="text-xs text-text-muted mb-2 uppercase tracking-wider font-semibold">Backend & Core</p>
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-start max-w-sm transition-opacity opacity-80 hover:opacity-100">
+                  {backendStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className={`px-3 py-1 rounded text-sm font-bold border cursor-default
+                          ${tech === 'MCP' ? 'bg-purple-500/10 text-purple-300 border-purple-500/20' :
+                          techColorMap[tech] || 'bg-graphite-dark/40 text-graphite-light border-graphite-dark/50'}`}
                     >
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(56,189,248,0.5)] flex-shrink-0 mt-1.5 sm:mt-2" />
-                      <span className="text-sm sm:text-base lg:text-lg">{item}</span>
-                    </motion.div>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+
+            {/* CENTER CORE: Video Logo */}
+            <div className="lg:col-span-6 xl:col-span-6 flex justify-center order-1 lg:order-2 mb-10 lg:mb-0 relative py-6 lg:py-0 w-full h-full flex items-center justify-center">
+              <div className="relative z-10 w-full flex justify-center transform scale-75 lg:scale-100 xl:scale-110">
+                <HeroVisuals />
+              </div>
+              {/* Center Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full blur-[90px] pointer-events-none lg:w-[500px] lg:h-[500px]" />
+            </div>
+
+
+            {/* RIGHT WING: Tech & Frontend */}
+            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-center lg:items-end text-center lg:text-right order-3 relative z-20">
+
+              <motion.h4 variants={slideUpVariants} className="text-2xl font-bold text-primary mb-6 hidden lg:flex items-center gap-3">
+                Specializing In
+                <span className="w-8 h-[1px] bg-primary/50" />
+              </motion.h4>
+
+              {/* List */}
+              <motion.div variants={slideUpVariants} className="flex flex-col gap-3 mb-8 w-full lg:w-auto items-center lg:items-end">
+                {rightList.map((item, i) => (
+                  <div key={i} className="group flex items-center justify-center lg:justify-end gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default">
+                    <span className="text-sm sm:text-base text-text-secondary group-hover:text-white transition-colors">{item}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5" />
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Frontend Stack */}
+              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-center lg:items-end">
+                <p className="text-xs text-text-muted mb-2 uppercase tracking-wider font-semibold">Frontend & AI</p>
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-end max-w-sm transition-opacity opacity-80 hover:opacity-100">
+                  {frontendStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className={`px-3 py-1 rounded text-sm font-bold border cursor-default
+                         ${tech === 'n8n' ? 'bg-purple-500/10 text-purple-300 border-purple-500/20' :
+                          techColorMap[tech] || 'bg-graphite-dark/40 text-graphite-light border-graphite-dark/50'}`}
+                    >
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </motion.div>
 
             </div>
-
-            {/* Right Column: Visuals - Hidden on mobile/tablet */}
-            <motion.div
-              variants={slideUpVariants}
-              className="hidden lg:flex justify-center lg:justify-end lg:mt-48"
-            >
-              <HeroVisuals />
-            </motion.div>
           </div>
 
-          {/* BOTTOM: Tech Stack, Buttons, Stats (below everything) */}
-          <div className="mt-8 sm:mt-12 lg:mt-16 space-y-4 sm:space-y-6 lg:space-y-8">
-            {/* Tech Stack */}
-            <motion.div variants={slideUpVariants} className="text-center">
-              <p className="text-xs sm:text-sm text-text-muted mb-3 sm:mb-4 uppercase tracking-wider">Core Technologies</p>
-              <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
-                {SEO_CONFIG.skills.primary.map((tech, index) => (
-                  <motion.span
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium border ${techColorMap[tech] || 'bg-graphite-dark/20 text-graphite-light border-graphite-dark/30'}`}
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
+
+          {/* --- BOTTOM ROW: STATS --- */}
+          <motion.div
+            variants={slideUpVariants}
+            className="w-full border-t border-white/5 pt-6 lg:pt-8 flex flex-wrap justify-center lg:justify-between items-center gap-8 lg:gap-16 pb-8"
+          >
+            {SEO_CONFIG.stats.map((stat) => (
+              <div key={stat.key} className="text-center lg:text-left flex flex-col lg:flex-row items-center gap-1 lg:gap-4">
+                <div className="text-3xl sm:text-4xl font-black text-primary leading-none">
+                  {stat.value}
+                </div>
+                <div className="hidden lg:block w-[1px] h-8 bg-white/10" />
+                <div className="text-xs sm:text-sm font-medium text-text-muted uppercase tracking-wider max-w-[120px] text-center lg:text-left leading-snug">
+                  {stat.label}
+                </div>
               </div>
-            </motion.div>
+            ))}
+          </motion.div>
 
-            {/* AI & Automation Badge - Gradient style */}
-            <motion.div variants={slideUpVariants} className="flex justify-center">
-              <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-primary/10 border border-primary/30 rounded-lg">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light text-xs font-black uppercase tracking-wider">AI & Automation:</span>
-                <span className="text-white/80 text-xs sm:text-sm font-medium text-center">Go • FastAPI • MCP • n8n</span>
-              </div>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div variants={slideUpVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <motion.button
-                onClick={scrollToContact}
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-primary-light text-white font-semibold rounded-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:brightness-110 transition-all duration-300 text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Start a Project
-              </motion.button>
-              <motion.button
-                onClick={scrollToProjects}
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-surface/80 backdrop-blur-sm text-white font-semibold rounded-lg border border-card-border hover:border-primary hover:bg-surface transition-all duration-300 text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Projects
-              </motion.button>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              variants={slideUpVariants}
-              className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto"
-            >
-              {SEO_CONFIG.stats.map((stat, index) => (
-                <motion.div
-                  key={stat.key}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 + index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary mb-0.5 sm:mb-1 tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs sm:text-sm text-text-muted">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
         </SectionWidthWrapper>
       </motion.div>
 
-      {/* Scroll Indicator - centered properly */}
-      <motion.div
-        className="absolute bottom-4 sm:bottom-8 inset-x-0 flex justify-center z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{
-          opacity: { delay: 2, duration: 1 },
-          y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" }
-        }}
-      >
-        <button
-          onClick={scrollToProjects}
-          className="flex flex-col items-center text-text-muted hover:text-white transition-colors"
-          aria-label="Scroll to projects"
-        >
-          <span className="text-xs sm:text-sm mb-1 sm:mb-2">Scroll</span>
-          <ChevronDownIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-      </motion.div>
+      {/* Background decorative elements */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/2" />
 
-    </section >
+    </section>
   );
 }
