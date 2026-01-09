@@ -211,14 +211,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
 
             ctx.fillText(line.text, line.x + xOffset, line.y);
 
-            // Draw cursor for active lines (only if within bounds)
-            if (!line.compiled && Math.random() > 0.95) {
-                const cursorX = line.x + xOffset + textWidth + 2;
-                if (cursorX >= 0 && cursorX <= this.size.width) {
-                    ctx.fillStyle = '#D1D5DB'; // graphite.light
-                    ctx.fillRect(cursorX, line.y - 12, 2, 14);
-                }
-            }
+            // Cursor drawing removed per user request
         });
 
         // Draw compilation progress indicator
