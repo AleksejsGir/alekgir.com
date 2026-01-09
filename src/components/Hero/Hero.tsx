@@ -53,7 +53,7 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative h-screen min-h-[800px] flex flex-col overflow-hidden">
+    <section className="relative min-h-screen lg:h-screen flex flex-col overflow-hidden">
       {/* 3D Background */}
       <HeroBackground3D />
       <div className="absolute inset-0 bg-gradient-to-b from-[#11161B]/80 via-[#11161B]/60 to-[#11161B] z-[1]" />
@@ -64,11 +64,11 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        <SectionWidthWrapper className="max-w-[1600px] mx-auto w-full h-[95%] flex flex-col justify-between px-4 sm:px-6">
+        <SectionWidthWrapper className="max-w-[1600px] mx-auto w-full h-auto lg:h-[95%] flex flex-col justify-start lg:justify-between gap-12 lg:gap-0 px-4 sm:px-6 py-12 lg:py-0">
 
           {/* --- TOP ROW: HEADLINE --- */}
           {/* pt-20 to clean navbar area, but keep it high */}
-          <div className="flex flex-col items-center text-center pt-24 lg:pt-28">
+          <div className="flex flex-col items-center text-center pt-28 lg:pt-28">
             {/* Badge */}
             <motion.div variants={slideUpVariants} className="mb-4">
               <span className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-xs sm:text-sm font-medium border border-primary/20 backdrop-blur-sm">
@@ -93,9 +93,9 @@ export default function Hero() {
           <div className="flex-1 flex flex-col lg:grid lg:grid-cols-12 lg:items-center lg:gap-8 w-full">
 
             {/* LEFT WING: Process & Backend */}
-            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 relative z-20">
+            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-start text-left order-2 lg:order-1 relative z-20 w-full px-4 sm:px-0">
 
-              <motion.h4 variants={slideUpVariants} className="text-2xl font-bold text-primary mb-6 hidden lg:flex items-center gap-3">
+              <motion.h4 variants={slideUpVariants} className="text-lg lg:text-2xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-primary/50" />
                 Specializing In
               </motion.h4>
@@ -103,18 +103,18 @@ export default function Hero() {
               {/* List */}
               <motion.div variants={slideUpVariants} className="flex flex-col gap-3 w-full lg:w-auto mb-8">
                 {leftList.map((item, i) => (
-                  <div key={i} className="group flex items-center justify-center lg:justify-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default">
+                  <div key={i} className="group flex items-center justify-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
                     {/* Dot for left list */}
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 lg:order-first order-last" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
                     <span className="text-sm sm:text-base text-text-secondary group-hover:text-white transition-colors">{item}</span>
                   </div>
                 ))}
               </motion.div>
 
               {/* Backend Stack */}
-              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-center lg:items-start">
-                <p className="text-xs text-text-muted mb-2 uppercase tracking-wider font-semibold">Backend & Core</p>
-                <div className="flex flex-wrap gap-2 justify-center lg:justify-start max-w-sm transition-opacity opacity-80 hover:opacity-100">
+              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-start">
+                <p className="text-xs text-text-muted mb-3 uppercase tracking-wider font-semibold pl-2">Backend & Core</p>
+                <div className="flex flex-wrap gap-2 justify-start max-w-sm transition-opacity opacity-80 hover:opacity-100">
                   {backendStack.map((tech) => (
                     <span
                       key={tech}
@@ -131,8 +131,8 @@ export default function Hero() {
 
 
             {/* CENTER CORE: Video Logo */}
-            <div className="lg:col-span-6 xl:col-span-6 flex justify-center order-1 lg:order-2 mb-10 lg:mb-0 relative py-6 lg:py-0 w-full h-full flex items-center justify-center">
-              <div className="relative z-10 w-full flex justify-center transform scale-75 lg:scale-100 xl:scale-110">
+            <div className="lg:col-span-6 xl:col-span-6 flex justify-center order-1 lg:order-2 mb-8 lg:mb-0 relative py-6 lg:py-0 w-full h-full flex items-center justify-center">
+              <div className="relative z-10 w-full flex justify-center transform scale-90 lg:scale-100 xl:scale-110">
                 <HeroVisuals />
               </div>
               {/* Center Glow */}
@@ -141,27 +141,29 @@ export default function Hero() {
 
 
             {/* RIGHT WING: Tech & Frontend */}
-            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-center lg:items-end text-center lg:text-right order-3 relative z-20">
+            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-start lg:items-end text-left lg:text-right order-3 relative z-20 w-full px-4 sm:px-0">
 
-              <motion.h4 variants={slideUpVariants} className="text-2xl font-bold text-primary mb-6 hidden lg:flex items-center gap-3">
+              <motion.h4 variants={slideUpVariants} className="text-lg lg:text-2xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3 w-full lg:w-auto lg:justify-end">
+                <span className="lg:hidden w-8 h-[1px] bg-primary/50" />
                 Specializing In
-                <span className="w-8 h-[1px] bg-primary/50" />
+                <span className="hidden lg:block w-8 h-[1px] bg-primary/50" />
               </motion.h4>
 
               {/* List */}
               <motion.div variants={slideUpVariants} className="flex flex-col gap-3 mb-8 w-full lg:w-auto items-center lg:items-end">
                 {rightList.map((item, i) => (
-                  <div key={i} className="group flex items-center justify-center lg:justify-end gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default">
+                  <div key={i} className="group flex items-center justify-start lg:justify-end gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
+                    <span className="lg:hidden w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
                     <span className="text-sm sm:text-base text-text-secondary group-hover:text-white transition-colors">{item}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5" />
+                    <span className="hidden lg:block w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
                   </div>
                 ))}
               </motion.div>
 
               {/* Frontend Stack */}
-              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-center lg:items-end">
-                <p className="text-xs text-text-muted mb-2 uppercase tracking-wider font-semibold">Frontend & AI</p>
-                <div className="flex flex-wrap gap-2 justify-center lg:justify-end max-w-sm transition-opacity opacity-80 hover:opacity-100">
+              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-start lg:items-end">
+                <p className="text-xs text-text-muted mb-3 uppercase tracking-wider font-semibold pl-2 lg:pl-0 lg:pr-2">Frontend & AI</p>
+                <div className="flex flex-wrap gap-2 justify-start lg:justify-end max-w-sm transition-opacity opacity-80 hover:opacity-100">
                   {frontendStack.map((tech) => (
                     <span
                       key={tech}
