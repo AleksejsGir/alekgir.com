@@ -109,7 +109,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.5 + idx * 0.05, duration: 0.3 }}
-                                    className="px-2.5 py-1 bg-white/5 text-graphite-lighter rounded-md text-xs font-semibold border border-white/10 backdrop-blur-sm"
+                                    className="px-2.5 py-1 bg-white/5 text-graphite-lighter rounded-md text-xs font-semibold border border-primary/20 backdrop-blur-sm"
                                 >
                                     {tech}
                                 </motion.span>

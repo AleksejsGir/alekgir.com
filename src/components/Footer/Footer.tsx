@@ -14,7 +14,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-secondary text-white py-12 border-t border-card-border">
+    <footer className="bg-secondary text-white py-12 border-t border-primary/20">
       <SectionWidthWrapper>
         <div className="flex flex-col md:flex-row justify-between gap-12 lg:gap-20 mb-12">
           {/* Brand */}
@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-card-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-text-muted">
+        <div className="border-t border-primary/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-text-muted">
           <p>&copy; {currentYear} AlekGir. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

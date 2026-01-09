@@ -96,7 +96,7 @@ export default function ContactForm() {
                   className={clsx(
                     "w-full px-6 py-5 rounded-xl border outline-none transition-all duration-300 bg-white/[0.03] backdrop-blur-sm text-white placeholder:text-white/20",
                     "focus:bg-white/[0.05] focus:border-primary/50 focus:shadow-[0_0_20px_rgba(8,145,178,0.15)]",
-                    errors.name ? "border-red-500/50 bg-red-500/5" : "border-white/10 hover:border-white/20"
+                    errors.name ? "border-red-500/50 bg-red-500/5" : "border-primary/20 hover:border-primary/40"
                   )}
                   placeholder="John Doe"
                 />
@@ -112,7 +112,7 @@ export default function ContactForm() {
                   className={clsx(
                     "w-full px-6 py-5 rounded-xl border outline-none transition-all duration-300 bg-white/[0.03] backdrop-blur-sm text-white placeholder:text-white/20",
                     "focus:bg-white/[0.05] focus:border-primary/50 focus:shadow-[0_0_20px_rgba(8,145,178,0.15)]",
-                    errors.email ? "border-red-500/50 bg-red-500/5" : "border-white/10 hover:border-white/20"
+                    errors.email ? "border-red-500/50 bg-red-500/5" : "border-primary/20 hover:border-primary/40"
                   )}
                   placeholder="john@example.com"
                 />
@@ -129,7 +129,7 @@ export default function ContactForm() {
                   className={clsx(
                     "w-full px-6 py-5 rounded-xl border outline-none transition-all appearance-none bg-no-repeat bg-white/[0.03] backdrop-blur-sm text-white",
                     "focus:bg-white/[0.05] focus:border-primary/50 focus:shadow-[0_0_20px_rgba(8,145,178,0.15)]",
-                    errors.projectType ? "border-red-500/50 bg-red-500/5" : "border-white/10 hover:border-white/20"
+                    errors.projectType ? "border-red-500/50 bg-red-500/5" : "border-primary/20 hover:border-primary/40"
                   )}
                   style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a1a1aa' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: `right 1rem center`, backgroundSize: `1.5em 1.5em` }}
                 >
@@ -149,7 +149,7 @@ export default function ContactForm() {
                   className={clsx(
                     "w-full px-6 py-5 rounded-xl border outline-none transition-all appearance-none bg-no-repeat bg-white/[0.03] backdrop-blur-sm text-white",
                     "focus:bg-white/[0.05] focus:border-primary/50 focus:shadow-[0_0_20px_rgba(8,145,178,0.15)]",
-                    errors.budgetRange ? "border-red-500/50 bg-red-500/5" : "border-white/10 hover:border-white/20"
+                    errors.budgetRange ? "border-red-500/50 bg-red-500/5" : "border-primary/20 hover:border-primary/40"
                   )}
                   style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a1a1aa' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: `right 1rem center`, backgroundSize: `1.5em 1.5em` }}
                 >
@@ -170,7 +170,7 @@ export default function ContactForm() {
                 className={clsx(
                   "w-full h-full px-6 py-5 rounded-xl border outline-none transition-all resize-none bg-white/[0.03] backdrop-blur-sm text-white placeholder:text-white/20",
                   "focus:bg-white/[0.05] focus:border-primary/50 focus:shadow-[0_0_20px_rgba(8,145,178,0.15)]",
-                  errors.message ? "border-red-500/50 bg-red-500/5" : "border-white/10 hover:border-white/20"
+                  errors.message ? "border-red-500/50 bg-red-500/5" : "border-primary/20 hover:border-primary/40"
                 )}
                 placeholder="Tell me about your project goals, timeline, and requirements..."
               />

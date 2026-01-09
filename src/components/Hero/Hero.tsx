@@ -182,14 +182,14 @@ export default function Hero() {
           {/* --- BOTTOM ROW: STATS --- */}
           <motion.div
             variants={slideUpVariants}
-            className="w-full border-t border-white/5 pt-6 lg:pt-8 flex flex-wrap justify-center lg:justify-between items-center gap-8 lg:gap-16 pb-8"
+            className="w-full border-t border-primary/20 pt-6 lg:pt-8 flex flex-wrap justify-center lg:justify-between items-center gap-8 lg:gap-16 pb-8"
           >
             {SEO_CONFIG.stats.map((stat) => (
               <div key={stat.key} className="text-center lg:text-left flex flex-col lg:flex-row items-center gap-1 lg:gap-4">
                 <div className="text-3xl sm:text-4xl font-black text-primary leading-none">
                   {stat.value}
                 </div>
-                <div className="hidden lg:block w-[1px] h-8 bg-white/10" />
+                <div className="hidden lg:block w-[1px] h-8 bg-primary/20" />
                 <div className="text-xs sm:text-sm font-medium text-text-muted uppercase tracking-wider max-w-[120px] text-center lg:text-left leading-snug">
                   {stat.label}
                 </div>

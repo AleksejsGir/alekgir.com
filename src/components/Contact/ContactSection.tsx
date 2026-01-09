@@ -41,7 +41,7 @@ export default function ContactSection() {
                     {SEO_CONFIG.contact.email}
                   </a>
                 </div>
-                <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-2xl border border-white/10 flex items-center justify-center shadow-[0_0_20px_rgba(8,145,178,0.2)] group-hover:shadow-[0_0_30px_rgba(8,145,178,0.4)] transition-all duration-500">
+                <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-2xl border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(8,145,178,0.2)] group-hover:shadow-[0_0_30px_rgba(8,145,178,0.4)] transition-all duration-500">
                   <EnvelopeIcon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
               </div>
@@ -57,7 +57,7 @@ export default function ContactSection() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-white/[0.05] rounded-xl border border-white/10 text-white font-medium hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] transition-all duration-300"
+                    className="px-6 py-3 bg-white/[0.05] rounded-xl border border-primary/20 text-white font-medium hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] transition-all duration-300"
                   >
                     {social.name}
                   </a>

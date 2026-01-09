@@ -136,7 +136,7 @@ export default function Navbar() {
         initial={{ x: 'calc(100% + 1rem)' }}
         animate={{ x: isMobileMenuOpen ? 0 : 'calc(100% + 1rem)' }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-28 right-4 bottom-4 w-64 bg-surface/95 backdrop-blur-xl border border-white/10 shadow-2xl z-40 md:hidden rounded-2xl overflow-hidden"
+        className="fixed top-28 right-4 bottom-4 w-64 bg-surface/95 backdrop-blur-xl border border-primary/20 shadow-2xl z-40 md:hidden rounded-2xl overflow-hidden"
       >
         <div className="flex flex-col p-6 space-y-4">
           {navLinks.map((link) => (
