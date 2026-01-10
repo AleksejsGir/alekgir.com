@@ -98,9 +98,9 @@ export default function Hero() {
           <div className="flex-1 flex flex-col lg:grid lg:grid-cols-12 lg:items-center lg:gap-8 w-full">
 
             {/* LEFT WING: Process & Backend */}
-            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-start text-left order-2 lg:order-1 relative z-20 w-full px-4 sm:px-0">
+            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 relative z-20 w-full px-4 sm:px-0">
 
-              <motion.h4 variants={slideUpVariants} className="text-xl lg:text-3xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3">
+              <motion.h4 variants={slideUpVariants} className="text-2xl sm:text-2xl lg:text-3xl font-bold text-primary mb-4 lg:mb-6 flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-primary/50" />
                 Specializing In
               </motion.h4>
@@ -108,18 +108,18 @@ export default function Hero() {
               {/* List */}
               <motion.div variants={slideUpVariants} className="flex flex-col gap-3 w-full lg:w-auto mb-8">
                 {leftList.map((item, i) => (
-                  <div key={i} className="group flex items-center justify-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
+                  <div key={i} className="group flex items-center justify-center lg:justify-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
                     {/* Dot for left list */}
                     <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
-                    <span className="text-base lg:text-lg text-text-secondary group-hover:text-white transition-colors">{item}</span>
+                    <span className="text-base sm:text-lg lg:text-lg text-text-secondary group-hover:text-white transition-colors">{item}</span>
                   </div>
                 ))}
               </motion.div>
 
               {/* Backend Stack */}
-              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-start">
+              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-center lg:items-start">
                 <p className="text-xs text-text-muted mb-3 uppercase tracking-wider font-semibold pl-2">Backend & Core</p>
-                <div className="flex flex-wrap gap-2 justify-start max-w-sm transition-opacity opacity-80 hover:opacity-100">
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-start max-w-sm transition-opacity opacity-80 hover:opacity-100">
                   {backendStack.map((tech) => (
                     <span
                       key={tech}
@@ -135,8 +135,8 @@ export default function Hero() {
             </div>
 
 
-            {/* CENTER CORE: Video Logo */}
-            <div className="lg:col-span-6 xl:col-span-6 flex justify-center order-1 lg:order-2 mb-8 lg:mb-0 relative py-6 lg:py-0 w-full h-full flex items-center justify-center">
+            {/* CENTER CORE: Video Logo - HIDDEN ON MOBILE */}
+            <div className="hidden lg:flex lg:col-span-6 xl:col-span-6 justify-center order-1 lg:order-2 mb-8 lg:mb-0 relative py-6 lg:py-0 w-full h-full items-center">
               <div className="relative z-10 w-full flex justify-center transform scale-90 lg:scale-100 xl:scale-110">
                 <HeroVisuals />
               </div>
@@ -146,9 +146,10 @@ export default function Hero() {
 
 
             {/* RIGHT WING: Tech & Frontend */}
-            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-start lg:items-end text-left lg:text-right order-3 relative z-20 w-full px-4 sm:px-0">
+            <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-center lg:items-end text-center lg:text-right order-3 relative z-20 w-full px-4 sm:px-0">
 
-              <motion.h4 variants={slideUpVariants} className="text-xl lg:text-3xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3 w-full lg:w-auto lg:justify-end">
+              {/* Hide this header on mobile - only show on desktop */}
+              <motion.h4 variants={slideUpVariants} className="hidden lg:flex text-3xl font-bold text-primary mb-6 items-center gap-3 w-auto justify-end">
                 <span className="lg:hidden w-8 h-[1px] bg-primary/50" />
                 Specializing In
                 <span className="hidden lg:block w-8 h-[1px] bg-primary/50" />
@@ -157,18 +158,18 @@ export default function Hero() {
               {/* List */}
               <motion.div variants={slideUpVariants} className="flex flex-col gap-3 mb-8 w-full lg:w-auto items-center lg:items-end">
                 {rightList.map((item, i) => (
-                  <div key={i} className="group flex items-center justify-start lg:justify-end gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
+                  <div key={i} className="group flex items-center justify-center lg:justify-end gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
                     <span className="lg:hidden w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
-                    <span className="text-base lg:text-lg text-text-secondary group-hover:text-white transition-colors">{item}</span>
+                    <span className="text-base sm:text-lg lg:text-lg text-text-secondary group-hover:text-white transition-colors">{item}</span>
                     <span className="hidden lg:block w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
                   </div>
                 ))}
               </motion.div>
 
               {/* Frontend Stack */}
-              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-start lg:items-end">
+              <motion.div variants={slideUpVariants} className="w-full flex flex-col items-center lg:items-end">
                 <p className="text-xs text-text-muted mb-3 uppercase tracking-wider font-semibold pl-2 lg:pl-0 lg:pr-2">Frontend & AI</p>
-                <div className="flex flex-wrap gap-2 justify-start lg:justify-end max-w-sm transition-opacity opacity-80 hover:opacity-100">
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-end max-w-sm transition-opacity opacity-80 hover:opacity-100">
                   {frontendStack.map((tech) => (
                     <span
                       key={tech}
