@@ -1,7 +1,7 @@
 ALEKSEJS GIRUCKIS
 Full-Stack Developer | Python | Django | Go | React
 Latvian Citizen (EU) | UK Settled Status
-Email: giruckisaleksejs@gmail.com | Phone: +44 7780 086353 | Location: Chatteris, UK
+Email: hello@alekgir.com | Phone: +44 7780 086353 | Location: Chatteris, UK
 LinkedIn: linkedin.com/in/aleksejs-giruckis-0569a7353 | GitHub: github.com/AleksejsGir | Portfolio: alekgir.com
 Professional Summary
 Full-Stack Developer with 3 years experience building scalable microservices and web applications. Currently developing AI automation platform at TROOD, INC., implementing features across Python/Go backend and React frontend. European-certified (94/100) with proven track record delivering 38+ client projects. Expertise: Python, Django, Go, React, PostgreSQL, AI integration (MCP, OpenAI), workflow automation (n8n). Seeking full-time opportunity to contribute technical skills to innovative development team.

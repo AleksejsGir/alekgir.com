@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'AlekGir Contact <onboarding@resend.dev>', // Resend standard sender if domain not verified
-      to: process.env.CONTACT_RECEIVER || 'giruckisaleksejs@gmail.com',
+      to: process.env.CONTACT_RECEIVER || 'hello@alekgir.com',
       replyTo: email,
       subject: `New Project Inquiry from ${name} - ${projectType}`,
       html: `

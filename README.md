@@ -12,7 +12,7 @@
 
 <br />
 
-**[🌐 Live Demo](https://alekgir.com)** · **[📧 Contact](mailto:giruckisaleksejs@gmail.com)** · **[💼 LinkedIn](https://www.linkedin.com/in/aleksejs-giruckis-0569a7353)**
+**[🌐 Live portfolio](https://alekgir.com)** · **[📧 Contact](mailto:hello@alekgir.com)** · **[💼 LinkedIn](https://www.linkedin.com/in/aleksejs-giruckis-0569a7353)**
 
 <br />
 

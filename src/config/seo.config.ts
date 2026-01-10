@@ -88,7 +88,7 @@ export const SEO_CONFIG = {
 
   // Contact Information
   contact: {
-    email: "giruckisaleksejs@gmail.com",
+    email: "hello@alekgir.com",
     phone: "+44-7780-086353",
     linkedin: "https://www.linkedin.com/in/aleksejs-giruckis-0569a7353",
     github: "https://github.com/AleksejsGir",
