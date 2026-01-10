@@ -1,9 +1,20 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+
 export async function POST(req: Request) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
+    console.log('Starting contact form submission...');
+
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is missing');
+      return NextResponse.json(
+        { error: 'Server configuration error: Missing API Key' },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { name, email, projectType, budgetRange, message } = await req.json();
 
     // Basic server-side validation
@@ -16,7 +27,7 @@ export async function POST(req: Request) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'AlekGir Contact <onboarding@resend.dev>', // Resend standard sender if domain not verified
+      from: 'AlekGir Contact <hello@alekgir.com>', // Verified domain sender
       to: process.env.CONTACT_RECEIVER || 'hello@alekgir.com',
       replyTo: email,
       subject: `New Project Inquiry from ${name} - ${projectType}`,
