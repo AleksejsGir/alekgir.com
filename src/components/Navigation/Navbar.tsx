@@ -72,12 +72,11 @@ export default function Navbar() {
                 }}
                 className="block relative h-12 w-auto aspect-[3/1]"
               >
-                {/* Using regular img tag for logo if optimization is tricky with dynamic paths, OR Next.js Image */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/alekgir_logo.JPG"
                   alt="AlekGir"
-                  className="h-full w-auto object-contain"
+                  className="h-full w-auto object-contain rounded-xl border border-primary/20 shadow-lg shadow-primary/10"
                 />
               </a>
             </motion.div>

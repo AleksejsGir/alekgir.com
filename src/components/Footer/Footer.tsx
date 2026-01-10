@@ -31,7 +31,7 @@ export default function Footer() {
               <img
                 src="/images/alekgir_logo.JPG"
                 alt="AlekGir"
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain rounded-xl border border-primary/20 shadow-lg shadow-primary/10"
               />
             </motion.button>
             <p className="text-text-secondary leading-relaxed">
