@@ -100,7 +100,7 @@ export default function Hero() {
             {/* LEFT WING: Process & Backend */}
             <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-start text-left order-2 lg:order-1 relative z-20 w-full px-4 sm:px-0">
 
-              <motion.h4 variants={slideUpVariants} className="text-lg lg:text-2xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3">
+              <motion.h4 variants={slideUpVariants} className="text-xl lg:text-3xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-primary/50" />
                 Specializing In
               </motion.h4>
@@ -111,7 +111,7 @@ export default function Hero() {
                   <div key={i} className="group flex items-center justify-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
                     {/* Dot for left list */}
                     <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
-                    <span className="text-sm sm:text-base text-text-secondary group-hover:text-white transition-colors">{item}</span>
+                    <span className="text-base lg:text-lg text-text-secondary group-hover:text-white transition-colors">{item}</span>
                   </div>
                 ))}
               </motion.div>
@@ -148,7 +148,7 @@ export default function Hero() {
             {/* RIGHT WING: Tech & Frontend */}
             <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-start lg:items-end text-left lg:text-right order-3 relative z-20 w-full px-4 sm:px-0">
 
-              <motion.h4 variants={slideUpVariants} className="text-lg lg:text-2xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3 w-full lg:w-auto lg:justify-end">
+              <motion.h4 variants={slideUpVariants} className="text-xl lg:text-3xl font-bold text-primary mb-3 lg:mb-6 flex items-center gap-3 w-full lg:w-auto lg:justify-end">
                 <span className="lg:hidden w-8 h-[1px] bg-primary/50" />
                 Specializing In
                 <span className="hidden lg:block w-8 h-[1px] bg-primary/50" />
@@ -159,7 +159,7 @@ export default function Hero() {
                 {rightList.map((item, i) => (
                   <div key={i} className="group flex items-center justify-start lg:justify-end gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 cursor-default w-full lg:w-auto">
                     <span className="lg:hidden w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
-                    <span className="text-sm sm:text-base text-text-secondary group-hover:text-white transition-colors">{item}</span>
+                    <span className="text-base lg:text-lg text-text-secondary group-hover:text-white transition-colors">{item}</span>
                     <span className="hidden lg:block w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(56,189,248,0.8)] mt-0.5 shrink-0" />
                   </div>
                 ))}
