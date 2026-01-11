@@ -64,10 +64,10 @@ export default async function ProjectPage({ params }: Props) {
         <>
             <ProjectJsonLd project={project} />
 
-            <main className="min-h-screen bg-[#0a0a0f] text-white selection:bg-cyan-500/30">
+            <main className="min-h-screen bg-background text-white selection:bg-cyan-500/30">
 
                 <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-                    <div className="absolute inset-0 bg-[#0a0a0f]/70 backdrop-blur-xl border-b border-white/[0.05]" />
+                    <div className="absolute inset-0 bg-background/70 backdrop-blur-xl border-b border-white/[0.05]" />
                     <div className="max-w-[1800px] mx-auto px-6 py-4 flex items-center justify-between relative z-10">
                         <Link
                             href="/#projects"
@@ -110,7 +110,7 @@ export default async function ProjectPage({ params }: Props) {
                             </div>
                         )}
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#0a0a0f]" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-background" />
 
                         <div className="absolute top-6 left-6 z-10">
                             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-white/20 backdrop-blur-md bg-cyan-500/80 text-white shadow-lg shadow-cyan-500/20">
@@ -140,7 +140,7 @@ export default async function ProjectPage({ params }: Props) {
                         )}
                     </div>
 
-                    <div className="w-full lg:w-[55%] lg:ml-[45%] bg-[#0a0a0f]">
+                    <div className="w-full lg:w-[55%] lg:ml-[45%] bg-background">
                         <div className="p-6 md:p-10 lg:p-12 xl:p-16 space-y-12">
 
                             <div className="space-y-6">

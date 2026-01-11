@@ -27,7 +27,7 @@ export default function Home() {
       <div className="fixed inset-0 z-[-1] pointer-events-none">
         <CodeCompilationCanvas />
         {/* Subtle overlay using new palette */}
-        <div className="absolute inset-0 bg-[#11161B]/30" />
+        <div className="absolute inset-0 bg-background/30" />
       </div>
 
       <main className="min-h-screen relative z-10">

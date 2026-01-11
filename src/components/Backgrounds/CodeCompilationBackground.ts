@@ -6,6 +6,7 @@
 
 import { BaseCanvasBackground } from './BaseCanvasBackground';
 import type { BackgroundConfig, CanvasSize, MousePosition } from './types';
+import { THEME } from '@/config/theme.config';
 
 interface CodeLine {
     text: string;
@@ -124,9 +125,9 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
 
     private getRandomColor(): string {
         const colors = [
-            '#9CA3AF', // graphite.DEFAULT
-            '#D1D5DB', // graphite.light
-            'rgba(209, 213, 219, 0.6)', // graphite.light tranparent
+            THEME.colors.graphite.DEFAULT,
+            THEME.colors.graphite.light,
+            'rgba(209, 213, 219, 0.6)', // graphite.light transparent
             'rgba(156, 163, 175, 0.6)', // graphite.DEFAULT transparent
         ];
         return colors[Math.floor(Math.random() * colors.length)];
@@ -170,7 +171,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
 
     public render(ctx: CanvasRenderingContext2D): void {
         // Clear completely (no trails) - solid background
-        ctx.fillStyle = '#11161B';
+        ctx.fillStyle = THEME.colors.background.DEFAULT;
         ctx.fillRect(0, 0, this.size.width, this.size.height);
 
         // Set font
@@ -232,7 +233,7 @@ export class CodeCompilationBackground extends BaseCanvasBackground {
         ctx.fillRect(x, y, barWidth, barHeight);
 
         // Progress
-        ctx.fillStyle = '#D1D5DB'; // graphite.light
+        ctx.fillStyle = THEME.colors.graphite.light;
         ctx.fillRect(x, y, barWidth * this.compilationProgress, barHeight);
 
         // Text

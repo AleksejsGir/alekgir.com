@@ -56,7 +56,7 @@ export default function Hero() {
     <section className="relative min-h-screen lg:h-screen flex flex-col overflow-hidden">
       {/* 3D Background */}
       <HeroBackground3D />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#11161B]/80 via-[#11161B]/60 to-[#11161B] z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-[1]" />
 
       <motion.div
         className="relative z-10 w-full h-full flex flex-col justify-center"
