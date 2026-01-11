@@ -82,7 +82,7 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={slideUpVariants}
-              className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1] tracking-tighter drop-shadow-2xl max-w-6xl"
+              className="heading-display max-w-6xl"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary-light">Full-Stack</span> Engineering
             </motion.h1>

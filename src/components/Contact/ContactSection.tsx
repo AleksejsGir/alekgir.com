@@ -22,10 +22,10 @@ export default function ContactSection() {
         {/* Left Column: Info */}
         <motion.div variants={slideUpVariants} className="space-y-8">
           <div>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-lg">
+            <h2 className="heading-display mb-6 drop-shadow-lg">
               Let&apos;s Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">Together</span>
             </h2>
-            <p className="text-xl text-text-secondary leading-relaxed font-medium max-w-lg">
+            <p className="body-lg leading-relaxed max-w-lg">
               Have a project in mind? I&apos;m currently available for new opportunities.
               Let&apos;s discuss how we can help your business grow with a <span className="text-white font-bold">premium digital solution</span>.
             </p>

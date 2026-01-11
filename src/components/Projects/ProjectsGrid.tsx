@@ -43,9 +43,9 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md"
+                    className="badge-primary mb-4"
                 >
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light font-black text-sm uppercase tracking-wider">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
                         Featured Work
                     </span>
                 </motion.div>
@@ -54,7 +54,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.05 }}
-                    className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 tracking-tight drop-shadow-md"
+                    className="heading-section mb-4"
                 >
                     Our Projects
                 </motion.h2>
@@ -63,7 +63,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto font-medium"
+                    className="body-lg max-w-2xl mx-auto"
                 >
                     Explore our latest projects crafted with precision and creativity
                 </motion.p>

@@ -131,6 +131,50 @@ export const THEME = {
             },
         };
     },
+
+    // 5. TYPOGRAPHY SCALE (Semantic naming for consistency)
+    typography: {
+        // Headings
+        display: "text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter",
+        h1: "text-4xl md:text-5xl lg:text-6xl font-black tracking-tight",
+        h2: "text-2xl md:text-3xl font-black tracking-tight",
+        h3: "text-xl lg:text-2xl font-bold tracking-tight",
+        h4: "text-lg font-bold tracking-tight",
+        // Body
+        body: "text-base font-normal",
+        bodyLg: "text-lg md:text-xl font-medium",
+        bodySm: "text-sm font-normal",
+        // Labels & Badges
+        label: "text-xs font-bold uppercase tracking-wider",
+        badge: "text-xs font-black uppercase tracking-widest",
+        caption: "text-xs font-medium",
+    },
+
+    // 6. BORDER RADIUS TOKENS
+    radius: {
+        sm: "rounded-md",       // Tags, small badges
+        DEFAULT: "rounded-lg",  // Inputs, buttons
+        lg: "rounded-xl",       // Cards
+        xl: "rounded-2xl",      // Large cards, modals
+        full: "rounded-full",   // Circular elements
+    },
+
+    // 7. SPACING PRESETS (Common patterns)
+    spacing: {
+        section: "py-16 lg:py-24",
+        sectionSm: "py-12 lg:py-16",
+        container: "px-4 sm:px-6 lg:px-8",
+        card: "p-6 md:p-8",
+        cardSm: "p-4 md:p-6",
+    },
+
+    // 8. COMPONENT PRESETS (Reusable patterns)
+    components: {
+        badge: "px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border backdrop-blur-md",
+        button: "px-6 py-3 rounded-xl font-bold transition-all duration-300",
+        card: "rounded-2xl border border-white/10 bg-background backdrop-blur-xl",
+        input: "px-6 py-4 rounded-xl border outline-none transition-all bg-white/[0.03] backdrop-blur-sm",
+    },
 } as const;
 
 // Type exports for TypeScript support
@@ -138,7 +182,11 @@ export type ThemeColors = typeof THEME.colors;
 export type CanvasColors = typeof THEME.canvas;
 export type AccentColors = typeof THEME.colors.accents;
 export type ThemeGradients = typeof THEME.gradients;
+export type ThemeTypography = typeof THEME.typography;
+export type ThemeRadius = typeof THEME.radius;
+export type ThemeSpacing = typeof THEME.spacing;
 
 // CSS class constants for easy import
 export const GRADIENT_TEXT = THEME.gradients.primary.textCss;
 export const GRADIENT_BG = THEME.gradients.primary.css;
+

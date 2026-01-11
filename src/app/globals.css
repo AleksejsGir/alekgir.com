@@ -2,6 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==================== COMPONENT CLASSES ==================== */
+/* Reusable UI patterns - DRY principle */
+
+@layer components {
+  /* ==================== TYPOGRAPHY ==================== */
+
+  /* Display heading - Hero main title */
+  .heading-display {
+    @apply text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white leading-[1] drop-shadow-2xl;
+  }
+
+  /* Section heading - H2 for sections */
+  .heading-section {
+    @apply text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-md;
+  }
+
+  /* Card heading */
+  .heading-card {
+    @apply text-2xl md:text-3xl font-black text-white tracking-tight leading-tight;
+  }
+
+  /* Subsection heading */
+  .heading-sub {
+    @apply text-lg font-bold text-white tracking-tight;
+  }
+
+  /* Body text */
+  .body-lg {
+    @apply text-lg md:text-xl text-text-secondary font-medium;
+  }
+
+  .body-sm {
+    @apply text-sm text-text-secondary font-normal leading-relaxed;
+  }
+
+  /* ==================== BADGES ==================== */
+
+  /* Primary badge (cyan accent) */
+  .badge-primary {
+    @apply inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 border border-primary/30 text-primary backdrop-blur-md;
+  }
+
+  /* Neutral badge */
+  .badge-neutral {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-graphite-lighter backdrop-blur-sm;
+  }
+
+  /* ==================== BUTTONS ==================== */
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Secondary button (white) */
+  .btn-secondary {
+    @apply px-6 py-2.5 bg-white text-black font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply px-6 py-3 bg-white/[0.05] border border-primary/20 text-white font-medium rounded-xl hover:bg-white/10 hover:border-primary/50 transition-all duration-300;
+  }
+
+  /* ==================== CARDS ==================== */
+
+  /* Base card */
+  .card-base {
+    @apply rounded-2xl border border-white/10 bg-background/80 backdrop-blur-xl;
+  }
+
+  /* Elevated card with primary glow */
+  .card-elevated {
+    @apply rounded-2xl border border-primary/20 bg-background shadow-2xl shadow-primary/5;
+  }
+
+  /* ==================== FORM ELEMENTS ==================== */
+
+  /* Input field */
+  .input-field {
+    @apply w-full px-6 py-5 rounded-xl border border-primary/20 outline-none bg-white/[0.03] backdrop-blur-sm text-white placeholder:text-white/20 focus:bg-white/[0.05] focus:border-primary/50 transition-all duration-300;
+  }
+
+  /* Input error state */
+  .input-error {
+    @apply border-red-500/50 bg-red-500/5;
+  }
+
+  /* ==================== LABELS ==================== */
+
+  /* Uppercase label */
+  .label-upper {
+    @apply text-xs font-bold uppercase tracking-wider text-white/60;
+  }
+
+  /* Section label */
+  .label-section {
+    @apply text-sm font-bold uppercase tracking-widest text-white/50;
+  }
+}
+
 :root {
   /* Primary cyan - matched to logo */
   --primary: #34A8CE;
