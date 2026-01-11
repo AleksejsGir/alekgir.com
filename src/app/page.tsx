@@ -5,7 +5,7 @@ import Hero from '@/components/Hero/Hero';
 import ProjectsContainer from '@/components/Projects/ProjectsContainer';
 import ProjectsGrid from '@/components/Projects/ProjectsGrid';
 import ServicesSection from '@/components/Services/ServicesSection';
-import AboutSection from '@/components/About/AboutSection';
+
 import ContactSection from '@/components/Contact/ContactSection';
 import ContactContainer from '@/components/Contact/ContactContainer';
 import Footer from '@/components/Footer/Footer';
@@ -39,7 +39,7 @@ export default function Home() {
 
         <ServicesSection />
 
-        <AboutSection />
+        {/* AboutSection merged into ContactContainer - removed */}
 
         <ContactContainer>
           <ContactSection />

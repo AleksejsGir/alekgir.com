@@ -84,7 +84,7 @@ export default function Hero() {
               variants={slideUpVariants}
               className="heading-display max-w-6xl"
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary-light">Full-Stack</span> Engineering
+              <span className="text-white">Full-Stack</span> <span className="text-primary">Engineering</span>
             </motion.h1>
 
             {/* Accent Line */}
