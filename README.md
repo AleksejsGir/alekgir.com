@@ -111,23 +111,40 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ```
 src/
-├── app/                 # Next.js App Router
-│   ├── api/             # API routes (contact form)
-│   ├── projects/        # Dynamic project pages
-│   └── layout.tsx       # Root layout with SEO
+├── app/                    # Next.js App Router
+│   ├── api/contact/        # Contact form API (Resend)
+│   ├── projects/[slug]/    # Dynamic project pages
+│   ├── privacy/            # Privacy Policy page
+│   ├── terms/              # Terms of Service page
+│   ├── globals.css         # Global styles & component classes
+│   └── layout.tsx          # Root layout with SEO
 ├── components/
-│   ├── Hero/            # Hero section with 3D background
-│   ├── Projects/        # Project cards & modal
-│   ├── Services/        # Services section
-│   ├── About/           # About section
-│   ├── Contact/         # Contact form
-│   ├── Navigation/      # Navbar component
-│   └── SEO/             # JSON-LD structured data
-├── data/                # Projects & static data
-├── lib/                 # Utilities & animations
-├── hooks/               # Custom React hooks
-└── types/               # TypeScript definitions
+│   ├── Hero/               # Hero section with 3D background
+│   ├── Projects/           # Project cards & grid
+│   ├── Services/           # Services section with flows
+│   ├── About/              # About section
+│   ├── Contact/            # Contact form
+│   ├── Navigation/         # Navbar component
+│   ├── Footer/             # Footer with legal links
+│   ├── Backgrounds/        # Canvas animations
+│   └── SEO/                # JSON-LD structured data
+├── config/
+│   ├── theme.config.ts     # 🎨 Design system tokens (colors, typography, spacing)
+│   └── seo.config.ts       # SEO & site metadata
+├── data/                   # Projects & static data
+├── lib/                    # Utilities & animations
+├── hooks/                  # Custom React hooks
+└── types/                  # TypeScript definitions
 ```
+
+### 🎨 Design System
+
+This project uses a centralized design system in `theme.config.ts`:
+
+- **Color Palette**: Cyan brand, Graphite scale, Black backgrounds
+- **Typography**: Semantic classes (`.heading-display`, `.heading-section`)
+- **Spacing**: Consistent padding/margin tokens
+- **Components**: Reusable patterns (`.btn-primary`, `.card-base`, `.badge-primary`)
 
 ---
 

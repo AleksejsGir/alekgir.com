@@ -4,7 +4,6 @@ import { Resend } from 'resend';
 
 export async function POST(req: Request) {
   try {
-    console.log('Starting contact form submission...');
 
     if (!process.env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY is missing');
