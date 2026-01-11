@@ -41,3 +41,6 @@ next-env.d.ts
 .agent/
 .gemini/
 .cursor/
+
+# Personal documents (contains phone number)
+CV/
