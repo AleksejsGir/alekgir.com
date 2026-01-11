@@ -1,7 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import SectionWidthWrapper from '@/components/shared/ui/SectionWidthWrapper';
+import { SEO_CONFIG } from '@/config/seo.config';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -72,7 +74,7 @@ export default function Footer() {
                   <a href="https://twitter.com/agwebstudio" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-primary transition-colors text-sm sm:text-base">Twitter</a>
                 </li>
                 <li>
-                  <a href="mailto:contact@agwebstudio.com" className="text-text-secondary hover:text-primary transition-colors text-sm sm:text-base">Email</a>
+                  <a href={`mailto:${SEO_CONFIG.contact.email}`} className="text-text-secondary hover:text-primary transition-colors text-sm sm:text-base">Email</a>
                 </li>
               </ul>
             </div>
@@ -82,8 +84,8 @@ export default function Footer() {
         <div className="border-t border-primary/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-text-muted">
           <p>&copy; {currentYear} AlekGir. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </SectionWidthWrapper>
