@@ -8,7 +8,7 @@ const JsonLd = () => {
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "AlekGir",
-        url: "https://alekgir.com",
+        url: "https://www.alekgir.com",
         description: "Full-Stack Developer Portfolio - Python, Django, React Development Services",
         publisher: {
             "@type": "Person",
@@ -25,7 +25,7 @@ const JsonLd = () => {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         name: "AlekGir",
-        url: "https://alekgir.com",
+        url: "https://www.alekgir.com",
         description: "Professional web development services specializing in Python, Django, and React applications",
         provider: {
             "@type": "Person",
@@ -87,22 +87,7 @@ const JsonLd = () => {
         sameAs: [
             SEO_CONFIG.contact.linkedin,
             SEO_CONFIG.contact.github
-        ],
-        // Additional SEO fields
-        seekingOpportunity: {
-            "@type": "JobPosting",
-            title: "Full-Stack Developer Position",
-            employmentType: "FULL_TIME",
-            jobLocation: {
-                "@type": "Place",
-                address: {
-                    "@type": "PostalAddress",
-                    addressLocality: SEO_CONFIG.location.city,
-                    addressRegion: SEO_CONFIG.location.region,
-                    addressCountry: SEO_CONFIG.location.country
-                }
-            }
-        }
+        ]
     };
 
     // ItemList schema for portfolio projects
@@ -116,7 +101,7 @@ const JsonLd = () => {
             "@type": "ListItem",
             position: index + 1,
             name: project.name,
-            url: `https://alekgir.com/projects/${project.slug}`,
+            url: `https://www.alekgir.com/projects/${project.slug}`,
             description: project.description
         }))
     };
