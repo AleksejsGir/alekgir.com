@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   description: "Full-Stack Developer in UK specializing in Python, Django, and React. European-certified (94/100) with 3+ years production experience. Available for full-time opportunities.",
   keywords: ["Full-Stack Developer", "Python Developer", "Django Developer", "React Developer", "UK Developer", "Cambridgeshire Developer", "Django REST Framework", "Next.js Developer", "PostgreSQL Developer", "TypeScript Developer", "Telegram Bot Development", "Web Application Development", "API Development", "AI Automation", "Aleksejs Giruckis", "AlekGir", "European Certified Developer"],
-  authors: [{ name: "Aleksejs Giruckis", url: "https://alekgir.com" }],
+  authors: [{ name: "Aleksejs Giruckis", url: "https://www.alekgir.com" }],
   creator: "Aleksejs Giruckis",
   icons: {
     icon: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://alekgir.com",
+    url: "https://www.alekgir.com",
     title: "Aleksejs Giruckis - Full-Stack Developer",
     description: "Full-Stack Developer specializing in Python, Django, React. UK-based with European certification (94/100).",
     siteName: "AlekGir",

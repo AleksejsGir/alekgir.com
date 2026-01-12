@@ -14,17 +14,17 @@ const ProjectJsonLd: React.FC<ProjectJsonLdProps> = ({ project }) => {
         description: project.fullDescription,
         applicationCategory: project.category,
         operatingSystem: "Web",
-        url: `https://alekgir.com/projects/${project.slug}`,
+        url: `https://www.alekgir.com/projects/${project.slug}`,
         author: {
             "@type": "Person",
             name: "Aleksejs Giruckis",
-            url: "https://alekgir.com",
+            url: "https://www.alekgir.com",
             jobTitle: "Full-Stack Developer",
         },
         creator: {
             "@type": "Person",
             name: "Aleksejs Giruckis",
-            url: "https://alekgir.com",
+            url: "https://www.alekgir.com",
         },
         offers: {
             "@type": "Offer",
@@ -44,19 +44,19 @@ const ProjectJsonLd: React.FC<ProjectJsonLdProps> = ({ project }) => {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://alekgir.com",
+                item: "https://www.alekgir.com",
             },
             {
                 "@type": "ListItem",
                 position: 2,
                 name: "Projects",
-                item: "https://alekgir.com/#projects",
+                item: "https://www.alekgir.com/#projects",
             },
             {
                 "@type": "ListItem",
                 position: 3,
                 name: project.name,
-                item: `https://alekgir.com/projects/${project.slug}`,
+                item: `https://www.alekgir.com/projects/${project.slug}`,
             },
         ],
     };

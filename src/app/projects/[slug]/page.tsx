@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: `${project.name} | AlekGir`,
             description: project.description,
             type: "article",
-            url: `https://alekgir.com/projects/${project.slug}`,
+            url: `https://www.alekgir.com/projects/${project.slug}`,
             images: [
                 {
                     url: "/images/alekgir_logo.JPG",
