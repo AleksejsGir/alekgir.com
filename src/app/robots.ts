@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: "/",
             disallow: ["/private/", "/admin/"],
         },
-        sitemap: "https://alekgir.com/sitemap.xml",
+        sitemap: "https://www.alekgir.com/sitemap.xml",
     };
 }

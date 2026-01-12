@@ -11,7 +11,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alekgir.com"),
+  metadataBase: new URL("https://www.alekgir.com"),
+  alternates: {
+    canonical: './',
+  },
   title: {
     default: "Aleksejs Giruckis | Full-Stack Developer | Python, Django, React",
     template: "%s | AlekGir"

@@ -9,7 +9,7 @@ export const SEO_CONFIG = {
   site: {
     name: "AlekGir",
     fullName: "Aleksejs Giruckis - Full-Stack Developer",
-    url: "https://alekgir.com",
+    url: "https://www.alekgir.com",
     locale: "en_GB",
     author: "Aleksejs Giruckis",
   },
