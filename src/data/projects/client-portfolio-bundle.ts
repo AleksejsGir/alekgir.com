@@ -23,6 +23,8 @@ export const clientPortfolioBundle: Project = {
   ],
   metrics: "12 sites delivered, 90+ avg Lighthouse score, SSR for SEO",
   mockupImage: "/projects/Resume_Website.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-10T08:00:00+00:00",
   projectDuration: "4 weeks",
   teamSize: "Solo Developer",
 

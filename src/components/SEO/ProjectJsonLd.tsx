@@ -61,12 +61,32 @@ const ProjectJsonLd: React.FC<ProjectJsonLdProps> = ({ project }) => {
         ],
     };
 
+    const videoData = project.mockupImage.endsWith(".mp4")
+        ? {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            name: project.name,
+            description: project.description,
+            thumbnailUrl: [
+                project.videoThumbnail || "https://www.alekgir.com/images/alekgir_logo.JPG",
+            ],
+            contentUrl: `https://www.alekgir.com${project.mockupImage}`,
+            uploadDate: project.videoUploadDate || "2024-01-01T08:00:00+00:00",
+        }
+        : null;
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
             />
+            {videoData && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(videoData) }}
+                />
+            )}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}

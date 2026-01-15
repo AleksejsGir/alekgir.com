@@ -23,6 +23,8 @@ export const eCommercePlatform: Project = {
   ],
   metrics: "95+ Lighthouse score, async payment processing, < 2s page load",
   mockupImage: "/projects/E-Commerce.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-10T08:00:00+00:00",
   projectDuration: "3 months",
   teamSize: "Solo Developer",
 

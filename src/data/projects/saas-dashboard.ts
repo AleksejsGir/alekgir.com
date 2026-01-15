@@ -23,6 +23,8 @@ export const saasDashboard: Project = {
   ],
   metrics: "80%+ test coverage, Django REST API, real-time WebSocket",
   mockupImage: "/projects/SaaS_Dashboard.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-14T08:00:00+00:00",
   projectDuration: "4 months",
   teamSize: "Solo Developer",
 

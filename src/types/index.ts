@@ -16,6 +16,8 @@ export interface Project {
   features: string[];
   metrics?: string;
   mockupImage: string;
+  videoThumbnail?: string;
+  videoUploadDate?: string;
   slug: string;
   implementation?: ProjectImplementation[];
   keyResults?: string[];

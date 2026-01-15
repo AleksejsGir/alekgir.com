@@ -23,6 +23,8 @@ export const telegramBots: Project = {
   ],
   metrics: "23 bots shipped, 3 years production experience, async Python",
   mockupImage: "/projects/chat_bot.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-13T08:00:00+00:00",
   projectDuration: " 3 weeks ",
   teamSize: "Solo Developer",
 

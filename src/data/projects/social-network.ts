@@ -23,6 +23,8 @@ export const socialNetwork: Project = {
   ],
   metrics: "75%+ test coverage, async WebSocket, real-time features",
   mockupImage: "/projects/social_network.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-13T08:00:00+00:00",
   projectDuration: "5 months",
   teamSize: "Solo Developer",
 

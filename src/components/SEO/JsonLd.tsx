@@ -90,6 +90,19 @@ const JsonLd = () => {
         ]
     };
 
+    // VideoObject schema for home page video
+    const videoData = {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        name: SEO_CONFIG.site.fullName,
+        description: SEO_CONFIG.summary.long,
+        thumbnailUrl: [
+            "https://www.alekgir.com/images/alekgir_logo.JPG"
+        ],
+        contentUrl: "https://www.alekgir.com/images/alekgir.mp4",
+        uploadDate: "2024-01-01T08:00:00+00:00"
+    };
+
     // ItemList schema for portfolio projects
     const portfolioData = {
         "@context": "https://schema.org",
@@ -119,6 +132,10 @@ const JsonLd = () => {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(videoData) }}
             />
             <script
                 type="application/ld+json"

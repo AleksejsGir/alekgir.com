@@ -23,6 +23,8 @@ export const newsMediaPortal: Project = {
   ],
   metrics: "90+ SEO score, 70%+ test coverage, server-side rendering",
   mockupImage: "/projects/social_media.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-10T08:00:00+00:00",
   projectDuration: "2.5 months",
   teamSize: "Solo Developer",
 

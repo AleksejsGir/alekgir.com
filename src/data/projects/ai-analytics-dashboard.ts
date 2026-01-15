@@ -23,6 +23,8 @@ export const aiAnalyticsDashboard: Project = {
   ],
   metrics: "AI-powered insights, async data processing, Plotly visualizations",
   mockupImage: "/projects/AI-Powered.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-13T08:00:00+00:00",
   projectDuration: "4 months",
   teamSize: "Solo Developer",
 

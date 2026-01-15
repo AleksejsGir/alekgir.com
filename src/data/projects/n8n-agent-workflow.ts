@@ -23,6 +23,8 @@ export const n8nAgentWorkflow: Project = {
   ],
   metrics: "MCP integration, multi-agent coordination, 99.5% uptime",
   mockupImage: "/projects/N8N_Complex_Agent_Workflow.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-13T08:00:00+00:00",
   projectDuration: "2.5 months",
   teamSize: "Solo Developer",
 

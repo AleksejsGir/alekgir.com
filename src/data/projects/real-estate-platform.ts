@@ -23,6 +23,8 @@ export const realEstatePlatform: Project = {
   ],
   metrics: "PostGIS geospatial queries, < 2s search time, REST API",
   mockupImage: "/projects/Real_Estate.mp4",
+  videoThumbnail: "/images/alekgir_logo.JPG",
+  videoUploadDate: "2024-01-10T08:00:00+00:00",
   projectDuration: "3.5 months",
   teamSize: "Solo Developer",
 
