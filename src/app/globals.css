@@ -194,3 +194,13 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
