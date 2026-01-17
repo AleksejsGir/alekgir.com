@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import HeroBackground3D from './HeroBackground3DWrapper';
 import HeroVisuals from './HeroVisuals';
+import ProjectsMarquee from './ProjectsMarquee';
 import {
   slideUpVariants,
   staggerContainerVariants,
@@ -186,6 +187,8 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* --- PROJECTS MARQUEE --- */}
+          <ProjectsMarquee />
 
           {/* --- BOTTOM ROW: STATS --- */}
           <motion.div
