@@ -25,29 +25,51 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const projectUrl = `https://www.alekgir.com/projects/${project.slug}`;
+
     return {
-        title: project.name,
-        description: project.fullDescription,
-        keywords: [...project.frontend, ...project.backend, project.category],
+        title: `${project.name} - ${project.category} | Aleksejs Giruckis Portfolio`,
+        description: project.description,
+        keywords: [...project.frontend, ...project.backend, project.category, 'case study', 'web development', 'full-stack'],
+        authors: [{ name: 'Aleksejs Giruckis', url: 'https://www.alekgir.com' }],
+        creator: 'Aleksejs Giruckis',
+        publisher: 'Aleksejs Giruckis',
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
+        alternates: {
+            canonical: projectUrl,
+        },
         openGraph: {
-            title: `${project.name} | AlekGir`,
+            title: `${project.name} - ${project.category} Case Study`,
             description: project.description,
             type: "article",
-            url: `https://www.alekgir.com/projects/${project.slug}`,
+            url: projectUrl,
+            siteName: 'Aleksejs Giruckis Portfolio',
+            locale: 'en_GB',
             images: [
                 {
-                    url: "/images/alekgir_logo.JPG",
+                    url: project.videoThumbnail || "/images/alekgir_logo.JPG",
                     width: 1200,
                     height: 630,
-                    alt: project.name,
+                    alt: `${project.name} - ${project.category} project showcase`,
                 },
             ],
         },
         twitter: {
             card: "summary_large_image",
-            title: `${project.name} | AlekGir`,
+            title: `${project.name} | AlekGir Portfolio`,
             description: project.description,
-            images: ["/images/alekgir_logo.JPG"],
+            images: [project.videoThumbnail || "/images/alekgir_logo.JPG"],
+            creator: '@alekgir',
         },
     };
 }
@@ -147,9 +169,37 @@ export default async function ProjectPage({ params }: Props) {
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tight leading-tight">
                                     {project.name}
                                 </h1>
-                                <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl">
-                                    {project.fullDescription}
-                                </p>
+                                {/* Accent Line */}
+                                <div className="w-full max-w-2xl">
+                                    <div className="h-[1px] w-full bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
+                                </div>
+                                <div className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium space-y-4">
+                                    {project.fullDescription.split('\n\n').map((paragraph, index) => (
+                                        <p key={index}>{paragraph}</p>
+                                    ))}
+                                </div>
+
+                                {project.liveUrls && project.liveUrls.length > 0 && (
+                                    <div className="flex flex-wrap gap-3 pt-2">
+                                        {project.liveUrls.map((url, index) => (
+                                            <a
+                                                key={index}
+                                                href={url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-medium text-sm hover:bg-cyan-500/20 hover:border-cyan-500/50 hover:text-cyan-200 transition-all duration-300"
+                                            >
+                                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                                <span>{url.replace(/^https?:\/\//, '')}</span>
+                                                <svg className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
 
                             {project.metrics && (

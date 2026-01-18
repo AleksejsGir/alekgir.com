@@ -28,4 +28,6 @@ export interface Project {
   teamSize?: string;
   implementation?: ProjectImplementation[];
   keyResults?: string[];
+  liveUrls?: string[];
+  isNew?: boolean;
 }

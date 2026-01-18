@@ -23,6 +23,8 @@ export interface Project {
   keyResults?: string[];
   projectDuration?: string;
   teamSize?: string;
+  liveUrls?: string[];
+  isNew?: boolean;
 }
 
 export interface ContactForm {

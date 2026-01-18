@@ -30,6 +30,7 @@ import { saasDashboard } from './saas-dashboard';
 import { socialNetwork } from './social-network';
 import { realEstatePlatform } from './real-estate-platform';
 import { aiAnalyticsDashboard } from './ai-analytics-dashboard';
+import { theMessenger } from './the-messenger';
 
 /**
  * All projects array - single source of truth
@@ -38,6 +39,7 @@ import { aiAnalyticsDashboard } from './ai-analytics-dashboard';
 export const projects = [
   eCommercePlatform,      // id: 1
   n8nAgentWorkflow,       // id: 9
+  theMessenger,           // id: 10
   newsMediaPortal,        // id: 2
   telegramBots,           // id: 3
   clientPortfolioBundle,  // id: 4

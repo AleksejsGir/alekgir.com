@@ -56,6 +56,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
     return (
         <ProjectStyleCard className="w-full h-[600px] md:h-[500px] lg:h-[450px]">
+            {/* NEW Badge - Top Right Corner */}
+            {project.isNew && (
+                <div className="absolute top-4 right-4 z-30">
+                    <span className="px-3 py-1 bg-primary text-black text-xs font-black uppercase tracking-wider rounded-full shadow-lg shadow-primary/40 animate-pulse">
+                        NEW
+                    </span>
+                </div>
+            )}
             {/* Grid Layout for Desktop */}
             <div className="relative z-10 w-full h-full lg:grid lg:grid-cols-2">
 
