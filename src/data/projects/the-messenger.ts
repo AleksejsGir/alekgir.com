@@ -3,24 +3,24 @@ import type { Project } from './types';
 export const theMessenger: Project = {
   id: 10,
   name: "The Messenger",
-  category: "Social Community",
+  category: "AI Platform & AgentOS",
   slug: "the-messenger",
-  description: "Professional networking platform with AI-powered concierge service and smart filtering",
-  fullDescription: "A modern professional networking platform built with Next.js 15 and Go backend. Designed for entrepreneurs, professionals, and builders seeking meaningful connections over noise.\n\nKey features include AI-powered concierge service for filtering incoming requests, human-verified profiles, and community events organization.\n\nTechnical highlights: Telegram and WhatsApp integrations, vector-based semantic search with Weaviate, and Microsoft Presidio for enterprise-grade data privacy.",
+  description: "AgentOS platform enabling service providers to create AI-powered tools with RAG, MCP integration, and n8n workflow orchestration",
+  fullDescription: "A next-generation AgentOS platform built with Next.js 15 and Go backend. Designed to transform service providers into micro-AI companies by combining their proprietary data, workflows, and expertise into monetizable AI-powered tools.\n\nKey features include Rizq Tool system (RAG + Inputs + AI Prompt + REST/MCP endpoints), rich multi-modal output schema (charts, tables, markdown, code snippets), n8n workflow orchestration for complex automations, and Tool Marketplace with revenue sharing for community developers.\n\nTechnical highlights: MCP protocol integration for AI tool access, Weaviate vector database for semantic search, human-in-the-loop workflows, Microsoft Presidio for enterprise-grade data privacy, and Telegram/WhatsApp integrations for seamless communication.",
   liveUrls: ["https://themessenger.ae", "https://receive.themessenger.ae"],
-  challenge: "Building a scalable networking platform that filters spam and low-quality interactions while maintaining genuine human connections, integrating multiple messaging platforms, and ensuring data privacy compliance with AI-assisted verification.",
-  solution: "Implemented Go backend with Clean Architecture for maintainability and scalability. Used Weaviate vector database for semantic profile matching. Integrated Microsoft Presidio for sensitive data anonymization. Built React 19 frontend with Next.js 15 App Router. Applied Ory Kratos for secure authentication. Created Telegram and WhatsApp integrations for seamless communication.",
-  frontend: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "Radix UI", "TanStack Query", "Zustand"],
-  backend: ["Go", "PostgreSQL", "Weaviate", "Presidio", "Kratos", "OpenAI API", "Docker"],
+  challenge: "Creating a platform that enables non-technical service providers to build and monetize AI-powered tools while maintaining enterprise-grade security, supporting complex multi-step workflows, and providing rich structured outputs for business intelligence.",
+  solution: "Built Rizq Tool architecture combining RAG documents, user inputs, AI prompts, and optional REST/MCP external logic. Implemented Go backend with Clean Architecture for scalability. Created rich output schema rendering charts, tables, and code via React components. Integrated n8n for workflow orchestration. Applied Weaviate for semantic search and Microsoft Presidio for data anonymization.",
+  frontend: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS 4", "Radix UI", "TanStack Query", "Zustand", "Chart.js", "React Markdown"],
+  backend: ["Go", "PostgreSQL", "Weaviate", "n8n", "MCP Protocol", "Presidio", "Kratos", "OpenAI API", "Docker"],
   features: [
-    "AI-powered concierge filtering",
-    "Human-verified profiles",
-    "Community events organization",
-    "Telegram & WhatsApp integration",
+    "Rizq Tool system (RAG + AI + REST/MCP)",
+    "Rich output schema (charts, tables, code)",
+    "MCP protocol integration",
+    "n8n workflow orchestration",
+    "Tool Marketplace with monetization",
+    "Human-in-the-loop workflows",
     "Vector-based semantic search",
-    "Data privacy with Presidio",
-    "Real-time notifications",
-    "Secure Kratos authentication"
+    "Telegram & WhatsApp integration"
   ],
   mockupImage: "/projects/TheMessenger.mp4",
   videoThumbnail: "/images/alekgir_logo.JPG",
@@ -31,37 +31,37 @@ export const theMessenger: Project = {
 
   implementation: [
     {
+      title: "Rizq Tool Architecture",
+      description: "Designed unified tool specification combining RAG documents, user inputs, AI prompts, and optional REST/MCP external logic layers. Each tool collects input, retrieves context from RAG, calls external endpoints, injects responses into prompts, and generates LLM output. Implemented session-based state management with unique session_id for workflow persistence and billing tracking."
+    },
+    {
+      title: "Rich Output Schema System",
+      description: "Built multi-modal response rendering supporting markdown, tables, charts, and code snippets. Created standard JSON schema with blocks array that frontend renders via React components (react-markdown, Chart.js, tanstack/table, react-syntax-highlighter). Implemented summary + details toggle for mobile-friendly views. Added export functionality for CSV, PNG charts, and PDF reports."
+    },
+    {
+      title: "MCP & REST Integration Layer",
+      description: "Implemented Model Context Protocol (MCP) integration enabling AI agents to access external tools dynamically during conversations. Built REST endpoint system with HTTPS + signed JWT/HMAC for secure external logic calls. Created n8n workflow orchestration for complex multi-step automations including scraping, data enrichment, and scheduled tasks."
+    },
+    {
       title: "Go Backend with Clean Architecture",
-      description: "Built scalable REST API using Go with Clean Architecture principles. Implemented domain-driven design with clear separation of concerns: controllers, domain models, contracts (interfaces), and services. Used dependency injection for testability. Created middleware for authentication, error handling, and request tracing. Applied structured logging and graceful shutdown patterns."
+      description: "Built scalable REST API using Go with Clean Architecture principles. Implemented domain-driven design with clear separation: controllers, domain models, contracts (interfaces), and services. Used dependency injection for testability. Created middleware for authentication, error handling, and request tracing. Applied structured logging and graceful shutdown patterns."
     },
     {
-      title: "Vector Search with Weaviate",
-      description: "Integrated Weaviate vector database for semantic profile matching and intelligent search. Implemented embedding generation for user profiles and interests. Built similarity search for finding compatible connections. Created hybrid search combining vector similarity with traditional filters. Optimized query performance with proper indexing strategies."
+      title: "Next.js 15 Frontend with Tool Rendering",
+      description: "Built modern SPA with Next.js 15 App Router and React 19. Implemented dynamic block rendering system for rich tool outputs. Used TanStack Query for efficient data fetching with caching. Applied Zustand for tool state management. Created accessible UI with Radix UI primitives. Built responsive design with Tailwind CSS 4 and Chart.js visualizations."
     },
     {
-      title: "AI Concierge Service",
-      description: "Developed AI-powered filtering system using OpenAI API for incoming connection requests. Implemented intent classification to separate genuine networking from spam. Built automated response suggestions for common inquiries. Created quality scoring algorithm for prioritizing meaningful interactions. Applied rate limiting and abuse prevention mechanisms."
-    },
-    {
-      title: "Messaging Platform Integrations",
-      description: "Built Telegram and WhatsApp integrations for seamless communication. Implemented QR-based authentication for messenger linking. Created message synchronization between platforms. Built notification routing based on user preferences. Applied end-to-end encryption for sensitive communications. Developed webhook handlers for real-time message processing."
-    },
-    {
-      title: "Next.js 15 Frontend",
-      description: "Built modern SPA with Next.js 15 App Router and React 19. Implemented server components for optimal performance. Used TanStack Query for efficient data fetching with caching. Applied Zustand for lightweight state management. Created accessible UI with Radix UI primitives. Built responsive design with Tailwind CSS 4. Implemented real-time updates with optimistic UI patterns."
-    },
-    {
-      title: "Security & Privacy",
-      description: "Integrated Ory Kratos for enterprise-grade authentication with OAuth support. Implemented Microsoft Presidio for automatic PII detection and anonymization. Built role-based access control for admin features. Applied secure session management with JWT tokens. Created audit logging for compliance requirements. Deployed with Docker on Railway with proper secrets management."
+      title: "Security, Privacy & Developer Ecosystem",
+      description: "Integrated Ory Kratos for enterprise-grade authentication. Implemented Microsoft Presidio for automatic PII detection and anonymization. Built Tool Marketplace with developer onboarding, verification system, and revenue sharing. Applied per-tool rate limiting and usage quotas. Created comprehensive audit logging for compliance and billing."
     }
   ],
 
   keyResults: [
-    "Launched beta platform for professional networking in UAE market",
-    "Implemented AI filtering reducing spam interactions by 90%",
-    "Built seamless Telegram and WhatsApp integration for communication",
+    "Built AgentOS platform transforming service providers into micro-AI companies",
+    "Implemented Rizq Tool system with RAG + AI + REST/MCP integration",
+    "Created rich output schema rendering charts, tables, and code dynamically",
+    "Integrated n8n workflow orchestration for complex automation scenarios",
     "Achieved sub-100ms semantic search with Weaviate vector database",
-    "Ensured GDPR compliance with Microsoft Presidio data anonymization",
-    "Deployed scalable infrastructure with Docker and Railway"
+    "Launched Tool Marketplace with developer SDK and monetization support"
   ]
 };
