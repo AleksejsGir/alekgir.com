@@ -3,7 +3,7 @@ import type { Project } from './types';
 export const theMessenger: Project = {
   id: 10,
   name: "The Messenger",
-  category: "AI Platform & AgentOS",
+  category: "AI Tool Platform",
   slug: "the-messenger",
   description: "AgentOS platform enabling service providers to create AI-powered tools with RAG, MCP integration, and n8n workflow orchestration",
   fullDescription: "A next-generation AgentOS platform built with Next.js 15 and Go backend. Designed to transform service providers into micro-AI companies by combining their proprietary data, workflows, and expertise into monetizable AI-powered tools.\n\nKey features include Rizq Tool system (RAG + Inputs + AI Prompt + REST/MCP endpoints), rich multi-modal output schema (charts, tables, markdown, code snippets), n8n workflow orchestration for complex automations, and Tool Marketplace with revenue sharing for community developers.\n\nTechnical highlights: MCP protocol integration for AI tool access, Weaviate vector database for semantic search, human-in-the-loop workflows, Microsoft Presidio for enterprise-grade data privacy, and Telegram/WhatsApp integrations for seamless communication.",
