@@ -147,6 +147,31 @@ export default function PrivacyPolicy() {
                                 </p>
                             </section>
 
+                            <section className="card-base p-8 border-l-4 border-primary">
+                                <h2 className="text-2xl font-bold text-white mb-4">11. StreamVox Privacy Addendum</h2>
+                                <p className="text-text-secondary leading-relaxed mb-6">
+                                    The following policies apply specifically to the usage of the StreamVox application, in compliance with Microsoft Store requirements.
+                                </p>
+
+                                <div className="space-y-6">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-white mb-2">Microphone Usage</h3>
+                                        <p className="text-text-secondary leading-relaxed">
+                                            StreamVox requires access to your microphone to provide real-time speech-to-text and translation services.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-white mb-2">Data Handling</h3>
+                                        <ul className="list-disc list-inside text-text-secondary space-y-2 ml-4">
+                                            <li>Audio data is processed in real-time and sent to our transcription providers (Deepgram, Google Gemini) solely for the purpose of generating subtitles.</li>
+                                            <li>We <strong>do not store</strong> your audio recordings on our servers.</li>
+                                            <li>We <strong>do not share</strong> your voice data with third parties for marketing purposes.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+
                         </div>
                     </motion.div>
                 </div>
